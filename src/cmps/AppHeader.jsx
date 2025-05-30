@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
+import { Search } from '../svg.jsx'
+import React from 'react';
+import { isInputFocused } from '../store/gig.actions.js'
+
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -19,29 +23,46 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header main-container full">
+        <header className="app-header main-container full ">
             <nav className=''>
-                <NavLink to="/" className="/logo">
-                    E2E Demo
+
+                <NavLink to="/" className="logo-txt">
+                    alufix<span className="dom"></span>
                 </NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/gig">Cars</NavLink>
-                <NavLink to="/chat">Chat</NavLink>
-                <NavLink to="/review">Review</NavLink>
-                {user?.isAdmin && <NavLink to="/admin">Admin</NavLink>}
 
-                {!user && <NavLink to="login" className="login-link">Login</NavLink>}
+                <div className='search-header flex'>
 
-                {user && (
-                    <div className="user-info">
-                        <Link to={`user/${user._id}`}>
-                            {user.imgUrl && <img src={user.imgUrl} />}
-                            {user.fullname}
-                        </Link>
-                        {/* <span className="score">{user.score?.toLocaleString()}</span> */}
-                        <button onClick={onLogout}>logout</button>
-                    </div>
-                )}
+                    <input type="search"
+                        placeholder="What service are you looking for today?"
+                        className="search-input"
+                        onFocus={() => isInputFocused(true)}
+                        onBlur={() =>isInputFocused(false)}
+                    />
+
+                    <button className="search-btn">
+                        <Search />
+                    </button>
+                </div>
+
+                <div className="user-container">
+
+                    {user && (
+                        <div className="user-info flex">
+                            <button > Orders</button>
+                            <button > Switch to selling</button>
+                            <Link to={`user/${user._id}`}>
+                                {user.imgUrl && <img src={user.imgUrl} />}
+                            </Link>
+                        </div>
+                    )}
+                    {!user &&
+
+                        <React.Fragment>
+                            <button className="sign-btn">Sign in</button>
+                            <button onClick={() => navigate('login')} className="join-btn">Join</button>
+                        </React.Fragment>}
+                </div>
+
             </nav>
         </header >
     )

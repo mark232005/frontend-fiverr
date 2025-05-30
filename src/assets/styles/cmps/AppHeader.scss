@@ -1,11 +1,14 @@
 .app-header {
-    min-height: 5rem;
-    background-color: $clr4;
+    max-width: 1400px;
+    border-bottom: 1px solid #e4e5e7;
+
     nav {
+
+        height: 80px;
+        max-width: 1400px;
         display: flex;
         width: 100%;
         align-items: center;
-        gap: 1em;
 
         font-size: 0.8em;
 
@@ -13,11 +16,114 @@
             color: $clr1;
         }
 
-        .logo {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-inline-end: 2em;
+
+        .logo-txt {
+            font-family: 'Poppins', sans-serif;
+            font-size: 35px;
+            font-weight: 600;
+            color: #404145;
+            letter-spacing: -0.6px;
+            text-decoration: none;
         }
+
+        .dom {
+            margin-left: 3px;
+            width: 6px;
+            height: 6px;
+            background-color: #1DBF73;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 32px;
+        }
+
+
+        .search-header {
+            align-items: center;
+            height: 42px;
+            width: 100%;
+            max-width: 650px;
+            border-radius: 4px;
+            overflow: hidden
+        }
+
+        .search-input {
+            height: 100%;
+            width: 100%;
+            padding: 14px 40px 14px 16px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none
+        }
+
+        .search-input:focus {
+            border: 1px solid #222325;
+
+        }
+
+        .search-btn {
+            width: 49.11px;
+            margin-left: 0;
+            height: 100%;
+            background-color: #222325;
+
+            &:hover {
+                background-color: #404145;
+
+            }
+
+            svg {
+                height: 16px;
+                width: 16px;
+            }
+        }
+
+
+
+        .user-container {
+            margin-left: auto;
+            color: #74767e;
+            font-size: 16px;
+            font-weight: 600;
+            gap: 20px;
+
+            .user-info {
+                gap: 20px;
+            }
+
+            button {
+                background-color: transparent;
+                color: #74767e;
+                font-size: 16px;
+                font-weight: 600;
+                white-space: nowrap
+            }
+
+            button:hover {
+                color: #1DBF73;
+            }
+
+            .join-btn {
+                color: #74767e;
+                background-color: transparent;
+                border: 1px solid black;
+                padding: 10px 16px;
+                border-radius: 4px;
+                font-size: 14px;
+                font-family: 'Poppins', sans-serif;
+                transition: background-color 0.3s ease;
+
+            }
+
+            .join-btn:hover {
+                background-color: #404145;
+                color: white;
+            }
+
+
+        }
+
+
+
 
         .login-link {
             margin-inline-start: auto;
@@ -27,6 +133,7 @@
             margin-inline-end: 0;
         }
     }
+
 
     .user-info {
         display: flex;
@@ -53,4 +160,21 @@
             color: $clr2;
         }
     }
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #62646a;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.overlay.show {
+    opacity: 0.8;
+    visibility: visible;
+
 }

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 export function HomePage() {
+    const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
     return (
         <section>
+            <div className={`overlay ${isInputFocused ? 'show' : ''}`}></div>
+
             <h1>Home sweet Home</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt ea omnis blanditiis
