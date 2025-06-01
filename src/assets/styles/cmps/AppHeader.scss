@@ -1,4 +1,5 @@
 .app-header {
+    width: 100vw;
     max-width: 1400px;
     border-bottom: 1px solid #e4e5e7;
 
@@ -163,6 +164,7 @@
 }
 
 .overlay {
+    display: none;
     position: fixed;
     left: 0;
     width: 100vw;
@@ -174,6 +176,7 @@
 }
 
 .overlay.show {
+    display: block;
     opacity: 0.8;
     visibility: visible;
 
