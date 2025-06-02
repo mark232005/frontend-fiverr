@@ -1,6 +1,6 @@
 
 import { storageService } from '../async-storage.service'
-import { makeId } from '../util.service'
+import { makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
 import gigData from './data/gig-data.json'
 
@@ -19,12 +19,11 @@ window.cs = gigService
 
 
 async function query(filterBy = { txt: '', price: 0 }) {
-        let gigs = storageService.query(STORAGE_KEY)
+        let gigs = await storageService.query(STORAGE_KEY)
         if (!gigs.length) {
             gigs = gigData
-            gigs.forEach(gig => storageService.post(STORAGE_KEY, gig))
+           _createGigs(gigs)
         }
-        console.log(gigs)
 
 
         // if (txt) {
@@ -99,4 +98,9 @@ async function query(filterBy = { txt: '', price: 0 }) {
             txt: '',
             price: 0
         }
+    }
+
+   async function _createGigs(gigs){
+saveToStorage(STORAGE_KEY,gigs)
+
     }
