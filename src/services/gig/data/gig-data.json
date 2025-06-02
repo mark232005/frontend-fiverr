@@ -1,0 +1,262 @@
+[
+  {
+    "_id": "g101",
+    "title": "I will design your logo",
+    "price": 25.99,
+    "owner": {
+      "_id": "u101",
+      "fullname": "Lina Art",
+      "imgUrl": "/img/users/lina.jpg",
+      "level": "basic",
+      "rate": 4.5
+    },
+    "daysToMake": 3,
+    "description": "Make unique logo with vector-based design",
+    "avgResponseTime": 2,
+    "loc": "USA",
+    "imgUrls": ["/img/graphics/logo1.jpg"],
+    "tags": ["Graphics & Design", "Logo Design"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g102",
+    "title": "I will build your website in React",
+    "price": 120.0,
+    "owner": {
+      "_id": "u102",
+      "fullname": "Code Ninja",
+      "imgUrl": "/img/users/dev.jpg",
+      "level": "premium",
+      "rate": 4.9
+    },
+    "daysToMake": 7,
+    "description": "Modern, responsive React website with best practices",
+    "avgResponseTime": 1,
+    "loc": "India",
+    "imgUrls": ["/img/programming/react1.jpg"],
+    "tags": ["Programming & Tech", "Web Development"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g103",
+    "title": "I will manage your Facebook Ads",
+    "price": 75.0,
+    "owner": {
+      "_id": "u103",
+      "fullname": "Ad Guru",
+      "imgUrl": "/img/users/marketer.jpg",
+      "level": "basic",
+      "rate": 4.6
+    },
+    "daysToMake": 2,
+    "description": "Setup and optimize Facebook Ads for conversions",
+    "avgResponseTime": 3,
+    "loc": "UK",
+    "imgUrls": ["/img/marketing/fbads.jpg"],
+    "tags": ["Digital Marketing", "Social Media Marketing"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g104",
+    "title": "I will create an explainer animation video",
+    "price": 150.0,
+    "owner": {
+      "_id": "u104",
+      "fullname": "Animatrix",
+      "imgUrl": "/img/users/animator.jpg",
+      "level": "premium",
+      "rate": 5.0
+    },
+    "daysToMake": 5,
+    "description": "Eye-catching explainer animation videos",
+    "avgResponseTime": 2,
+    "loc": "Canada",
+    "imgUrls": ["/img/animation/explainer.jpg"],
+    "tags": ["Video & Animation", "Explainer Videos"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g105",
+    "title": "I will write SEO blog posts",
+    "price": 20.0,
+    "owner": {
+      "_id": "u105",
+      "fullname": "ContentPro",
+      "imgUrl": "/img/users/writer.jpg",
+      "level": "basic",
+      "rate": 4.4
+    },
+    "daysToMake": 2,
+    "description": "Well-researched SEO blog articles up to 1000 words",
+    "avgResponseTime": 1,
+    "loc": "Australia",
+    "imgUrls": ["/img/writing/blog.jpg"],
+    "tags": ["Writing & Translation", "SEO Writing"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g106",
+    "title": "I will produce a trap beat",
+    "price": 40.0,
+    "owner": {
+      "_id": "u106",
+      "fullname": "DJ Flow",
+      "imgUrl": "/img/users/producer.jpg",
+      "level": "basic",
+      "rate": 4.8
+    },
+    "daysToMake": 3,
+    "description": "Custom trap beats delivered in WAV & MP3",
+    "avgResponseTime": 2,
+    "loc": "Germany",
+    "imgUrls": ["/img/music/trapbeat.jpg"],
+    "tags": ["Music & Audio", "Beat Making"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g107",
+    "title": "I will consult your business strategy",
+    "price": 100.0,
+    "owner": {
+      "_id": "u107",
+      "fullname": "Biz Mentor",
+      "imgUrl": "/img/users/business.jpg",
+      "level": "premium",
+      "rate": 4.7
+    },
+    "daysToMake": 1,
+    "description": "1-hour Zoom consultation to improve business strategy",
+    "avgResponseTime": 1,
+    "loc": "USA",
+    "imgUrls": ["/img/business/strategy.jpg"],
+    "tags": ["Business", "Strategy Consulting"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g108",
+    "title": "I will help you file your taxes",
+    "price": 80.0,
+    "owner": {
+      "_id": "u108",
+      "fullname": "TaxPro",
+      "imgUrl": "/img/users/finance.jpg",
+      "level": "basic",
+      "rate": 4.5
+    },
+    "daysToMake": 3,
+    "description": "Professional tax filing assistance for freelancers",
+    "avgResponseTime": 1,
+    "loc": "USA",
+    "imgUrls": ["/img/finance/taxes.jpg"],
+    "tags": ["Finance", "Tax Filing"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g109",
+    "title": "I will create AI-generated art for you",
+    "price": 18.0,
+    "owner": {
+      "_id": "u109",
+      "fullname": "NeuralArtist",
+      "imgUrl": "/img/users/aiartist.jpg",
+      "level": "basic",
+      "rate": 4.9
+    },
+    "daysToMake": 2,
+    "description": "AI-based art pieces based on your ideas",
+    "avgResponseTime": 2,
+    "loc": "Netherlands",
+    "imgUrls": ["/img/ai/aiart.jpg"],
+    "tags": ["AI Service", "AI Art"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g110",
+    "title": "I will be your personal mindset coach",
+    "price": 50.0,
+    "owner": {
+      "_id": "u110",
+      "fullname": "Coach Mia",
+      "imgUrl": "/img/users/coach.jpg",
+      "level": "premium",
+      "rate": 4.6
+    },
+    "daysToMake": 1,
+    "description": "30-minute session to boost your confidence and focus",
+    "avgResponseTime": 2,
+    "loc": "Israel",
+    "imgUrls": ["/img/personal/growth.jpg"],
+    "tags": ["Personal Growth", "Life Coaching"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g111",
+    "title": "I will consult your startup on fundraising",
+    "price": 200.0,
+    "owner": {
+      "_id": "u111",
+      "fullname": "VC Advisor",
+      "imgUrl": "/img/users/consultant.jpg",
+      "level": "premium",
+      "rate": 5.0
+    },
+    "daysToMake": 2,
+    "description": "Expert advice on preparing for funding rounds",
+    "avgResponseTime": 1,
+    "loc": "USA",
+    "imgUrls": ["/img/consulting/funding.jpg"],
+    "tags": ["Consulting", "Startup Funding"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g112",
+    "title": "I will clean and organize your dataset",
+    "price": 30.0,
+    "owner": {
+      "_id": "u112",
+      "fullname": "Data Wrangler",
+      "imgUrl": "/img/users/data.jpg",
+      "level": "basic",
+      "rate": 4.3
+    },
+    "daysToMake": 2,
+    "description": "Data preprocessing, cleanup, and formatting",
+    "avgResponseTime": 1,
+    "loc": "Ukraine",
+    "imgUrls": ["/img/data/dataclean.jpg"],
+    "tags": ["Data", "Data Cleaning"],
+    "likedByUsers": [],
+    "reviews": []
+  },
+  {
+    "_id": "g113",
+    "title": "I will professionally edit your photos",
+    "price": 15.0,
+    "owner": {
+      "_id": "u113",
+      "fullname": "PhotoFixer",
+      "imgUrl": "/img/users/photo.jpg",
+      "level": "basic",
+      "rate": 4.6
+    },
+    "daysToMake": 1,
+    "description": "Retouching, background removal, and color correction",
+    "avgResponseTime": 2,
+    "loc": "France",
+    "imgUrls": ["/img/photo/edit.jpg"],
+    "tags": ["Photography", "Photo Editing"],
+    "likedByUsers": [],
+    "reviews": []
+  }
+]
