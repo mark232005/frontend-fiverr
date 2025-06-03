@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
+import { ArrowDownIcon } from '../svg'
+import { FilterModal } from './FilterModal'
 
 export function GigFilter({ filterBy, onSetFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
+    const [isFilterModel, setIsFilterModel] = useState(null)
 
     useEffect(() => {
         onSetFilterBy(filterToEdit)
@@ -34,85 +37,26 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
         setFilterToEdit({ ...filterToEdit, sortField: '', sortDir: '' })
     }
 
-    return <section className="gig-filter">
-        <h3>Filter:</h3>
-        <input
-            type="text"
-            name="txt"
-            value={filterToEdit.txt}
-            placeholder="Free text"
-            onChange={handleChange}
-            required
-        />
-        <input
-            type="number"
-            min="0"
-            name="minSpeed"
-            value={filterToEdit.minSpeed}
-            placeholder="min. speed"
-            onChange={handleChange}
-            required
-        />
-        <button
-            className="btn-clear"
-            onClick={clearFilter}>Clear</button>
-        <h3>Sort:</h3>
-        <div className="sort-field">
-            <label>
-                <span>Speed</span>
-                <input
-                    type="radio"
-                    name="sortField"
-                    value="speed"
-                    checked={filterToEdit.sortField === 'speed'}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                <span>Vendor</span>
-                <input
-                    type="radio"
-                    name="sortField"
-                    value="vendor"
-                    checked={filterToEdit.sortField === 'vendor'}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                <span>Owner</span>
-                <input
-                    type="radio"
-                    name="sortField"
-                    value="owner"
-                    checked={filterToEdit.sortField === 'owner'}
-                    onChange={handleChange}
-                />
-            </label>
+    return <section className="gig-filter flex">
+        {isFilterModel &&
+            
+            <FilterModal openModel={isFilterModel}/>
+            }
+        <div className="flex filter-btn">
+            <button> Service options</button>
+            <ArrowDownIcon />
         </div>
-        <div className="sort-dir">
-            <label>
-                <span>Asce</span>
-                <input
-                    type="radio"
-                    name="sortDir"
-                    value="1"
-                    checked={filterToEdit.sortDir === 1}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                <span>Desc</span>
-                <input
-                    type="radio"
-                    name="sortDir"
-                    value="-1"
-                    onChange={handleChange}
-                    checked={filterToEdit.sortDir === -1}
-                />
-            </label>
+        <div className="flex filter-btn" onClick={()=>setIsFilterModel('seller-details')}>
+            <button onClick={()=>setIsFilterModel('seller-details')}>Seller details</button>
+            <ArrowDownIcon />
         </div>
-        <button
-            className="btn-clear"
-            onClick={clearSort}>Clear</button>
+        <div className="flex filter-btn" onClick={()=>setIsFilterModel('budget')}>
+            <button >Budget</button>
+            <ArrowDownIcon />
+        </div>
+        <div className="flex filter-btn" onClick={()=>setIsFilterModel('delivery-time')}>
+            <button>Delivery time</button>
+            <ArrowDownIcon />
+        </div>
     </section>
 }

@@ -38,4 +38,18 @@ export function HomeIcon({ width = 16, height = 16, fill = "currentColor" }) {
   );
 }
 
+export function ArrowDownIcon(){
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 11 7"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+    >
+      <path d="M5.464 6.389.839 1.769a.38.38 0 0 1 0-.535l.619-.623a.373.373 0 0 1 .531 0l3.74 3.73L9.47.61a.373.373 0 0 1 .531 0l.619.623a.38.38 0 0 1 0 .535l-4.624 4.62a.373.373 0 0 1-.531 0Z" />
+    </svg>
+  )
+}
+
 
