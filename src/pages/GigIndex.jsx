@@ -11,6 +11,7 @@ import { GigFilter } from '../cmps/GigFilter'
 import { GigList } from '../cmps/GigList'
 import { NavBar } from '../cmps/Categories'
 import { IndexHeader } from '../cmps/IndexHeader'
+import { Sort } from '../cmps/Sort'
 
 export function GigIndex() {
 
@@ -62,11 +63,11 @@ export function GigIndex() {
         <main className="gig-index">
             <NavBar/>
             <header>
-                {/* <h2>Gigs</h2> */}
                 <IndexHeader category={category}/>
                 {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>}
             </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+            <Sort count={gigs.length}/>
             <GigList
                 gigs={gigs}
                 onRemoveGig={onremoveGig}
