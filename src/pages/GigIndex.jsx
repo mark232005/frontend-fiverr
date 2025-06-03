@@ -10,11 +10,13 @@ import { userService } from '../services/user'
 import { GigFilter } from '../cmps/GigFilter'
 import { GigList } from '../cmps/GigList'
 import { NavBar } from '../cmps/Categories'
+import { IndexHeader } from '../cmps/IndexHeader'
 
 export function GigIndex() {
 
     const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter())
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
+    const category = useSelector(storeState => storeState.gigModule.category)
 
     useEffect(() => {
         loadGigs(filterBy)
@@ -60,7 +62,8 @@ export function GigIndex() {
         <main className="gig-index">
             <NavBar/>
             <header>
-                <h2>Gigs</h2>
+                {/* <h2>Gigs</h2> */}
+                <IndexHeader category={category}/>
                 {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>}
             </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />

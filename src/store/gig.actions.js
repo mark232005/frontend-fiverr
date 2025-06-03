@@ -1,6 +1,6 @@
 import { gigService } from '../services/gig'
 import { store } from '../store/store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_FOCUSED } from './gig.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_FOCUSED, SET_CATEGORY } from './gig.reducer'
 
 export async function loadGigs(filterBy) {
     try {
@@ -106,7 +106,9 @@ function getCmdAddGigMsg(msg) {
         msg
     }
 }
-
+export function selectCategory(category){
+store.dispatch({type:SET_CATEGORY,category})
+}
 // unitTestActions()
 async function unitTestActions() {
     await loadGigs()

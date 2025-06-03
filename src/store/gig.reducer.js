@@ -5,11 +5,13 @@ export const ADD_GIG = 'ADD_GIG'
 export const UPDATE_GIG = 'UPDATE_GIG'
 export const ADD_GIG_MSG = 'ADD_GIG_MSG'
 export const SET_FOCUSED = 'SET_FOCUSED'
+export const SET_CATEGORY = 'SET_CATEGORY'
 
 const initialState = {
     gigs: [],
     gig: null,
-    isInputFocused:false
+    isInputFocused: false,
+    category: ''
 }
 
 export function gigReducer(state = initialState, action) {
@@ -37,9 +39,13 @@ export function gigReducer(state = initialState, action) {
         case ADD_GIG_MSG:
             newState = { ...state, gig: { ...state.gig, msgs: [...state.gig.msgs || [], action.msg] } }
             break
-            case SET_FOCUSED:{
-                newState={...state,isInputFocused:action.isInputFocused}
-            }
+        case SET_FOCUSED: {
+            newState = { ...state, isInputFocused: action.isInputFocused }
+        }
+        case SET_CATEGORY: {
+            newState = { ...state, category: action.category }
+            break
+        }
         default:
     }
     return newState

@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react"
 import { ArrowRightIcon, ArrowLiftIcon } from "../svg"
+import { selectCategory } from "../store/gig.actions"
 export function NavBar() {
     const scrollRef = useRef()
     const [canScrollRight, setCanScrollRight] = useState(false)
@@ -55,7 +56,7 @@ export function NavBar() {
             }
             <div className="nav-bar flex" ref={scrollRef}>
                 {categories.map(category =>
-                    <button className="category-btn" key={category}>{category}</button>
+                    <button onClick={()=>selectCategory(category)} className="category-btn" key={category}>{category}</button>
                 )}
             </div>
             {
