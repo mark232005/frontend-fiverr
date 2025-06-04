@@ -92,17 +92,21 @@
             gap: 20px;
 
             .user-info {
-                gap: 20px;
+                gap: 24px;
+                button{
+                    padding: 0;
+                }
             }
 
             button {
-                padding: 0;
+            
+                padding-right: 24px;
                 margin: 0;
                 background-color: transparent;
                 color: #74767e;
                 font-size: 16px;
                 font-family: 'MacanBold', sans-serif;
-                font-weight: 200px;
+                font-weight: 600;
                 white-space: nowrap
             }
 

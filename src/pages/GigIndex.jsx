@@ -64,6 +64,12 @@ export function GigIndex() {
     return (
         <GigLayout category={category} onAddGig={onaddGig}>
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
+            
+            <NavBar />
+            <header>
+                <IndexHeader category={category} />
+                {/* {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>} */}
+            </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
             <GigList gigs={gigs} onRemoveGig={onremoveGig} onUpdateGig={onupdateGig} />
