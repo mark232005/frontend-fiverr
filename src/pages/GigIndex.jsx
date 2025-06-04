@@ -67,7 +67,7 @@ export function GigIndex() {
             <NavBar />
             <header>
                 <IndexHeader category={category} />
-                {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>}
+                {/* {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>} */}
             </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
