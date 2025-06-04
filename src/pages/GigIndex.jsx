@@ -9,6 +9,7 @@ import { userService } from '../services/user'
 
 import { GigFilter } from '../cmps/GigFilter'
 import { GigList } from '../cmps/GigList'
+import { GigLayout } from '../cmps/GigLayout'
 import { NavBar } from '../cmps/Categories'
 import { IndexHeader } from '../cmps/IndexHeader'
 import { Sort } from '../cmps/Sort'
@@ -61,20 +62,11 @@ export function GigIndex() {
         }
     }
     return (
-        <main className="gig-index">
+        <GigLayout category={category} onAddGig={onaddGig}>
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
-            
-            <NavBar />
-            <header>
-                <IndexHeader category={category} />
-                {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>}
-            </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
-            <GigList
-                gigs={gigs}
-                onRemoveGig={onremoveGig}
-                onUpdateGig={onupdateGig} />
-        </main>
+            <GigList gigs={gigs} onRemoveGig={onremoveGig} onUpdateGig={onupdateGig} />
+        </GigLayout>
     )
 }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 // import { loadGig, addGigMsg } from '../store/gig.actions'
-import { loadGig,addGigMsg } from '../store/gig.actions'
+import { loadGig, addGigMsg } from '../store/gig.actions'
 
 export function GigDetails() {
 
@@ -27,17 +27,19 @@ export function GigDetails() {
     }
 
     return (
-        <section className="gig-details">
-            <Link to="/gig">Back to list</Link>
-            <h1>Gig Details</h1>
-            {gig && <div>
-                <h3>{gig.vendor}</h3>
-                <h4>${gig.price}</h4>
-                <pre> {JSON.stringify(gig, null, 2)} </pre>
-            </div>
-            }
-            <button onClick={() => { onAddGigMsg(gig._id) }}>Add gig msg</button>
-
-        </section>
+        <GigLayout category={category} onAddGig={onaddGig}>
+            <section className="gig-details">
+                <Link to="/gig">Back to list</Link>
+                <h1>Gig Details</h1>
+                {gig && (
+                    <div>
+                        <h3>{gig.vendor}</h3>
+                        <h4>${gig.price}</h4>
+                        <pre>{JSON.stringify(gig, null, 2)}</pre>
+                    </div>
+                )}
+                <button onClick={() => onAddGigMsg(gig._id)}>Add gig msg</button>
+            </section>
+        </GigLayout>
     )
 }
