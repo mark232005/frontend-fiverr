@@ -38,12 +38,12 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     }
 
     return <section className="gig-filter flex">
+        <div className="flex filter-btn">
+            <button> Service options</button>
         {isFilterModel &&
             
             <FilterModal openModel={isFilterModel}/>
             }
-        <div className="flex filter-btn">
-            <button> Service options</button>
             <ArrowDownIcon />
         </div>
         <div className="flex filter-btn" onClick={()=>setIsFilterModel('seller-details')}>

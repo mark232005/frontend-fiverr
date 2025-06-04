@@ -46,6 +46,9 @@ export function IndexHeader({ category }) {
         case 'Photography':
             description = 'Refine your brand’s look and improve credibility with our professional product photographers'
             break
+        case 'All gigs':
+            description = 'Gigs you may like'
+            break
 
         default:
     }

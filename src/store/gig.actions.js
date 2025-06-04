@@ -65,7 +65,7 @@ export async function addGigMsg(gigId, txt) {
         throw err
     }
 }
-export function isInputFocused(isInputFocused){
+export function overlay(isInputFocused){
     store.dispatch({type: SET_FOCUSED, isInputFocused})
 }
 

@@ -11,7 +11,7 @@ const initialState = {
     gigs: [],
     gig: null,
     isInputFocused: false,
-    category: ''
+    category: 'All gigs'
 }
 
 export function gigReducer(state = initialState, action) {
@@ -41,6 +41,7 @@ export function gigReducer(state = initialState, action) {
             break
         case SET_FOCUSED: {
             newState = { ...state, isInputFocused: action.isInputFocused }
+            break
         }
         case SET_CATEGORY: {
             newState = { ...state, category: action.category }

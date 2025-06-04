@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg } from '../store/gig.actions'
+import { loadGigs, addGig, updateGig, removeGig, addGigMsg, overlay } from '../store/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig/'
@@ -18,6 +18,8 @@ export function GigIndex() {
     const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter())
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const category = useSelector(storeState => storeState.gigModule.category)
+    const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
+
 
     useEffect(() => {
         loadGigs(filterBy)
@@ -58,16 +60,17 @@ export function GigIndex() {
             showErrorMsg('Cannot update gig')
         }
     }
-
     return (
         <main className="gig-index">
-            <NavBar/>
+            <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
+            
+            <NavBar />
             <header>
-                <IndexHeader category={category}/>
+                <IndexHeader category={category} />
                 {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>}
             </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-            <Sort count={gigs.length}/>
+            <Sort count={gigs.length} />
             <GigList
                 gigs={gigs}
                 onRemoveGig={onremoveGig}

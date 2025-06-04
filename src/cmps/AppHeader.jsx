@@ -5,7 +5,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
 import { Search } from '../svg.jsx'
 import React from 'react';
-import { isInputFocused } from '../store/gig.actions.js'
+import { overlay } from '../store/gig.actions.js'
 
 
 export function AppHeader() {
@@ -23,7 +23,10 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header main-container full ">
+        <header className="app-header  ">
+            <div className='full'>
+
+            </div>
             <nav className=''>
 
                 <NavLink to="/" className="logo-txt">
@@ -35,8 +38,8 @@ export function AppHeader() {
                     <input type="search"
                         placeholder="What service are you looking for today?"
                         className="search-input"
-                        onFocus={() => isInputFocused(true)}
-                        onBlur={() =>isInputFocused(false)}
+                        onFocus={() => overlay(true)}
+                        onBlur={() =>overlay(true)}
                     />
 
                     <button className="search-btn">
