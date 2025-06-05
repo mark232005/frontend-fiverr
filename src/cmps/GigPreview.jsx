@@ -35,10 +35,12 @@ export function GigPreview({ gig }) {
     }
     return (
         <article className="preview">
-            <img src={gig.imgUrl} />
+            <Link to={`/gig/${gig._id}`}>
+                <img src={gig.imgUrl} />
+            </Link>
             <div className="owner-details flex">
                 <div className="owner-profile flex">
-                    <img src={gig.owner.imgUrl} />
+                    <img src={gig.imgUrl} />
                     {/* <span>{gig.owner.fullname}</span> */}
                     <a href="#">{gig.owner.fullname}</a>
                 </div>
@@ -52,7 +54,7 @@ export function GigPreview({ gig }) {
             </div>
             <a href="#">{gig.title}</a>
             <div className="rate">
-                <StarIcon/>
+                <StarIcon />
                 <span>{gig.owner.rate}.0</span>
                 <span className="reviews">({gig.reviews?.length || 0})</span>
             </div>
@@ -63,3 +65,5 @@ export function GigPreview({ gig }) {
         </article>
     )
 }
+
+

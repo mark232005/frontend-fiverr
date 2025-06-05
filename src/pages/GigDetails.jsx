@@ -54,7 +54,7 @@ export function GigDetails() {
                 <div className='carousle-conteiner'>
 
                     <img
-                        src={gig.imgUrl || `https://robohash.org/${gig._id}?set=set1`}
+                        src={gig?.imgUrl || (gig ? `https://robohash.org/${gig._id}?set=set1` : '')}
                     />
                 </div>
                 <div className='about-gig'>
