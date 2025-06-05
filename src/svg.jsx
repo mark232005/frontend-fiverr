@@ -38,6 +38,14 @@ export function HomeIcon({ width = 16, height = 16, fill = "currentColor" }) {
   );
 }
 
+export function StarIcon({ width = 16, height = 16, fill = "currentColor" }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} fill={fill} viewBox="0 0 24 24">
+      <path d="M12 .587l3.668 7.571L24 9.748l-6 5.846 1.42 8.287L12 19.771l-7.42 4.11L6 15.594 0 9.748l8.332-1.59z" />
+    </svg>
+  )
+}
+
 export function ArrowDownIcon(){
   return (
     <svg

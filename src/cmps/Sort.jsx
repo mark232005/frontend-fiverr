@@ -1,5 +1,5 @@
 export function Sort({ count }) {
-    
+
     return (
         <section className="sort-bar flex">
             <div>
@@ -7,17 +7,15 @@ export function Sort({ count }) {
             </div>
             <div>
                 Sort by:
-                <label>
+                <label htmlFor="category">
                     <select id="category" name="category">
-                        <div className="options">
                         <option value="recommended">Recommended</option>
                         <option value="best selling">Best selling</option>
                         <option value="newest arrivals">Newest arrivals</option>
-
-                        </div>
-                        </select>
+                    </select>
                 </label>
             </div>
         </section>
-    )
+    );
+
 }
