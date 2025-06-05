@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { FullSparkIcon, SparkIcon, StarIcon } from '../svg'
+import { useNavigate } from 'react-router'
+
 
 export function GigPreview({ gig }) {
+    const navigate = useNavigate()
 
     function isLavel(lavel) {
         switch (lavel) {
@@ -35,14 +38,12 @@ export function GigPreview({ gig }) {
     }
     return (
         <article className="preview">
-            <Link to={`/gig/${gig._id}`}>
-                <img src={gig.imgUrl} />
-            </Link>
+            <img onClick={()=>navigate(`/${gig._id}`)} src={gig.imgUrl} />
             <div className="owner-details flex">
                 <div className="owner-profile flex">
-                    <img src={gig.imgUrl} />
+                    <img src={gig.owner.imgUrl} />
                     {/* <span>{gig.owner.fullname}</span> */}
-                    <a href="#">{gig.owner.fullname}</a>
+                    <a href={`user/${gig.owner}`}>{gig.owner.fullname}</a>
                 </div>
                 <div className="user-level flex">
                     {
@@ -52,9 +53,9 @@ export function GigPreview({ gig }) {
                     <span> {isLavel(gig.owner.level)}</span>
                 </div>
             </div>
-            <a href="#">{gig.title}</a>
+            <a href={`gig/${gig._id}`}>{gig.title}</a>
             <div className="rate">
-                <StarIcon />
+                <StarIcon/>
                 <span>{gig.owner.rate}.0</span>
                 <span className="reviews">({gig.reviews?.length || 0})</span>
             </div>

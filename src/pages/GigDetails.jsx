@@ -17,6 +17,7 @@ export function GigDetails() {
     const gig = useSelector(storeState => storeState.gigModule.gig)
 
     useEffect(() => {
+        console.log(gigId);
         loadGig(gigId)
     }, [gigId])
 

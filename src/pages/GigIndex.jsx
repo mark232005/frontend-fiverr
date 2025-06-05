@@ -62,7 +62,7 @@ export function GigIndex() {
         }
     }
     return (
-        <GigLayout category={category} onAddGig={onaddGig}>
+        <main className="gig-index">
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
             
             <NavBar />
@@ -72,7 +72,10 @@ export function GigIndex() {
             </header>
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
-            <GigList gigs={gigs} onRemoveGig={onremoveGig} onUpdateGig={onupdateGig} />
-        </GigLayout>
+            <GigList
+                gigs={gigs}
+                onRemoveGig={onremoveGig}
+                onUpdateGig={onupdateGig}  />
+                </main>
     )
 }

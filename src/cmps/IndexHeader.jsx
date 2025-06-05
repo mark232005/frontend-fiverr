@@ -51,16 +51,23 @@ export function IndexHeader({ category }) {
             break
 
         default:
+            description = 'Gigs you may like'
     }
-
+function isDefault(category) {
+    if(category==='default'){
+        return 'All gigs'
+    }
+    else return category
+    
+}
     return (
         <section className="index-header">
             <div className="flex sub-header">
                 <a className="home-icon" href="/gig"><HomeIcon /></a>
                 <span>/</span>
-                <a href="#">{category}</a>
+                <a href="#">{isDefault(category)}</a>
             </div>
-            <h2>{category}</h2>
+            <h2>{isDefault(category)}</h2>
             <p>{description}</p>
         </section>
     )
