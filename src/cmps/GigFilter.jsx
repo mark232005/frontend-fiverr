@@ -5,7 +5,6 @@ import { FilterModal } from './FilterModal'
 export function GigFilter({ filterBy, onSetFilterBy }) {
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
     const [isFilterModel, setIsFilterModel] = useState(null)
-
     useEffect(() => {
         onSetFilterBy(filterToEdit)
     }, [filterToEdit])

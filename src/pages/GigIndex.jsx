@@ -21,7 +21,6 @@ export function GigIndex() {
     const category = useSelector(storeState => storeState.gigModule.category)
     const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
 
-
     useEffect(() => {
         loadGigs(filterBy)
     }, [filterBy])

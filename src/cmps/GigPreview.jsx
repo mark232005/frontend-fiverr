@@ -38,7 +38,7 @@ export function GigPreview({ gig }) {
     }
     return (
         <article className="preview">
-            <img onClick={()=>navigate(`/${gig._id}`)} src={gig.imgUrl} />
+            <img onClick={()=>navigate(`/gig/${gig._id}`)} src={gig.imgUrl} />
             <div className="owner-details flex">
                 <div className="owner-profile flex">
                     <img src={gig.owner.imgUrl} />

@@ -15,9 +15,11 @@ function getEmptyGig() {
 
 function getDefaultFilter() {
     return {
+        category:'',
         txt: '',
-        maxPrice: '',
-        minSpeed: '',
+        rate:'',
+        price:null,
+        deliveryTime:'',
         sortField: '',
         sortDir: '',
         // pageIdx: 0
