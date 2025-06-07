@@ -39,7 +39,7 @@ export function AppHeader() {
                         placeholder="What service are you looking for today?"
                         className="search-input"
                         onFocus={() => overlay(true)}
-                        onBlur={() =>overlay(true)}
+                        onBlur={() => overlay(true)}
                     />
 
                     <button className="search-btn">
@@ -51,7 +51,10 @@ export function AppHeader() {
 
                     {user && (
                         <div className="user-info flex">
-                            <button > Orders</button>
+                            <Link to={`user/orders`}>
+
+                                <button > Orders</button>
+                            </Link>
                             <button > Switch to selling</button>
                             <Link to={`user/${user._id}`}>
                                 {user.imgUrl && <img src={user.imgUrl} />}

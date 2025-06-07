@@ -18,6 +18,7 @@ import { Login } from './pages/Login.jsx'
 import { Signup } from './pages/Signup.jsx'
 import { GigDetails } from './pages/GigDetails.jsx'
 import { GigIndex } from './pages/GigIndex.jsx'
+import { GigOrders } from './pages/GigOrders.jsx'
 
 
 export function RootCmp() {
@@ -31,6 +32,7 @@ export function RootCmp() {
                     <Route path="" element={<HomePage />} />
                     <Route path="gig" element={<GigIndex />} />
                     <Route path="gig/:gigId" element={<GigDetails />} />
+                    <Route path= "user/orders" element={<GigOrders/>} />
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="review" element={<ReviewIndex />} />
                     <Route path="chat" element={<ChatApp />} />
