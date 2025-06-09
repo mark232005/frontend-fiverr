@@ -43,8 +43,8 @@ export function HomeIcon({ width = 16, height = 16, fill = "currentColor" }) {
 export function ArrowDownIcon(){
   return (
     <svg
-      width="16"
-      height="16"
+      width="12"
+      height="12"
       viewBox="0 0 11 7"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"

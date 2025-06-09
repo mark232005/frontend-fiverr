@@ -173,19 +173,38 @@
         .btn-link {
             color: $clr2;
         }
-
         .profile-modal {
+            z-index: 1000;
             background-color: white;
-            top: 60px;
-            right: 5px;
+            top: 55px;
+            right: 3px;
             flex-direction: column;
             position: absolute;
             min-width: 180px;
             padding: 5px 15px;
             align-items: flex-start;
-            border-bottom: 1p;
             border: 1px solid #ccc;
-
+        
+            &::before {
+                content: "";
+                position: absolute;
+                top: -11px;
+                right: 4px;
+                border-width: 0 10px 11px 10px;
+                border-style: solid;
+                border-color: transparent transparent #ccc transparent;
+            }
+        
+            &::after {
+                content: "";
+                position: absolute;
+                top: -9px;
+                right: 6px;
+                border-width: 0 8px 9px 8px;
+                border-style: solid;
+                border-color: transparent transparent white transparent;
+            }
+            // משולש חיצוני – גבול אפור
             button {
                 font-size: 16px;
                 font-weight: 400;
@@ -193,10 +212,42 @@
                 display: flex;
                 align-items: flex-start;
                 width: 100%;
-                border-bottom: 1px solid #ccc;
                 padding: 5px 0;
             }
         }
+        
+        // .profile-modal {
+        //     z-index: 1000;
+        //     background-color: white;
+        //     top: 55px;
+        //     right: 3px;
+        //     flex-direction: column;
+        //     position: absolute;
+        //     min-width: 180px;
+        //     padding: 5px 15px;
+        //     align-items: flex-start;
+        //     border: 1px solid #ccc;
+        //     ::before {
+        //         content: "";
+        //         position: absolute;
+        //         top: -10px; // מעל התיבה
+        //         right: 20px; // תכוון לפי מיקום התמונה
+        //         border-width: 0 10px 10px 10px;
+        //         border-style: solid;
+        //         border-color: transparent transparent white transparent;
+        //     }
+            
+
+        //     button {
+        //         font-size: 16px;
+        //         font-weight: 400;
+        //         font-family: 'MacanBold', sans-serif;
+        //         display: flex;
+        //         align-items: flex-start;
+        //         width: 100%;
+        //         padding: 5px 0;
+        //     }
+        // }
     }
 }
 

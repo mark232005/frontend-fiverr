@@ -1,9 +1,9 @@
 .main-container {
     display: grid;
     grid-template-columns:
-     minmax(32px, 1fr)
+     minmax(67px, 1fr)
     minmax(0, 1400px)
-    minmax(32px, 1fr);
+    minmax(67px, 1fr);
     > * {
         grid-column: 2;
 

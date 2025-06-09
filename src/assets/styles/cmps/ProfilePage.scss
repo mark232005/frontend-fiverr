@@ -202,9 +202,12 @@
                 }
 
             }
-            .gig-title{
-                img{
-width: 45px;
+
+            .gig-title {
+                gap: 8px;
+
+                img {
+                    width: 45px;
                 }
             }
 
@@ -216,8 +219,9 @@ width: 45px;
                 white-space: nowrap;
                 min-width: 6.25rem;
                 color: #fff;
-                background-color: #19a463;
                 text-transform: capitalize;
+                background-color: #19a463;
+
             }
 
             .rejected {
@@ -241,8 +245,9 @@ width: 45px;
                 border-radius: .5rem;
                 white-space: nowrap;
                 min-width: 6.25rem;
-                background-color: #e6db4f;
                 text-transform: capitalize;
+                background-color: #c37e10d7;
+
             }
 
             .gig-title {
@@ -260,4 +265,3 @@ width: 45px;
 
 
 }
-
