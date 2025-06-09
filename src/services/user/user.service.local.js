@@ -1,7 +1,6 @@
 import { storageService } from '../async-storage.service'
-
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
-
+import { loadFromStorage, saveToStorage } from '../util.service'
 export const userService = {
     login,
     logout,
@@ -46,7 +45,7 @@ async function login(userCred) {
 
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    userCred.score = 10000
+    userCred.createdAt=new Date()
 
     const user = await storageService.post('user', userCred)
     return _saveLocalUser(user)
@@ -61,11 +60,11 @@ function getLoggedinUser() {
 }
 
 function _saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score, isAdmin : user.isAdmin }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, description:user.description, isAdmin : user.isAdmin ,
+        located:user.located,skills:user.skills,username:user.username,languages:user.languages}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
-
 // To quickly create an admin user, uncomment the next line
 // _createAdmin()
 async function _createAdmin() {
