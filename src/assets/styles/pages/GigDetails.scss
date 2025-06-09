@@ -1,151 +1,165 @@
-.gig-details {
+.details-page {
+    position: relative;
 
-    .owner-details-container {
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 0.75em;
+    .gig-details {
+        h1 {
+            color: #222325;
+            font-family: 'MacanBold', sans-serif;
+            font-size: 28px;
+            padding: 0 0 16px;
+            margin: 0;
+        }
 
-            .details-owner-profile-img {
-                border-radius: 50%;
-                cursor: pointer;
-                width: 4em;
+        .owner-details-container {
+            img {
+                height: 62px;
+                width: 62px;
             }
 
-            .owner-details {
+            .profile-container {
                 display: flex;
-                flex-direction: row;
                 align-items: center;
-                justify-content: space-around;
-                column-gap: 1.125rem;
+                gap: 0.75em;
 
+                .details-owner-profile-img {
+                    border-radius: 50%;
+                    cursor: pointer;
+                    width: 4em;
+                }
 
-                .user-container {
-                    display: inline-flex;
+                .owner-details {
                     align-items: center;
-                    gap: 0.5em;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .user-container {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5em;
+
+                    }
 
                     h3 {
-                        margin: 0;
+                        color: #222325;
+                        font-family: 'MacanBold', sans-serif;
+                        margin-bottom: 0;
                         line-height: 1;
-                    }
-                }
+                        font-size: 16px;
+                        margin-right: 8px;
 
-                .star-wrapper {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.1874em;
-
-                    >span {
-                        display: flex;
-                        align-items: center;
-
-                        a.home-icon {
-                            display: inline-flex;
-                            align-items: center;
-                            justify-content: center;
-                            margin-right: 0.4rem;
-
-                            svg {
-                                display: block;
-
-                            }
-                        }
-
-                        .owner-rate {
-                            font-size: 1em;
-                            line-height: 1;
+                        span {
+                            font-size: 14px;
+                            font-family: 'MacanBold', sans-serif;
+                            color: #222325;
                         }
                     }
+
+
                 }
 
+            }
+        }
 
+        .carousle-conteiner {
+            img {
+                width: 80%;
+                height: 80%;
+                margin: 25px 0;
             }
 
         }
+
+        .about-gig {
+            h1 {
+                font-family: 'MacanBold', sans-serif;
+                color: #404145;
+                font-size: 20px;
+                padding: 0 0 25px;
+            }
+
+            p {
+                font-size: 16px;
+                font-family: 'MacanBold', sans-serif;
+                color: #62646a;
+            }
+        }
     }
 
-    .carousle-conteiner {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-block-start: 1.875rem;
-        margin-block-end: 1.875rem;
 
-    }
-}
-
-
-.package-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    width: 100%;
-    min-height: 400px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-
-    .tabs {
-        display: flex;
-        width: 100%;
-        border-bottom: 2px solid #ccc;
-    }
-
-    .tab {
-        flex: 1;
-        padding: 1em;
-        text-align: center;
-        background: #f5f5f5;
-        cursor: pointer;
-        border-right: 1px solid #ccc;
-
-
-    }
-
-    .card-body {
+    .package-card {
+        top: 50px;
+        position: sticky;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        width: 100%;
-        padding: 2em 1.5em;
-
-        .card-price {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1em;
-        }
-
-        h3 {
-            margin: 0 0 0.5em 0;
-        }
-
-        p {
-            flex-grow: 1;
-            margin-bottom: 1em;
-        }
-
-
-    }
-
-
-
-    .continue-btn {
-        background-color: black;
-        color: white;
-        border: none;
-        width: 100%;
-        padding: 0.75em 2em;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ccc;
         border-radius: 0.5em;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
+        width: 100%;
+        max-height: 400px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
 
-        &:hover {
-            background-color: #333;
+        .tabs {
+            display: flex;
+            width: 100%;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 1em;
+            text-align: center;
+            background: #f5f5f5;
+            cursor: pointer;
+            border-right: 1px solid #ccc;
+
+
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            width: 100%;
+            padding: 2em 1.5em;
+
+            .card-price {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 1em;
+            }
+
+            h3 {
+                margin: 0 0 0.5em 0;
+            }
+
+            p {
+                flex-grow: 1;
+                margin-bottom: 1em;
+            }
+
+
+        }
+
+
+
+        .continue-btn {
+            background-color: black;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 0.75em 2em;
+            border-radius: 0.5em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #333;
+            }
         }
     }
 }
