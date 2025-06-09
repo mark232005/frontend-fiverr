@@ -7,9 +7,6 @@ export function GigLayout({ category, children, onAddGig }) {
             <NavBar />
             <header>
                 <IndexHeader category={category} />
-                {userService.getLoggedinUser() && (
-                    <button onClick={onAddGig}>Add a gig</button>
-                )}
             </header>
             {children}
         </main>

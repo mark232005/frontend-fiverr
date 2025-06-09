@@ -1,0 +1,263 @@
+.profile-page {
+    gap: 25px;
+    margin-top: 50px;
+
+    .about-user {
+        max-width: 500px;
+        min-width: 400px;
+        width: auto;
+        flex-direction: column;
+        gap: 30px;
+
+        .user-profile {
+            padding: 32px;
+            border: 1px solid #dadbdd;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+
+            h2 {
+                color: #222325;
+                margin: 0;
+                font-family: 'MacanBold', sans-serif;
+                font-size: 24px;
+                text-transform: capitalize;
+            }
+
+            p {
+                text-transform: capitalize;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                font-size: 14px;
+                font-family: 'MacanBold', sans-serif;
+                margin: 0;
+                color: #74767e;
+                padding: 0 0 16px;
+                border-bottom: 1px solid #dadbdd;
+            }
+
+        }
+
+        .user-details {
+            align-self: start;
+            padding: 16px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            color: #222325;
+            font-family: 'MacanBold', sans-serif;
+            font-size: 16px;
+
+            li {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+        }
+
+        ul {
+            all: inherit;
+            list-style: none;
+            padding: 0;
+        }
+
+        .user-extra-info {
+            margin-bottom: 10px;
+
+            ul {
+
+                padding: 32px;
+                border: 1px solid #dadbdd;
+
+                &>li.skills {
+                    border-bottom: none;
+                    padding: 0;
+
+                }
+
+            }
+
+            li :nth-child(2) {
+                span {
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+
+                }
+            }
+
+            li {
+                padding: 0 0 50px;
+                border-bottom: 1px solid #dadbdd;
+                font-family: 'MacanBold', sans-serif;
+                font-size: 14px;
+                color: #62646a;
+
+                h2 {
+                    color: #222325;
+                    font-family: 'MacanBold', sans-serif;
+                    font-size: 16px;
+                    margin: 0;
+                    padding-bottom: 16px;
+
+                    :not(:first-child) {
+                        margin-top: 15px;
+                    }
+                }
+
+                .linked-accounts {
+                    flex-direction: column;
+                }
+
+                .skills {
+                    span {
+                        border: 1px solid #dadbdd;
+                        border-radius: 20px;
+                    }
+
+                }
+
+                .s {
+                    display: flex;
+                    gap: 15px;
+
+                    >* {
+                        text-transform: capitalize;
+                        min-width: 40px;
+                        border: 1px solid #dadbdd;
+                        border-radius: 15px;
+                        padding: 5px 12px;
+                    }
+
+                    >*:hover {
+                        background-color: #f2f2f3;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .manage-orders {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            color: #222325;
+            margin: 0;
+            font-family: 'MacanBold', sans-serif;
+            font-size: 20px;
+            text-transform: capitalize;
+
+        }
+
+        table {
+            min-width: 500px;
+            width: auto;
+            border: 1px solid #dadbdd;
+            border-collapse: collapse
+        }
+
+
+        th,
+        td {
+            text-align: start;
+            border-bottom: 1px solid #dadbdd;
+        }
+
+        th {
+            width: 100%;
+            color: #222325;
+            padding: 10px 10px 10px 20px;
+
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f3;
+
+        }
+
+        td {
+            width: 100%;
+            padding: 0 20px;
+            color: #7a7d85;
+            font-family: 'MacanBold', sans-serif;
+            font-size: 16px;
+
+            .buyer-details {
+                color: #404245;
+                align-items: center;
+
+                img {
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                }
+
+            }
+            .gig-title{
+                img{
+width: 45px;
+                }
+            }
+
+            .approved {
+                margin: 0;
+                text-align: center;
+                padding: .125rem .3125rem;
+                border-radius: .5rem;
+                white-space: nowrap;
+                min-width: 6.25rem;
+                color: #fff;
+                background-color: #19a463;
+                text-transform: capitalize;
+            }
+
+            .rejected {
+                margin: 0;
+                text-align: center;
+                color: #fff;
+                padding: .125rem .3125rem;
+                border-radius: .5rem;
+                white-space: nowrap;
+                min-width: 6.25rem;
+                background-color: #a42e10;
+                text-transform: capitalize;
+
+            }
+
+            .pending {
+                margin: 0;
+                text-align: center;
+                color: #fff;
+                padding: .125rem .3125rem;
+                border-radius: .5rem;
+                white-space: nowrap;
+                min-width: 6.25rem;
+                background-color: #e6db4f;
+                text-transform: capitalize;
+            }
+
+            .gig-title {
+
+                span {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    max-width: 200px;
+
+                }
+            }
+        }
+    }
+
+
+}
+

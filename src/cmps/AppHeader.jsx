@@ -4,13 +4,15 @@ import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
 import { Search } from '../svg.jsx'
-import React from 'react';
+import React, { useState } from 'react';
 import { overlay } from '../store/gig.actions.js'
+import { ProfileModal } from './ProfileModal.jsx'
 
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
+    const [openModal, setOpenModal] = useState(false)
 
     async function onLogout() {
         try {
@@ -39,7 +41,7 @@ export function AppHeader() {
                         placeholder="What service are you looking for today?"
                         className="search-input"
                         onFocus={() => overlay(true)}
-                        onBlur={() =>overlay(true)}
+                        onBlur={() => overlay(true)}
                     />
 
                     <button className="search-btn">
@@ -53,9 +55,16 @@ export function AppHeader() {
                         <div className="user-info flex">
                             <button > Orders</button>
                             <button > Switch to selling</button>
-                            <Link to={`user/${user._id}`}>
-                                {user.imgUrl && <img src={user.imgUrl} />}
-                            </Link>
+                            {user.imgUrl &&
+                                <>
+                                    <img src={user.imgUrl} onClick={() => setOpenModal(prev => !prev)} />
+                                    {openModal ? 
+                                    <ProfileModal 
+                                    logout={onLogout}
+                                    navigate={navigate}
+                                    />   : ''}
+                                </>
+                            }
                         </div>
                     )}
                     {!user &&
