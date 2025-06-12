@@ -1,3 +1,5 @@
+import { gigService } from "../services/gig/gig.service.local.js"
+
 export const SET_GIGS = 'SET_GIGS'
 export const SET_GIG = 'SET_GIG'
 export const REMOVE_GIG = 'REMOVE_GIG'
@@ -7,9 +9,13 @@ export const ADD_GIG_MSG = 'ADD_GIG_MSG'
 export const SET_FOCUSED = 'SET_FOCUSED'
 export const SET_CATEGORY = 'SET_CATEGORY'
 
+export const SET_FILTER_BY = 'SET_FILTER_BY'
+
+
 const initialState = {
     gigs: [],
     gig: null,
+    filterBy: gigService.getDefaultFilter(),
     isInputFocused: false,
     category: 'All gigs'
 }
@@ -46,6 +52,13 @@ export function gigReducer(state = initialState, action) {
         case SET_CATEGORY: {
             newState = { ...state, category: action.category }
             break
+        }
+        case SET_FILTER_BY: {
+            console.log(action.filterBy)
+            return {
+                ...state,
+                filterBy: action.filterBy
+            }
         }
         default:
     }

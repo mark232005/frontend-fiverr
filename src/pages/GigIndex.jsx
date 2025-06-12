@@ -16,18 +16,19 @@ import { Sort } from '../cmps/Sort'
 
 export function GigIndex() {
 
-    const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter())
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const category = useSelector(storeState => storeState.gigModule.category)
     const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
 
     useEffect(() => {
+        console.log('filterBy', filterBy)
         loadGigs(filterBy)
     }, [filterBy])
 
-    function onSetFilterBy(filterBy) {
-        setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
-    }
+    // function onSetFilterBy(filterBy) {
+    //     // setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+    // }
 
     async function onremoveGig(gigId) {
         try {
@@ -69,7 +70,7 @@ export function GigIndex() {
                 <IndexHeader category={category} />
                 {/* {userService.getLoggedinUser() && <button onClick={onaddGig}>Add a gig</button>} */}
             </header>
-            <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+            {/* <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
             <Sort count={gigs.length} />
             <GigList
                 gigs={gigs}

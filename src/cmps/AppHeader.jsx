@@ -1,19 +1,32 @@
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
 import { Search } from '../svg.jsx'
-import React, { useState } from 'react';
-import { overlay } from '../store/gig.actions.js'
+import React, { useState, useRef } from 'react';
+import { overlay, setFilterBy } from '../store/gig.actions.js'
 import { ProfileModal } from './ProfileModal.jsx'
+import { SET_FILTER_BY } from '../store/gig.reducer.js'
+import { debounce } from '../services/util.service.js'
+
 
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState(false)
+    const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
+    const dispatch = useDispatch()
+    const debouncedSetFilter = useRef(debounce(handleChange, 300))
 
+    function handleChange(ev) {
+
+        const filterBy = ev.target.value
+        dispatch({ type: SET_FILTER_BY, filterBy })
+
+
+    }
     async function onLogout() {
         try {
             await logout()
@@ -40,6 +53,7 @@ export function AppHeader() {
                     <input type="search"
                         placeholder="What service are you looking for today?"
                         className="search-input"
+                        onChange={debouncedSetFilter.current}
                         onFocus={() => overlay(true)}
                         onBlur={() => overlay(true)}
                     />
@@ -61,11 +75,11 @@ export function AppHeader() {
                             {user.imgUrl &&
                                 <>
                                     <img src={user.imgUrl} onClick={() => setOpenModal(prev => !prev)} />
-                                    {openModal ? 
-                                    <ProfileModal 
-                                    logout={onLogout}
-                                    navigate={navigate}
-                                    />   : ''}
+                                    {openModal ?
+                                        <ProfileModal
+                                            logout={onLogout}
+                                            navigate={navigate}
+                                        /> : ''}
                                 </>
                             }
                         </div>

@@ -1,6 +1,6 @@
 import { gigService } from '../services/gig'
 import { store } from '../store/store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_FOCUSED, SET_CATEGORY } from './gig.reducer'
+import { SET_FILTER_BY, ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_FOCUSED, SET_CATEGORY } from './gig.reducer'
 
 export async function loadGigs(filterBy) {
     try {
@@ -20,6 +20,10 @@ export async function loadGig(gigId) {
         console.log('Cannot load gig', err)
         throw err
     }
+}
+
+export function setFilterBy(filterBy) {
+    store.dispatch({ type: SET_FILTER_BY, filterBy })
 }
 
 
@@ -65,8 +69,8 @@ export async function addGigMsg(gigId, txt) {
         throw err
     }
 }
-export function overlay(isInputFocused){
-    store.dispatch({type: SET_FOCUSED, isInputFocused})
+export function overlay(isInputFocused) {
+    store.dispatch({ type: SET_FOCUSED, isInputFocused })
 }
 
 // Command Creators:
@@ -106,8 +110,8 @@ function getCmdAddGigMsg(msg) {
         msg
     }
 }
-export function selectCategory(category){
-store.dispatch({type:SET_CATEGORY,category})
+export function selectCategory(category) {
+    store.dispatch({ type: SET_CATEGORY, category })
 }
 // unitTestActions()
 async function unitTestActions() {

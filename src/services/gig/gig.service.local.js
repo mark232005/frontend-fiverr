@@ -18,7 +18,7 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = {txt:'', price: 0 }) {
+async function query(filterBy = '') {
         let gigs = await storageService.query(STORAGE_KEY)
         if (!gigs.length) {
             gigs = gigData
@@ -26,10 +26,13 @@ async function query(filterBy = {txt:'', price: 0 }) {
         }
 
         console.log(filterBy)
-        if (filterBy.txt) {
-            const regex = new RegExp(filterBy.txt, 'i')
+        // if (filterBy.txt) {
+            const regex = new RegExp(filterBy)
+            console.log('##### regex ? ', regex);
+            
             gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-        }
+            console.log(gigs)
+        // }
         // if (maxPrice) {
         //     gigs = gigs.filter(gig => gig.price <= maxPrice)
         // }
@@ -95,8 +98,7 @@ async function query(filterBy = {txt:'', price: 0 }) {
 
     function getDefaultFilter() {
         return {
-            txt: '',
-            price: 0
+            txt: ''
         }
     }
 
