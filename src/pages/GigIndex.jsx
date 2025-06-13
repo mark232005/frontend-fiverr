@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg, overlay,setFilterBy} from '../store/gig.actions'
+import { loadGigs, addGig, updateGig, removeGig, addGigMsg, overlay, setFilterBy } from '../store/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig/'
@@ -30,9 +30,8 @@ export function GigIndex() {
 
     useEffect(() => {
         const filterFromParams = gigService.getFilterFromSearchParams(searchParams)
-        if (filterFromParams.txt) {
-            setFilterBy(filterFromParams)
-        }
+        setFilterBy(filterFromParams)
+
     }, [])
 
     useEffect(() => {
@@ -77,7 +76,7 @@ export function GigIndex() {
     return (
         <main className="gig-index">
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
-            
+
             <NavBar />
             <header>
                 <IndexHeader category={category} />

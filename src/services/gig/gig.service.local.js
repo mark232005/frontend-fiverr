@@ -107,6 +107,8 @@ function getFilterFromSearchParams(searchParams) {
 
 
     const txt = searchParams.get('txt') || ''
+    const category = searchParams.get('category') || ''
 
-    return { txt }
+
+    return { txt, category }
 }
