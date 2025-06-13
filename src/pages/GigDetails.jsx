@@ -3,20 +3,23 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { GigLayout } from '../cmps/GigLayout'
-import { StarIcon } from "../svg";
+import { EmptyStar, FullSparkIcon, SparkIcon, StarIcon } from "../svg";
 
 
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 // import { loadGig, addGigMsg } from '../store/gig.actions'
 import { loadGig, addGigMsg } from '../store/gig.actions'
+import { IndexHeader } from '../cmps/IndexHeader'
+import { PackageCard } from '../cmps/PackageCard'
+import { GetToKnow } from '../cmps/GetToKnow'
 
 export function GigDetails() {
     const { gigId } = useParams()
     const gig = useSelector(storeState => storeState.gigModule.gig)
 
     useEffect(() => {
-        console.log(gigId);
+        console.log(gigId)
         loadGig(gigId)
     }, [gigId])
 
@@ -28,25 +31,82 @@ export function GigDetails() {
             showErrorMsg('Cannot add gig msg')
         }
     }
+    function renderStars(level) {
+        const stars = []
 
-    if (!gig) return <div>Loading gig...</div>  // <--- Add this line
+        for (let i = 0; i < +level; i++) {
+            stars.push(<StarIcon key={`full-${i}`} />)
+        }
+
+        for (let i = +level; i < 5; i++) {
+            stars.push(<EmptyStar key={`empty-${i}`} />)
+        }
+        return <div className="stars">{stars}</div>
+    }
+
+    function isLavel(lavel) {
+        switch (lavel) {
+            case '1':
+                return (<>
+                    <FullSparkIcon /> <SparkIcon /> <SparkIcon />
+                </>)
+            case '2':
+                return (<>
+                    <FullSparkIcon /> <FullSparkIcon /> <SparkIcon />
+                </>)
+            case '3':
+                return (<>
+                    <FullSparkIcon /> <FullSparkIcon /> <FullSparkIcon />
+                </>)
+            case '4':
+                return (<div className='top-rated'>
+                    Top Rated <FullSparkIcon /> <FullSparkIcon /> <FullSparkIcon />
+                </div>
+                )
+            case '5':
+                return (<div className='alufix-choice'>
+                    Alufix's<span>Choice</span>
+                </div>
+                )
+            default:
+                return (<>
+                    <SparkIcon /> <SparkIcon /> <SparkIcon />
+                </>)
+        }
+    }
+
+
+    if (!gig) return <div>Loading gig...</div>
 
     return (
-        <GigLayout category="default ">
-            <section className=" details-page flex">
+        <section className="main-details-page">
+            <IndexHeader category={gig.tags} />
+            <section className=" details-page">
                 <section className="gig-details">
                     <h1 className='gig-title'>{gig.title}</h1>
                     <div className='owner-details-container'>
                         <div className='profile-container flex'>
                             <img src={gig?.owner?.imgUrl} className='details-owner-profile-img' />
                             <div className='owner-details flex'>
-                                <h3 className='user-title'>
+                                <h3 className="user-title flex">
                                     {gig?.owner?.fullname || 'Loading...'}
-                                   {<span> Lavel {gig.owner.level}</span>}
+                                    <div className="user-level flex">
+                                        {
+                                            gig.owner.level < 3 &&
+                                            <span>Lavel:{gig.owner.level}</span>
+                                        }
+                                        <span> {isLavel(gig.owner.level)}</span>
+                                    </div>
+
                                 </h3>
-                                <span>{[...Array(gig.owner.rate || 0)].map((_, idx) => (
-                                    <StarIcon key={idx} />
-                                ))} {gig.owner.rate}</span>
+                                <div className="flex owner-rate">
+                                    {renderStars(gig.owner.rate)}
+                                    <strong>{gig.owner.rate}.0</strong>
+                                    <p>
+                                    {`(${gig.reviews?.length || 0} reviews)`}
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -58,36 +118,9 @@ export function GigDetails() {
                         <p className='gig-description'>{gig?.about}</p>
                     </div>
                 </section>
-
-                <section className='package-card'>
-                    <div className='tabs'>
-                        <div className='tab active'>Basic</div>
-                    </div>
-
-                    <div className='card-body'>
-                        <h2 className="card-price">
-                            {new Intl.NumberFormat('en-US', {
-                                style: 'currency',
-                                currency: 'USD',
-                            }).format(gig?.price || 0)}
-                        </h2>
-                        <h3>Beginner Package</h3>
-                        <p>1 logo design, High Quality Mock-up, Logo Transparency</p>
-                        <div class="feature">
-                            ✔️ 1 concept included
-                        </div>
-                        <div class="feature">
-                            ✔️ Logo transparency
-                        </div>
-
-                    </div>
-                    <button class="continue-btn">Continue ➜</button>
-                    <div class="compare-link">Compare packages</div>
-
-
-                </section>
+                <PackageCard gig={gig} />
+                <GetToKnow gig={gig} level={isLavel(gig.owner.level)} />
             </section>
-            {/* <Link to="/gig">Back to list</Link> */}
-        </GigLayout>
+        </section>
     )
 }

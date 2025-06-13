@@ -7,6 +7,7 @@ import { Search } from '../svg.jsx'
 import React, { useState } from 'react';
 import { overlay } from '../store/gig.actions.js'
 import { ProfileModal } from './ProfileModal.jsx'
+import { NavBar } from './Categories.jsx'
 
 
 export function AppHeader() {
@@ -25,12 +26,10 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header  ">
-            <div className='full'>
+        <section>
 
-            </div>
+        <header className="app-header">
             <nav className=''>
-
                 <NavLink to="/" className="logo-txt">
                     alufix<span className="dom"></span>
                 </NavLink>
@@ -61,11 +60,11 @@ export function AppHeader() {
                             {user.imgUrl &&
                                 <>
                                     <img src={user.imgUrl} onClick={() => setOpenModal(prev => !prev)} />
-                                    {openModal ? 
-                                    <ProfileModal 
-                                    logout={onLogout}
-                                    navigate={navigate}
-                                    />   : ''}
+                                    {openModal ?
+                                        <ProfileModal
+                                            logout={onLogout}
+                                            navigate={navigate}
+                                        /> : ''}
                                 </>
                             }
                         </div>
@@ -80,5 +79,7 @@ export function AppHeader() {
 
             </nav>
         </header >
+            <NavBar/>
+        </section>
     )
 }

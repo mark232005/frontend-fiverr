@@ -48,13 +48,15 @@ export function NavBar() {
 
     }
     return (
-        <section className="nav-bar-container ">
+        <div className="nav-bar-wrapper">
+
+        <section className="nav-bar-container  ">
             {canScrollLeft &&
                 <button className="scroll-btn left flex" onClick={() => scrollLeft()}>
                     <ArrowLiftIcon />
                 </button>
             }
-            <div className="nav-bar flex" ref={scrollRef}>
+            <div className="nav-bar flex " ref={scrollRef}>
                 {categories.map(category =>
                     <button onClick={()=>selectCategory(category)} className="category-btn" key={category}>{category}</button>
                 )}
@@ -67,5 +69,6 @@ export function NavBar() {
             }
 
         </section>
+        </div>
     )
 }

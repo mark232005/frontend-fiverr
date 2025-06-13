@@ -14,13 +14,11 @@ loadOrders()
     const orders = useSelector(storeState => storeState.ordersModule.orders)
 
     return (
-        <GigLayout category="default">
 
         <section className="profile-page flex">
             <AboutUser user={user}/>
             <ManageOrders orders={orders}/>
         </section>
-        </GigLayout>
 
     )
 }

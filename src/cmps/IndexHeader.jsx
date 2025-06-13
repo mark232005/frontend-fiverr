@@ -63,7 +63,7 @@ function isDefault(category) {
     return (
         <section className="index-header">
             <div className="flex sub-header">
-                <a className="home-icon" href="/gig"><HomeIcon /></a>
+                <a className="home-icon flex" href="/gig"><HomeIcon /></a>
                 <span>/</span>
                 <a href="#">{isDefault(category)}</a>
             </div>

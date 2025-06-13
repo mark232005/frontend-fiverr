@@ -1,6 +1,6 @@
 .index-header {
     min-height: 143px;
-    padding-top: 32px ;
+    padding-top: 32px;
 
 
     a {
@@ -10,13 +10,14 @@
         font-family: 'MacanBold', sans-serif;
 
     }
-    .home-icon:hover{
+
+    .home-icon:hover {
         border-radius: 70%;
         background-color: #f8f8f8;
     }
 
     .sub-header {
-        align-items: baseline;
+        align-items: center;
         gap: 8px;
     }
 
@@ -26,14 +27,16 @@
         font-family: 'MacanBold', sans-serif;
 
     }
-    h2{
+
+    h2 {
         font-size: 32px;
         color: #222325;
         padding: 8px 0px;
         margin: 0;
         font-family: 'MacanBold', sans-serif;
     }
-    p{
+
+    p {
         height: 32px;
         font-size: 16px;
         color: #74767e;
