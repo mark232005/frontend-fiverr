@@ -16,8 +16,7 @@ const initialState = {
     gigs: [],
     gig: null,
     filterBy: gigService.getDefaultFilter(),
-    isInputFocused: false,
-    category: 'All gigs'
+    isInputFocused: false
 }
 
 export function gigReducer(state = initialState, action) {
@@ -50,6 +49,8 @@ export function gigReducer(state = initialState, action) {
             break
         }
         case SET_CATEGORY: {
+            console.log(newState)
+
             newState = { ...state, category: action.category }
             break
         }

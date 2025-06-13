@@ -111,8 +111,11 @@ function getCmdAddGigMsg(msg) {
     }
 }
 export function selectCategory(category) {
-    store.dispatch({ type: SET_CATEGORY, category })
+    const filterBy = store.getState().gigModule.filterBy
+    const updatedFilter = { ...filterBy, category }
+    store.dispatch({ type: SET_FILTER_BY, filterBy: updatedFilter })
 }
+
 // unitTestActions()
 async function unitTestActions() {
     await loadGigs()

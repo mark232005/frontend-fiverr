@@ -19,35 +19,26 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = '') {
+async function query(filterBy = {}) {
     let gigs = await storageService.query(STORAGE_KEY)
     if (!gigs.length) {
         gigs = gigData
         _createGigs(gigs)
     }
-    if (!filterBy) return gigs
+    if (!filterBy.txt && !filterBy.category) return gigs
 
     console.log(filterBy)
-    // if (filterBy.txt) {
-    const regex = new RegExp(filterBy.txt, 'i')
-    console.log('##### regex ? ', regex);
+    if (filterBy.txt) {
+        const regex = new RegExp(filterBy.txt, 'i')
+        gigs = gigs.filter(gig =>
+            regex.test(gig.title) || regex.test(gig.description)
+        )
+    }
 
-    gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-    console.log(gigs)
-    // }
-    // if (maxPrice) {
-    //     gigs = gigs.filter(gig => gig.price <= maxPrice)
-    // }
-    // if (sortField === 'title' || sortField === 'loc') {
-    //     gigs.sort((gig1, gig2) =>
-    //         gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
-    // }
-    // if (sortField === 'price' || sortField === 'daysToMake') {
-    //     gigs.sort((gig1, gig2) =>
-    //         (gig1[sortField] - gig2[sortField]) * +sortDir)
-    // }
+    if (filterBy.category) {
+        gigs = gigs.filter(gig => gig.category === filterBy.category)
+    }
 
-    // gigs = gigs.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
     return gigs
 }
 
@@ -100,7 +91,8 @@ async function addGigMsg(gigId, txt) {
 
 function getDefaultFilter() {
     return {
-        txt: ''
+        txt: '',
+        category: ''
     }
 }
 
@@ -116,5 +108,5 @@ function getFilterFromSearchParams(searchParams) {
 
     const txt = searchParams.get('txt') || ''
 
-    return  { txt }
+    return { txt }
 }

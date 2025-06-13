@@ -39,9 +39,9 @@ export function GigIndex() {
         loadGigs(filterBy)
     }, [filterBy])
 
-    // function onSetFilterBy(filterBy) {
-    //     // setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
-    // }
+    function onSetFilterBy(filterBy) {
+        // setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+    }
 
     async function onremoveGig(gigId) {
         try {
@@ -82,7 +82,7 @@ export function GigIndex() {
             <header>
                 <IndexHeader category={category} />
             </header>
-            {/* <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
+            <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
             <GigList
                 gigs={gigs}
