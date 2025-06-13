@@ -22,8 +22,8 @@ export function AppHeader() {
 
     function handleChange(ev) {
 
-        const filterBy = ev.target.value
-        dispatch({ type: SET_FILTER_BY, filterBy })
+        const filterTxt = ev.target.value
+        dispatch({ type: SET_FILTER_BY, filterBy : {txt: filterTxt } })
 
 
     }

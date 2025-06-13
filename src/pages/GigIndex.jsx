@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadGigs, addGig, updateGig, removeGig, addGigMsg, overlay } from '../store/gig.actions'
+import { loadGigs, addGig, updateGig, removeGig, addGigMsg, overlay,setFilterBy} from '../store/gig.actions'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig/'
@@ -13,8 +13,15 @@ import { GigLayout } from '../cmps/GigLayout'
 import { NavBar } from '../cmps/Categories'
 import { IndexHeader } from '../cmps/IndexHeader'
 import { Sort } from '../cmps/Sort'
+import { useDispatch } from 'react-redux'
+
+
+import { useSearchParams } from 'react-router-dom'
+
 
 export function GigIndex() {
+    const dispatch = useDispatch()
+    const [searchParams] = useSearchParams()
 
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
@@ -22,7 +29,13 @@ export function GigIndex() {
     const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
 
     useEffect(() => {
-        console.log('filterBy', filterBy)
+        const filterFromParams = gigService.getFilterFromSearchParams(searchParams)
+        if (filterFromParams.txt) {
+            setFilterBy(filterFromParams)
+        }
+    }, [])
+
+    useEffect(() => {
         loadGigs(filterBy)
     }, [filterBy])
 
@@ -64,7 +77,7 @@ export function GigIndex() {
     return (
         <main className="gig-index">
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
-            
+
             <NavBar />
             <header>
                 <IndexHeader category={category} />
@@ -75,7 +88,7 @@ export function GigIndex() {
             <GigList
                 gigs={gigs}
                 onRemoveGig={onremoveGig}
-                onUpdateGig={onupdateGig}  />
-                </main>
+                onUpdateGig={onupdateGig} />
+        </main>
     )
 }
