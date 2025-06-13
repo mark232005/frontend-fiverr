@@ -38,8 +38,8 @@ export function GigIndex() {
         loadGigs(filterBy)
     }, [filterBy])
 
-    function onSetFilterBy(filterBy) {
-        // setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+    function onSetFilterBy(newPartialFilter) {
+        setFilterBy(newPartialFilter)
     }
 
     async function onremoveGig(gigId) {

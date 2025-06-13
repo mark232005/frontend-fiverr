@@ -21,13 +21,17 @@ window.cs = gigService
 
 async function query(filterBy = {}) {
     let gigs = await storageService.query(STORAGE_KEY)
+    const level = filterBy.level
+
+
     if (!gigs.length) {
         gigs = gigData
         _createGigs(gigs)
     }
-    if (!filterBy.txt && !filterBy.category) return gigs
 
-    console.log(filterBy)
+    if (!filterBy.txt && !filterBy.category && !filterBy.level) return gigs
+
+
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         gigs = gigs.filter(gig =>
@@ -38,6 +42,13 @@ async function query(filterBy = {}) {
     if (filterBy.category) {
         gigs = gigs.filter(gig => gig.category === filterBy.category)
     }
+
+    if (filterBy.level) {
+        gigs = gigs.filter(gig => String(gig.owner?.level) === String(filterBy.level))
+    }
+
+    console.log('Filtered gigs result:', gigs)
+
 
     return gigs
 }
@@ -92,7 +103,8 @@ async function addGigMsg(gigId, txt) {
 function getDefaultFilter() {
     return {
         txt: '',
-        category: ''
+        category: '',
+        level: ''
     }
 }
 
