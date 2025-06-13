@@ -17,15 +17,13 @@ export function AppHeader() {
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState(false)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
+    const [searchTxt, setSearchTxt] = useState('')
     const dispatch = useDispatch()
-    const debouncedSetFilter = useRef(debounce(handleChange, 300))
-
-    function handleChange(ev) {
-
-        const filterTxt = ev.target.value
-        dispatch({ type: SET_FILTER_BY, filterBy : {txt: filterTxt } })
 
 
+
+    function onSearchClick() {
+        dispatch({ type: SET_FILTER_BY, filterBy: { txt: searchTxt } })
     }
     async function onLogout() {
         try {
@@ -53,12 +51,15 @@ export function AppHeader() {
                     <input type="search"
                         placeholder="What service are you looking for today?"
                         className="search-input"
-                        onChange={debouncedSetFilter.current}
+                        onChange={(ev) => setSearchTxt(ev.target.value)}
                         onFocus={() => overlay(true)}
                         onBlur={() => overlay(true)}
                     />
 
-                    <button className="search-btn">
+                    <button className="search-btn"
+                        onClick={onSearchClick} 
+                        onFocus={() => overlay(false)}
+                        onBlur={() => overlay(false)}>
                         <Search />
                     </button>
                 </div>
