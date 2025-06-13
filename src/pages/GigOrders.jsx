@@ -33,7 +33,6 @@ export function GigOrders() {
     }
 
     return (
-        <GigLayout>
             <section className="order-index">
                 <h2>My Orders</h2>
                 <div className="order-layout">
@@ -94,6 +93,5 @@ export function GigOrders() {
                     </table>
                 </div>
             </section>
-        </GigLayout>
     )
 }

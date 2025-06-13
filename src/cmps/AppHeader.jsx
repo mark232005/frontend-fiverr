@@ -9,6 +9,7 @@ import { overlay, setFilterBy } from '../store/gig.actions.js'
 import { ProfileModal } from './ProfileModal.jsx'
 import { SET_FILTER_BY } from '../store/gig.reducer.js'
 import { debounce } from '../services/util.service.js'
+import { NavBar } from './Categories.jsx'
 
 
 
@@ -36,12 +37,10 @@ export function AppHeader() {
     }
 
     return (
-        <header className="app-header  ">
-            <div className='full'>
+        <section>
 
-            </div>
+        <header className="app-header">
             <nav className=''>
-
                 <NavLink to="/" className="logo-txt">
                     alufix<span className="dom"></span>
                 </NavLink>
@@ -95,5 +94,7 @@ export function AppHeader() {
 
             </nav>
         </header >
+            <NavBar/>
+        </section>
     )
 }

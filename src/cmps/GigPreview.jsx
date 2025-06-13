@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { FullSparkIcon, SparkIcon, StarIcon } from '../svg'
 import { useNavigate } from 'react-router'
+import { useState } from 'react';
 
 
 export function GigPreview({ gig }) {
     const navigate = useNavigate()
-
+    const [underlineTitle, setUnderlineTitle] = useState(false);
     function isLavel(lavel) {
         switch (lavel) {
             case '1':
@@ -38,12 +39,12 @@ export function GigPreview({ gig }) {
     }
     return (
         <article className="preview">
-            <img onClick={()=>navigate(`/gig/${gig._id}`)} src={gig.imgUrl} />
+            <img onClick={() => navigate(`/gig/${gig._id}`)} src={gig.imgUrl} />
             <div className="owner-details flex">
                 <div className="owner-profile flex">
                     <img src={gig.owner.imgUrl} />
                     {/* <span>{gig.owner.fullname}</span> */}
-                    <a href={`user/${gig.owner}`}>{gig.owner.fullname}</a>
+                    <a  href={`user/${gig.owner}`}>{gig.owner.fullname}</a>
                 </div>
                 <div className="user-level flex">
                     {
@@ -53,16 +54,18 @@ export function GigPreview({ gig }) {
                     <span> {isLavel(gig.owner.level)}</span>
                 </div>
             </div>
-            <a href={`gig/${gig._id}`}>{gig.title}</a>
+            <a className={underlineTitle?'underline':''} href={`gig/${gig._id}`}>{gig.title}</a>
             <div className="rate">
-                <StarIcon/>
+                <StarIcon />
                 <span>{gig.owner.rate}.0</span>
                 <span className="reviews">({gig.reviews?.length || 0})</span>
             </div>
 
-            <div className="count">
+            <a  href={`gig/${gig._id}`} onMouseEnter={() => setUnderlineTitle(true)}
+                onMouseLeave={() => setUnderlineTitle(false)}
+                 className="count">
                 From ₪{gig.price}
-            </div>
+            </a>
         </article>
     )
 }

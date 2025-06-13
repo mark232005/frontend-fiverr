@@ -1,165 +1,483 @@
-.details-page {
-    position: relative;
+.main-details-page {
 
-    .gig-details {
-        h1 {
-            color: #222325;
-            font-family: 'MacanBold', sans-serif;
-            font-size: 28px;
-            padding: 0 0 16px;
-            margin: 0;
+    margin: 0 auto;
+    padding: 16px 32px 0 32px;
+    max-width: 1304px;
+
+    .index-header {
+        padding-top: 6px;
+        margin-bottom: 28px;
+        min-height: 0;
+
+        h2 {
+            display: none;
+            padding: 0;
         }
 
-        .owner-details-container {
-            img {
-                height: 62px;
-                width: 62px;
-            }
+        p {
+            display: none;
+        }
+    }
 
-            .profile-container {
-                display: flex;
+    .details-page {
+        display: grid;
+        grid-template-columns: auto 414.55px;
+        position: relative;
+
+        .gig-details {
+            max-width: 712px;
+            margin-right: 9.15%;
+
+            .owner-rate {
                 align-items: center;
-                gap: 0.75em;
 
-                .details-owner-profile-img {
-                    border-radius: 50%;
-                    cursor: pointer;
-                    width: 4em;
+                p {
+                    margin: 0;
+                    color: #74767e;
+                    font-family: 'MacanBold', sans-serif;
+                    font-size: 16px;
+                    margin-left: 4px;
                 }
 
-                .owner-details {
-                    align-items: center;
-                    justify-content: space-around;
-                    flex-direction: column;
-                    gap: 4px;
+                strong {
 
-                    .user-container {
-                        display: inline-flex;
+                    color: #222325;
+                    font-family: 'MacanBold', sans-serif;
+                    font-size: 16px;
+                    padding-left: 4px;
+                }
+            }
+
+            h1 {
+                color: #222325;
+                font-family: 'MacanBold', sans-serif;
+                font-size: 28px;
+                padding: 0 0 16px;
+                margin: 0;
+            }
+
+            .owner-details-container {
+                img {
+                    object-fit: cover;
+                    height: 62px;
+                    width: 62px;
+                }
+
+                .profile-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75em;
+
+                    .details-owner-profile-img {
+                        border-radius: 50%;
+                        cursor: pointer;
+                        width: 4em;
+                    }
+
+                    .owner-details {
                         align-items: center;
-                        gap: 0.5em;
+                        justify-content: space-around;
+                        flex-direction: column;
+                        gap: 4px;
+
+                        .user-container {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 0.5em;
+
+                        }
+
+                        h3 {
+                            gap: 4px;
+                            align-items: center;
+                            color: #222325;
+                            font-family: 'MacanBold', sans-serif;
+                            margin-bottom: 0;
+                            line-height: 1;
+                            font-size: 16px;
+                            margin-right: 8px;
+
+                            q span {
+                                font-size: 14px;
+                                font-family: 'MacanBold', sans-serif;
+                                color: #222325;
+                            }
+
+                            .user-level {
+                                gap: 4px;
+
+                                span {
+                                    font-size: 14px;
+                                    color: #222325;
+                                    font-family: 'MacanBold', sans-serif;
+                                    font-weight: 550;
+
+                                }
+
+                                .top-rated {
+                                    font-weight: 590;
+                                    font-size: 14px;
+                                    color: #421300;
+                                    background-color: #ffe0b3;
+                                    padding: 3px 6px;
+                                    border-radius: 5px;
+                                    font-family: 'MacanBold', sans-serif;
+
+                                }
+
+                                .alufix-choice {
+                                    border-radius: 5px;
+                                    font-family: 'MacanBold', sans-serif;
+                                    font-weight: 590;
+                                    font-size: 14px;
+                                    padding: 3px 6px;
+                                    color: #ffff;
+                                    background-color: #122349;
+
+                                    span {
+                                        color: #1dbf73;
+                                    }
+                                }
+                            }
+
+                        }
+
 
                     }
 
-                    h3 {
-                        color: #222325;
-                        font-family: 'MacanBold', sans-serif;
-                        margin-bottom: 0;
-                        line-height: 1;
-                        font-size: 16px;
-                        margin-right: 8px;
+                }
+            }
 
-                        span {
-                            font-size: 14px;
-                            font-family: 'MacanBold', sans-serif;
-                            color: #222325;
+            .carousle-conteiner {
+                img {
+                    width: 80%;
+                    height: 80%;
+                    margin: 25px 0;
+                }
+
+            }
+
+            .about-gig {
+                h1 {
+                    font-family: 'MacanBold', sans-serif;
+                    color: #404145;
+                    font-size: 20px;
+                    padding: 0 0 25px;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-family: 'MacanBold', sans-serif;
+                    color: #62646a;
+                }
+            }
+        }
+
+        .package-card {
+            border-radius: 8px;
+            position: sticky;
+            width: 100%;
+            border: 1px solid #dadbdd;
+            top: 24px;
+            align-self: flex-start;
+
+            header {
+                display: flex;
+
+                button:first-child {
+                    border-top-left-radius: 8px;
+                    border-bottom: 1px solid #dadbdd;
+                }
+
+                button:last-child {
+                    border-top-right-radius: 8px;
+                    border-bottom: 1px solid #dadbdd;
+                }
+
+                button {
+                    color: #74767e;
+                    font-weight: 700;
+                    border: 1px solid #dadbdd;
+                    width: 100%;
+                    margin: 0;
+                    font-size: 16px;
+                    background: #fafafa;
+                    padding: 16px;
+                    border-top: none;
+                    &.selected{
+                        border-bottom: 3px solid #222325;
+                        color:#222325 ;
+                        background-color: #ffff;
+                    }
+                }
+            }
+
+            .card-body {
+                padding: 32px 24px 0 24px;
+
+                .price {
+                    font-family: 'MacanBold', sans-serif;
+                    flex-direction: column;
+                    font-size: 24px;
+                    color: #404145;
+
+                    .count {
+                        font-weight: 700;
+
+                    }
+
+                    .txt {
+                        margin-top: 2px;
+                        font-size: 16px;
+                    }
+                }
+
+                p {
+                    font-size: 16px;
+                    font-family: 'MacanBold', sans-serif;
+                    color: #62646a;
+                    margin: 24px 0px 10px;
+                    padding-bottom: 10px;
+
+                    span {
+                        font-weight: bolder;
+                    }
+                }
+
+                .additional-info {
+                    color: #62646a;
+                    font-family: 'MacanBold', sans-serif;
+                    font-size: 14px;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-bottom: 8px;
+
+                    .delivery {
+                        align-items: center;
+
+                        b {
+                            margin-left: 8px;
                         }
                     }
 
+                    .revisions {
+                        margin-left: 16px;
+                        align-items: center;
 
+                        b {
+                            margin-left: 8px;
+                        }
+                    }
+                }
+
+                ul {
+                    margin-bottom: 20px;
+
+                    li {
+                        gap: 12px;
+                        display: flex;
+                        align-items: center;
+                        font-family: 'MacanBold', sans-serif;
+                        font-size: 14px;
+                        color: #95979d;
+
+                    }
+                }
+
+                .continue-btn {
+                    padding: 0 24px 20px 24px;
+
+                    button {
+                        margin: 0;
+                        width: 100%;
+                        background-color: #000000;
+                        color: white;
+                        min-width: 100%;
+                        padding: 12px 24px;
+                    }
+                }
+            }
+
+        }
+
+        .get-to-know {
+            max-width: 712px;
+            margin-right: 5.5%;
+            margin-bottom: 64px;
+
+            h2 {
+                color: #222325;
+                font-size: 20px;
+                font-family: 'MacanBold', sans-serif;
+                padding-bottom: 25px;
+            }
+
+            .user-profile {
+                display: flex;
+                gap: 20px;
+
+                img {
+                    border-radius: 50%;
+                    width: 96px;
+                    height: 96px;
+                    object-fit: cover;
+                }
+
+                .user-details {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr 1fr;
+
+
+                    .name {
+                        color: #404145;
+                        font-size: 16px;
+                        font-family: 'MacanBold', sans-serif;
+                        text-transform: capitalize;
+                    }
+
+                    span {
+                        color: #62646a;
+                        font-size: 16px;
+                        font-family: 'MacanBold', sans-serif;
+
+                    }
+
+
+                    .rating-info {
+                        align-items: center;
+                        gap: 12px;
+
+                        .user-level {
+                            gap: 4px;
+
+                            span {
+                                font-size: 14px;
+                                color: #222325;
+                                font-family: 'MacanBold', sans-serif;
+                                font-weight: 550;
+
+                            }
+
+                            .top-rated {
+                                font-weight: 590;
+                                font-size: 14px;
+                                color: #421300;
+                                background-color: #ffe0b3;
+                                padding: 0 6px;
+                                border-radius: 5px;
+                                font-family: 'MacanBold', sans-serif;
+
+                            }
+
+                            .alufix-choice {
+                                border-radius: 5px;
+                                font-family: 'MacanBold', sans-serif;
+                                font-weight: 590;
+                                font-size: 14px;
+                                padding: 0 6px;
+                                color: #ffff;
+                                background-color: #122349;
+
+                                span {
+                                    color: #1dbf73;
+                                }
+                            }
+                        }
+
+                        .rating {
+                            align-items: center;
+                            gap: 4px;
+                        }
+                    }
+                }
+            }
+
+            button {
+                color: #222325;
+                font-size: 16px;
+                font-family: 'MacanBold', sans-serif;
+                background-color: transparent;
+                border: 1px solid #222325;
+                padding: 8px 16px;
+                margin: 20px 0 24px 0;
+                border-radius: 8px;
+            }
+        }
+
+        .seller-profile {
+
+            .vetted-info {
+                padding: 24px;
+                border-bottom: none;
+                border: 1px solid #dadbdd;
+
+                p {
+                    font-family: 'MacanBold', sans-serif;
+                    margin-bottom: 24px;
+                    color: #222325;
+                    font-size: 16px;
+                }
+
+                h1 {
+                    font-family: 'MacanBold', sans-serif;
+                    color: #222325;
+                    font-size: 16px;
+                    margin-bottom: 16px;
+                }
+
+                span {
+                    font-family: 'MacanBold', sans-serif;
+                    color: #222325;
+                    font-size: 16px;
+                    margin-bottom: 16px;
+                    font-weight: 400;
+                }
+            }
+
+            .seller-details {
+                padding: 24px;
+                border: 1px solid #dadbdd;
+
+                ul {
+                    margin: 0;
+                    display: flex;
+                    flex-flow: row wrap;
+                    border-bottom: 1px solid #dadbdd;
+
+
+                    li {
+                        h2 {
+                            color: #74767e;
+                            font-size: 16px;
+                            font-family: 'MacanBold', sans-serif;
+                            padding: 0;
+
+                        }
+
+                        width: 50%;
+                        padding-bottom: 16px;
+
+                        strong {
+                            color: #62646a;
+                            padding-top: 4px;
+                        }
+                    }
+                }
+
+                .description {
+                    padding-top: 15px;
+
+                    p {
+                        margin: 0;
+                        color: #62646a;
+                        font-size: 16px;
+                        font-family: 'MacanBold', sans-serif;
+
+                    }
                 }
 
             }
         }
-
-        .carousle-conteiner {
-            img {
-                width: 80%;
-                height: 80%;
-                margin: 25px 0;
-            }
-
-        }
-
-        .about-gig {
-            h1 {
-                font-family: 'MacanBold', sans-serif;
-                color: #404145;
-                font-size: 20px;
-                padding: 0 0 25px;
-            }
-
-            p {
-                font-size: 16px;
-                font-family: 'MacanBold', sans-serif;
-                color: #62646a;
-            }
-        }
     }
 
-
-    .package-card {
-        top: 50px;
-        position: sticky;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px solid #ccc;
-        border-radius: 0.5em;
-        width: 100%;
-        max-height: 400px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        text-align: left;
-
-        .tabs {
-            display: flex;
-            width: 100%;
-            border-bottom: 2px solid #ccc;
-        }
-
-        .tab {
-            flex: 1;
-            padding: 1em;
-            text-align: center;
-            background: #f5f5f5;
-            cursor: pointer;
-            border-right: 1px solid #ccc;
-
-
-        }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            width: 100%;
-            padding: 2em 1.5em;
-
-            .card-price {
-                font-size: 2rem;
-                font-weight: bold;
-                margin-bottom: 1em;
-            }
-
-            h3 {
-                margin: 0 0 0.5em 0;
-            }
-
-            p {
-                flex-grow: 1;
-                margin-bottom: 1em;
-            }
-
-
-        }
-
-
-
-        .continue-btn {
-            background-color: black;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 0.75em 2em;
-            border-radius: 0.5em;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-
-            &:hover {
-                background-color: #333;
-            }
-        }
-    }
 }
