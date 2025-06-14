@@ -21,7 +21,7 @@ import { useSearchParams } from 'react-router-dom'
 
 export function GigIndex() {
     const dispatch = useDispatch()
-    const [searchParams] = useSearchParams()
+    const [searchParams , setSearchParams] = useSearchParams()
 
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
@@ -40,6 +40,7 @@ export function GigIndex() {
 
     function onSetFilterBy(newPartialFilter) {
         setFilterBy(newPartialFilter)
+        setSearchParams(newPartialFilter)
     }
 
     async function onremoveGig(gigId) {
