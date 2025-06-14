@@ -104,30 +104,51 @@ export function FilterModal({ openModel, onChange, filterBy, onApply }) {
                     openModel === "delivery-time" &&
                     <div className="radio-list flex">
                         <label>
-                            <input type="radio" name="delivery-time" />
+                            <input
+                                type="radio"
+                                name="deliveryTime"
+                                value="1"
+                                checked={filterBy.deliveryTime === "1"}
+                                onChange={onChange}
+                            />
                             Express 24H
                         </label>
 
                         <label>
-                            <input type="radio" name="delivery-time" />
+                            <input
+                                type="radio"
+                                name="deliveryTime"
+                                value="3"
+                                checked={filterBy.deliveryTime === "3"}
+                                onChange={onChange}
+                            />
                             Up to 3 days
                         </label>
 
                         <label>
-                            <input type="radio" name="delivery-time" />
+                            <input
+                                type="radio"
+                                name="deliveryTime"
+                                value="7"
+                                checked={filterBy.deliveryTime === "7"}
+                                onChange={onChange}
+                            />
                             Up to 7 days
-
                         </label>
 
                         <label>
-                            <input type="radio" name="delivery-time" />
+                            <input
+                                type="radio"
+                                name="deliveryTime"
+                                value=""
+                                checked={!filterBy.deliveryTime}
+                                onChange={onChange}
+                            />
                             Anytime
-
                         </label>
-
                     </div>
-
                 }
+
             </div>
             <div className="content-btn flex">
                 <button>Clear all</button>

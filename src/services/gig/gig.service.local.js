@@ -34,7 +34,8 @@ async function query(filterBy = {}) {
         filterBy.txt ||
         filterBy.category ||
         filterBy.level ||
-        filterBy.price
+        filterBy.price ||
+        filterBy.deliveryTime
 
     if (!hasAnyFilter) return gigs
 
@@ -62,6 +63,11 @@ async function query(filterBy = {}) {
         } else if (filterBy.price === 'above-105') {
             gigs = gigs.filter(gig => gig.price > 105)
         }
+    }
+
+    if (filterBy.deliveryTime) {
+        
+        gigs = gigs.filter(gig => +gig.daysToMake <= +filterBy.deliveryTime)
     }
 
     console.log('Filtered gigs result:', gigs)
@@ -122,7 +128,8 @@ function getDefaultFilter() {
         txt: '',
         category: '',
         level: '',
-        price: ''
+        price: '',
+        daysToMake: ''
     }
 }
 
