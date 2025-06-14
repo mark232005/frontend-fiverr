@@ -1,4 +1,4 @@
-export function FilterModal({ openModel, onChange, filterBy, onApply }) {
+export function FilterModal({ openModel, onChange, filterBy, onApply, onClear }) {
     function getFilterName(name) {
         switch (name) {
             case 'seller-details':
@@ -151,7 +151,12 @@ export function FilterModal({ openModel, onChange, filterBy, onApply }) {
 
             </div>
             <div className="content-btn flex">
-                <button>Clear all</button>
+                <button
+                    className="clear-btn"
+                    onClick={() => {
+                        onClear()
+                    }}
+                > Clear all</button>
                 <button
                     className="aplay-btn"
                     onClick={() => {

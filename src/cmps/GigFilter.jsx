@@ -54,6 +54,29 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     setFilterToEdit({ ...filterToEdit, level: '' })
   }
 
+  function applyFilter() {
+    setIsFilterModel(null)
+    onSetFilterBy(filterToEdit)
+  }
+
+  function clearAll() {
+    const emptyFilter = getEmptyFilter()
+
+    setFilterToEdit(emptyFilter)
+    onSetFilterBy(emptyFilter)
+    setIsFilterModel(null)
+  }
+
+  function getEmptyFilter() {
+    return {
+      txt: '',
+      category: '',
+      level: '',
+      price: '',
+      deliveryTime: ''
+    }
+  }
+
   return (
     <section
       ref={ref}
@@ -67,11 +90,8 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
             openModel={isFilterModel}
             onChange={handleChange}
             filterBy={filterToEdit}
-            onApply={() => {
-              setIsFilterModel(null)
-              onSetFilterBy(filterToEdit)
-
-            }}
+            onApply= {applyFilter}
+            onClear={clearAll}
           />
         )}
         <ArrowDownIcon />
