@@ -29,7 +29,14 @@ async function query(filterBy = {}) {
         _createGigs(gigs)
     }
 
-    if (!filterBy.txt && !filterBy.category && !filterBy.level) return gigs
+
+    const hasAnyFilter =
+        filterBy.txt ||
+        filterBy.category ||
+        filterBy.level ||
+        filterBy.price
+
+    if (!hasAnyFilter) return gigs
 
 
     if (filterBy.txt) {
@@ -45,6 +52,16 @@ async function query(filterBy = {}) {
 
     if (filterBy.level) {
         gigs = gigs.filter(gig => String(gig.owner?.level) === String(filterBy.level))
+    }
+
+    if (filterBy.price) {
+        if (filterBy.price === 'under-50') {
+            gigs = gigs.filter(gig => gig.price < 50)
+        } else if (filterBy.price === 'mid') {
+            gigs = gigs.filter(gig => gig.price >= 50 && gig.price <= 105)
+        } else if (filterBy.price === 'above-105') {
+            gigs = gigs.filter(gig => gig.price > 105)
+        }
     }
 
     console.log('Filtered gigs result:', gigs)
@@ -104,7 +121,8 @@ function getDefaultFilter() {
     return {
         txt: '',
         category: '',
-        level: ''
+        level: '',
+        price: ''
     }
 }
 

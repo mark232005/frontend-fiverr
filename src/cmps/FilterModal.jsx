@@ -63,32 +63,43 @@ export function FilterModal({ openModel, onChange, filterBy, onApply }) {
                     </div>
                 }
 
-                {
-                    openModel === "budget" &&
+                {openModel === "budget" &&
                     <div className="radio-list flex">
                         <label>
-                            <input type="radio" name="budget" />
-                            Value
-                            <span> Under 50$</span>
+                            <input
+                                type="radio"
+                                name="price"
+                                value="under-50"
+                                checked={filterBy.price === 'under-50'}
+                                onChange={onChange}
+                            />
+                            Under 50₪
                         </label>
 
                         <label>
-                            <input type="radio" name="budget" />
-                            Mid-range
-                            <span> 50$-105$</span>
-
+                            <input
+                                type="radio"
+                                name="price"
+                                value="mid"
+                                checked={filterBy.price === 'mid'}
+                                onChange={onChange}
+                            />
+                            50₪–105₪
                         </label>
 
                         <label>
-                            <input type="radio" name="budget" />
-                            High-end
-                            <span> 105$ & Above</span>
-
+                            <input
+                                type="radio"
+                                name="price"
+                                value="above-105"
+                                checked={filterBy.price === 'above-105'}
+                                onChange={onChange}
+                            />
+                            105₪ and above
                         </label>
-
                     </div>
-
                 }
+
                 {
                     openModel === "delivery-time" &&
                     <div className="radio-list flex">
