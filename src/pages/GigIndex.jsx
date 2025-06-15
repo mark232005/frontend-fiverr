@@ -77,10 +77,10 @@ export function GigIndex() {
         <main className="gig-index">
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
 
-            <NavBar />
-            <header>
+            {/* <NavBar /> */}
+            {/* <header>
                 <IndexHeader category={category} />
-            </header>
+            </header> */}
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
             <GigList

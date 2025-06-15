@@ -38,3 +38,17 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 20px;
 }
+
+.main-home-page {
+    display: grid;
+    grid-template-columns: minmax(32px,1fr) minmax(680px, 1400px) minmax(32px,1fr);
+    grid-template-rows: 680px 1fr;
+  
+    > * {
+      grid-column: 2;
+  
+      &.full {
+        grid-column: 1 / -1;
+      }
+    }
+  }
