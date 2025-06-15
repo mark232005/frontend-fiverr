@@ -5,6 +5,7 @@
 
 
 .nav-bar-container {
+  background-color: #fff;
   position: relative;
   margin: 0 auto;
   padding: 0 32px;
@@ -62,3 +63,15 @@
     padding-left: 0;
   }
 }
+// .categories-bar {
+//   transform: rotateX(-90deg);
+//   transform-origin: top;
+//   transition: transform 0.2s ease-out;
+//   visibility: hidden;
+//   height: 0;
+// }
+
+// .categories-bar.show {
+//   transform: rotateX(0deg);
+//   visibility: visible;
+// }

@@ -1,0 +1,337 @@
+.home-page {
+    video {
+        grid-column: 2;
+        grid-row: 1;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .video-content {
+        width: 100%;
+        padding: 120px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        grid-column: 2;
+        grid-row: 1;
+        gap: 28px;
+
+        h1 {
+            font-weight: 280;
+            font-family: Roboto;
+            font-size: 72px;
+            color: #ffffff;
+        }
+
+        .search-header {
+            position: relative;
+            align-items: center;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden
+        }
+
+        .search-input {
+            border-radius: 12px;
+            height: 100%;
+            width: 100%;
+            padding: 10px 48px 10px 16px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none
+        }
+
+        .search-input:focus {
+            border: 1px solid #222325;
+
+        }
+
+        .search-btn {
+            position: absolute;
+            margin-left: 0;
+            background-color: #222325;
+            right: 6px;
+            border-radius: 8px;
+            padding: 8px 16px;
+
+            &:hover {
+                background-color: #404145;
+
+            }
+
+            svg {
+                height: 16px;
+                width: 16px;
+            }
+        }
+
+        .btn-video {
+            gap: 16px;
+            flex-wrap: wrap;
+
+            button {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                align-items: center;
+                line-height: 24px;
+                font-weight: 100;
+                font-family: Roboto;
+                font-size: 16px;
+                border-radius: 8px;
+                padding: 0 16px 8px;
+                border: 1px solid #ffff;
+                color: #ffffff;
+                background-color: transparent;
+            }
+        }
+
+        .trusted {
+            margin-top: 90px;
+
+            align-items: center;
+            gap: 56px;
+
+            span {
+                font-family: Roboto;
+                font-size: 16px;
+                color: #ffffff;
+            }
+
+            .imgs {
+                max-height: 17.87px;
+                gap: 48px;
+            }
+        }
+    }
+
+    .nav-bar-header {
+        padding: 12px 44px;
+        margin-top: 28px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: auto;
+        max-width: 1360px;
+
+        button {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 .880517px rgba(0, 0, 0, .029), 0 0 2.29197px rgba(0, 0, 0, .03), 0 0 5.52px rgba(0, 0, 0, .054), 0 0 11px rgba(0, 0, 0, .09);
+            border: 1px solid #fff;
+            background-color: #fff;
+            border-radius: 16px;
+            height: 120px;
+            width: 120px;
+            padding: 8px;
+            gap: 10px;
+
+            p {
+                font-family: Roboto;
+                word-break: keep-all;
+                font-weight: 600;
+                font-size: 14px;
+                text-align: start;
+                color: #222325;
+                height: 48px;
+                margin: 0;
+            }
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+
+            &:hover {
+                background: radial-gradient(63.44% 63.44% at 50% 50%, #c2ffe2 0, #fff 100%), #fff;
+
+            }
+        }
+    }
+
+    .popular-services {
+        padding: 40px 30px;
+        flex-direction: column;
+        gap: 32px;
+        position: relative;
+
+
+        h2 {
+            font-family: Roboto;
+            font-size: 48px;
+            color: #404145;
+        }
+
+        .btn {
+            display: flex;
+            gap: 16px;
+            overflow-x: hidden;
+            pointer-events: none;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 8px;
+
+            h3 {
+                font-family: Roboto;
+                font-size: 18px;
+                line-height: 28px;
+                text-align: start;
+                color: #fff;
+                padding: 0 10px;
+            }
+
+            button {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .13);
+                background-color: #003912;
+                min-height: 266px;
+                padding: 25px 6px 6px;
+                border-radius: 16px;
+                min-width: 200px;
+                margin: 12px 4px;
+            }
+
+            img {
+                object-fit: cover;
+                height: 157px;
+                min-width: 188px;
+                border-radius: 12px;
+            }
+        }
+
+        .arrow {
+            position: absolute;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            cursor: pointer;
+
+            &.lift {
+                top: 55%;
+
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                margin: auto;
+                left: 10px;
+                background-color: white;
+            }
+
+            &.right {
+                top: 55%;
+                width: 48px;
+                height: 48px;
+                background-color: white;
+                border-radius: 50%;
+                margin: auto;
+                right: 10px;
+            }
+        }
+    }
+
+    .instant-results {
+        justify-self: center;
+        margin: auto 0;
+        margin-right: 30px;
+        margin-left: 30px;
+        gap: 84px;
+        height: auto;
+        width: 100%;
+        margin-bottom: 40px;
+        border-radius: 16px;
+        padding: 64px;
+        background-position: 0 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 436px;
+        background-image: url(https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/0c5d27341258f57a0e7c798074aeaa96-1743599633530/Background%20_%20Go%20section.png);
+
+        video {
+            max-width: 600px;
+            max-height: 400px;
+        }
+
+        .instant-results-txt {
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        h1 {
+            font-family: 'MacanBold', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            white-space: nowrap;
+            letter-spacing: -3px;
+
+            span {
+                font-family: sofia;
+            }
+        }
+
+        h2 {
+            font-size: 48px;
+            color: #fff;
+            font-weight: 300;
+            line-height: 100%;
+            font-family: Grotesk;
+        }
+
+        p {
+            text-align: start;
+            color: #fff;
+            font-family: Roboto;
+            font-size: 16px;
+        }
+
+        .b {
+            border-radius: 8px;
+            margin: 0;
+            align-self: start;
+            text-align: start;
+            background-color: #efeff0;
+            padding: 0 20px;
+            line-height: 22px;
+            font-size: 16px;
+            color: #0e0e0f;
+            height: 42px;
+            border-color: transparent;
+        }
+    }
+}
+
+.sticky-mood {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    .hidden {
+        opacity: 0;
+    }
+
+    .showInput {
+        transition: opacity 0.5s ease;
+    }
+
+    .categories-bar {
+        transform: rotateX(-90deg);
+        transform-origin: top;
+        transition: transform 0.2s ease-out;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .categories-bar.show {
+        transform: rotateX(0deg);
+        visibility: visible;
+    }
+}

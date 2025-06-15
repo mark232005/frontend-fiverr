@@ -48,7 +48,7 @@ export function NavBar() {
 
     }
     return (
-        <div className="nav-bar-wrapper">
+        <div className="nav-bar-wrapper  ">
 
         <section className="nav-bar-container  ">
             {canScrollLeft &&
