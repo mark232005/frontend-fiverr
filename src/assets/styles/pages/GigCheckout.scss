@@ -1,0 +1,111 @@
+.checkout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 20px;
+    grid-auto-flow: column;
+    padding-inline: 55px;
+    margin-top: 50px;
+
+    .billing-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #efeff0;
+        border-radius: 4px;
+        margin-bottom: 24px;
+
+        .billing-info-header {
+            line-height: 24px;
+            padding: 16px;
+            padding-top: 23px;
+            background-color: #fafafa;
+            border-bottom: 1px solid #efeff0;
+        }
+
+        .user-details-wrapper {
+            color: #62646a;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: space-between;
+            line-height: 24px;
+            text-align: left;
+            padding: 20px;
+        }
+    }
+
+    .billing-info-wrapper-payment {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #efeff0;
+        border-radius: 4px;
+        margin-bottom: 24px;
+
+
+        .billing-info-header {
+            line-height: 24px;
+            padding: 16px;
+            padding-top: 23px;
+            padding-bottom: 23px;
+            background-color: #fafafa;
+            border-bottom: 1px solid #efeff0;
+        }
+
+        .payment-options {
+            display: flex;
+            padding: 16px 16px 0;
+            height: 63px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .credit-card-details-wrapper {
+            padding: 0 18px 24px;
+            border-bottom: 1px solid #efeff0;
+
+            .credit-card-details {
+
+                .card,
+                .card-number {
+                    font-size: 11px;
+                    margin-top: 5.5px;
+                    margin-block-end: 12px;
+                    display: flex;
+                    width: 100%;
+                    gap: 1em;
+                    align-items: center;
+                }
+
+                .card-number {
+                    flex-direction: column; // כי "Card Number" מעל לשדה
+                    align-items: flex-start;
+                }
+
+                .cradit-card-input-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5em;
+                    width: 100%;
+                }
+
+                .cradit-card-input-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5em;
+                    width: 100%;
+                }
+
+                .expiration-date,
+                .security-code,
+                .first-name,
+                .last-name {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+}

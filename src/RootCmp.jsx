@@ -21,6 +21,7 @@ import { GigIndex } from './pages/GigIndex.jsx'
 import { ProfilePage } from './pages/ProfilePage.jsx'
 import { GigOrders } from './pages/GigOrders.jsx'
 import { BackOffice } from './pages/BackOffice.jsx'
+import { GigCheckout} from './pages/GigCheckout.jsx'
 
 
 
@@ -42,6 +43,7 @@ export function RootCmp() {
                     <Route path="chat" element={<ChatApp />} />
                     <Route path="profile" element={<ProfilePage />} />
                     <Route path="seller" element={<BackOffice />} />
+                    <Route path="gig/:gigId/checkout" element={<GigCheckout/>}/>
                     <Route path="admin" element={
                         <AuthGuard checkAdmin={true}>
                             <AdminIndex />

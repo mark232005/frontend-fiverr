@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { CheckFullIcon, CheckIcon, ClockIcon, RefreshIcon } from "../svg";
+import { GigCheckout } from '../pages/GigCheckout'
+import { useNavigate } from 'react-router'
+
 
 
 
 export function PackageCard({ gig }) {
+    const navigate = useNavigate()
+
     const [selectedPackage, setSelectedPackage] = useState('basic')
     function isCount(selectedPackage) {
         switch (selectedPackage) {
@@ -64,7 +69,7 @@ export function PackageCard({ gig }) {
                     <li> {selectedPackage === 'premium' ? <CheckFullIcon /> : <CheckIcon />} <span>Subtitles</span></li>
                 </ul>
                 <div class="continue-btn">
-                    <button>Request to order</button>
+                    <button onClick={() => navigate(`/gig/${gig._id}/checkout`)} >Continue</button>
                 </div>
             </section>
         </section>
