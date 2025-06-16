@@ -98,6 +98,10 @@
                 >*:not(.profile-modal) {
                     padding: 0;
                 }
+                button{
+                    padding: 0;
+
+                }
             }
 
             button {
@@ -223,6 +227,7 @@
 
 
 .overlay {
+    top: 81px;
     display: none;
     position: fixed;
     left: 0;

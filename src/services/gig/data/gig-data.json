@@ -1,6 +1,7 @@
 [
   {
     "_id": "g101",
+    "status":"In stock",
     "title": "I will do hyper realistic pencil portrait by hand drawing",
     "about": "Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
     "price": 42,
@@ -61,6 +62,7 @@
   },
   {
     "_id": "g102",
+    "status":"In stock",
     "title": "I will do hyper realistic pencil sketch portrait by hand drawing",
     "about": "Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
     "price": 151,
@@ -84,6 +86,7 @@
   },
   {
     "_id": "g103",
+    "status":"Last units",
     "title": "I will draw a hyperrealistic portrait of face or entire body and animals",
     "about": "Hello! I'm a brazilian artist specialized in hyperrealistic drawings and paintings of human figures and animals, i use a diversity of techniques like Oil painting, dry pastel drawing and pencil. I have over 30 years of experience, check out my portfolio.",
     "price": 198,
@@ -144,6 +147,7 @@
   },
   {
     "_id": "g104",
+    "status":"Last units",
     "title": "I will write sociology,psychology and social sciences articles",
     "about": "My name is Mary , a graduate from Mount Kenya University, I am professional writer and my focus is to every single detail. I will transform your dream to reality. I am experienced in article, project/content writing for a couple of years. Furthermore, I have a long history of writing research-focused content and projects. My ultimate goal is to closely with my client to deliver quality and comprehensive project. Let's take your business to the next level. Thank you",
     "price": 116,
@@ -204,6 +208,7 @@
   },
   {
     "_id": "g105",
+    "status":"Last units",
     "title": "I will do data entry, copy paste, web research as your VA",
     "about": "Hello! This is Rashin Faria, a Data Entry Specialist & Virtual Assistant at your service. I have excellent experience in Data Entry, Data Processing, Data Uploading, MS Word/Excel, Google Spreadsheet, PDF, Web Research, Ecommerce Product Entry, Data Scraping and others. With a 24/7 supporting team we work together for the betterment of the projects. We have extensive experience to do our project very fast and professionally. Client satisfaction is our first priority. Order Now! Regards Rashin Faria",
     "price": 200,
@@ -264,6 +269,7 @@
   },
   {
     "_id": "g106",
+    "status":"Sold qut",
     "title": "I will do data entry, copy paste and excel data entry work for you",
     "about": "I've been working as a Data entry operator for many years. I have a big team with so many professional people for managing data entry tasks. We believe that high quality and customer satisfaction is the most important thing for us. Feel free to drop a message for discussing your needs and objectives.",
     "price": 73,
@@ -324,6 +330,7 @@
   },
   {
     "_id": "g107",
+    "status":"Sold qut",
     "title": "I will do excel data entry, copypaste, and any type of data entry",
     "about": "I'm glad you're here! My name is Abrar Hussain. I\u2019m a professional Transcriptionist and data entry expert. I\u2019ve a BS degree in Mechanical engineering. From last more than three years, I\u2019ve been working as a Data entry operator and English language transcriptionist. To me, customer satisfaction and providing the best quality work are always my top priorities. I\u2019m really good at MS Office and Transcript. Get yourselves a skillful creator and professional Assistant by simply contacting me. So, drop a message, and let's get started. I am also available for long term projects. Thanks!",
     "price": 106,
@@ -384,6 +391,7 @@
   },
   {
     "_id": "g108",
+    "status":"Sold qut",
     "title": "I will write you an attractive instagram bio",
     "about": "Thanks for stopping by! I'm a Social Media Specialist with 8+ years experience. I can help with all your Social Media related tasks! Send me a message. Let's get it done!",
     "price": 155,
@@ -444,6 +452,7 @@
   },
   {
     "_id": "g109",
+    "status":"In stock",
     "title": "I will develop a content strategy for your brand or business",
     "about": "Hello! My name is Maria, and I am a digital marketer with over 3 years of experience working with diverse brands and businesses. I am well versed in everything marketing, SEO, graphic design, writing, and video editing. I am a one-stop shop for whatever you and your brand needs. I look to working with you!",
     "price": 162,
@@ -503,7 +512,8 @@
     "category": "Digital Marketing"
   },
   {
-    "_id": "g110",
+    "_id": "g110",  
+      "status":"In stock",
     "title": "I will perform research on any subject matter for you",
     "about": "I am a current Doctoral Researcher with a strong research and scientific history, having published academic papers and presented at numerous international conferences. I have a BSc (Hons), a MScR, and have nearly finished my PhD. My experience has given me excellent research and written communication skills, as well as knowledge of how to present and illustrate data digitally. I am highly experienced in the use of the Microsoft Office and Adobe suite of apps. Outside of my career I am very interested in applying my scientific training to aspects of fitness and nutrition.",
     "price": 59,
@@ -564,6 +574,7 @@
   },
   {
     "_id": "g111",
+    "status":"In stock",
     "title": "I will provide quality essays research and summaries on any topic",
     "about": "I am an enthusiastic and proficient writer with 4+ years of research related experience. My journey in the writing industry kicked off at the University where I did countless research and gained more experience. I will assist you with any kind of research and solve your different business needs. Please reach out for excellent and timely work.",
     "price": 71,
@@ -624,6 +635,7 @@
   },
   {
     "_id": "g112",
+    "status":"In stock",
     "title": "I will deliver quality case study analysis, articles, research and summaries",
     "about": "I am a professional and diligent writer with more than 6 years experience as a freelance writer. My goal is your satisfaction and to deliver work that you will appreciate. Writing is my passion and I aim to do excellent work for all my clients that will meet the set goals and standards.",
     "price": 103,
@@ -684,6 +696,7 @@
   },
   {
     "_id": "g113",
+    "status":"In stock",
     "title": "I will do market research, business research, swot analysis, and competitive analysis",
     "about": "Hi, my name is Lay. I'm a professional writer in Microsoft word, excel, PowerPoint expert with years of experience. Through my time of work, I have been able to manage tasks such as document formatting & editing, designing, cleanup, and typing of documents for both individual firms and local governments, having worked that long I'm proficient and have the capacity in executing tasks involved in different fields requested by the client. Welcome, let us work together. regards, Troyeb84.",
     "price": 72,
@@ -744,6 +757,7 @@
   },
   {
     "_id": "g114",
+    "status":"In stock",
     "title": "I will translate english to hebrew and hebrew to english",
     "about": "Hi guys! I am a native level speaker (reader, writer, typer, dreamer) of Hebrew and English, and I live in beautiful Israel. I can translate English to Hebrew and Hebrew to English, for any type of content you need - articles, blog posts, social media posts, ads, books, presentation, reports and many more. I am SUPER organised and LOVE what I do. So let's start working on your projects! Contact me :)",
     "price": 120,
@@ -804,6 +818,7 @@
   },
   {
     "_id": "g115",
+    "status":"In stock",
     "title": "I will translate your website french to english, english to french",
     "about": "We are a small team consisting of bilingual English, French and Spanish speakers. We have extensive experience translating all kinds of documents ranging from academic essays to business reports, subtitles and scripts to short novels. We ensure all of our projects are completed with the highest degree of quality and our dedicated approach means that your translated document will be a perfect version, with attention paid over the register and vocabulary used.",
     "price": 109,
@@ -864,6 +879,7 @@
   },
   {
     "_id": "g116",
+    "status":"In stock",
     "title": "I will create professional 2d animation explainer video",
     "about": "Hello Welcome to AMA Studio. If You are looking for Explainer video or Want to share your Story With World in Creative Way Or Maybe you launched a music and thinking about a video for it well you came to the right place, here in ama studio we provide professional animation with 3 different styles, we also provide scriptwriting and professional voiceovers with multiple gender and multiple accents so what are you waiting for Contact us Now.",
     "price": 78,
@@ -924,6 +940,7 @@
   },
   {
     "_id": "g117",
+    "status":"Last units",
     "title": "I will write, rebrand, edit and optimize your linkedin profile",
     "about": "I'm one of Fiverr's original sellers and I will handle all of your copywriting and SEO blogging needs! You will see my reviews are OUTSTANDING. Fast turn-around and always here to help. :)",
     "price": 108,
@@ -984,6 +1001,7 @@
   },
   {
     "_id": "g119",
+    "status":"Last units",
     "title": "I will revamp your linkedin profile or write a professional summary, bio",
     "about": "I am Hina, a Certified Professional Resume Writer and Career Consultant. I can write and design a job-oriented Resume and Cover Letter and Optimize your LinkedIn profiles. I have successfully helped recruit and land jobs for thousands of job seekers. As a professional Article Writer and Editor, I have extensive experience in Content Writing, Blog Post Writing, Proofreading Editing, and Copywriting. I am MS Office Certified and an expert in Data entry, file conversion, and PowerPoint presentations. Order with confidence! Always open to custom offers!",
     "price": 165,
@@ -1044,6 +1062,7 @@
   },
   {
     "_id": "g118",
+    "status":"Sold qut",
     "title": "I will write and optimize your linkedin profile in 24 hours",
     "about": "As a CV Writer, Resume Writer, Covering Letter Writer, and LinkedIn Profile Writer, I have written CVs for hundreds of people from all walks of life and within many different market sectors. I help job seekers build their LinkedIn presence and create compelling resumes, so they can get in front of recruiters, impress hiring managers, and land the perfect job for them. I'm excited to help you kickstart your career!",
     "price": 53,

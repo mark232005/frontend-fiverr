@@ -22,6 +22,7 @@ export function AppHeader() {
     const dispatch = useDispatch()
     const location = useLocation()
     const isHomePage = location.pathname === '/'
+    const isBackOfice = location.pathname === '/seller'
     const [showNavBar, setShowNavBar] = useState(false)
     const [showInputSearch, setShowInputSearch] = useState(false)
 
@@ -50,8 +51,9 @@ export function AppHeader() {
             showErrorMsg('Cannot logout')
         }
     }
-
+    if (isBackOfice) return
     return (
+
         <section className={`${isHomePage ? 'sticky-mood' : ''}`}>
 
             <header className="app-header">
@@ -60,7 +62,7 @@ export function AppHeader() {
                         alufix<span className="dom"></span>
                     </NavLink>
 
-                    <div className={`search-header flex ${showInputSearch?'showInput':'hidden'}`}>
+                    <div className={`search-header flex ${showInputSearch ? 'showInput' : 'hidden'}`}>
 
                         <input type="search"
                             placeholder="What service are you looking for today?"
@@ -76,7 +78,7 @@ export function AppHeader() {
                             onBlur={() => overlay(false)}>
                             <Search />
                         </button>
-                    </div> 
+                    </div>
 
                     <div className="user-container">
 
@@ -86,7 +88,7 @@ export function AppHeader() {
 
                                     <button > Orders</button>
                                 </Link>
-                                <button > Switch to selling</button>
+                                <button onClick={() => navigate('seller')} > Switch to selling</button>
                                 {user.imgUrl &&
                                     <>
                                         <img src={user.imgUrl} onClick={() => setOpenModal(prev => !prev)} />

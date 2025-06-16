@@ -15,15 +15,20 @@
         min-height: 100vh;
 
         table {
+            min-width: 900px;
             border-collapse: collapse;
             border: 1px solid #dadbdd;
             color: #7a7d85;
 
             th {
+                text-align: start;
                 padding: 10px 10px 10px 20px;
                 color: #7a7d85;
                 text-transform: uppercase;
                 border-bottom: 1px solid #dadbdd;
+            }
+            th:last-child {
+                text-align: end;
             }
 
             tr {

@@ -4,7 +4,9 @@ import { saveToStorage } from "../util.service"
 const STORAGE_KEY = 'orders'
 import ordersData from './data/orders-data.json'
 export const ordersService = {
-    query
+    query,
+    getOrderById,
+    updateOrder
 }
 async function query() {
     let orders = await storageService.query(STORAGE_KEY)
@@ -13,6 +15,13 @@ async function query() {
         _createOrders(orders)
     }
     return orders
+}
+
+async function getOrderById(orderId){
+    return storageService.get(STORAGE_KEY, orderId)
+}
+async function updateOrder(order){
+    return storageService.put(STORAGE_KEY,order )
 }
 
 

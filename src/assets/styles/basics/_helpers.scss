@@ -8,7 +8,9 @@
 .fs30 { font-size: rem(30px); }
 
 // flex helpers
-
+.relative{
+    position: relative;
+}
 .flex {
 
     display: flex;

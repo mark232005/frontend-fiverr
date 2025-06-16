@@ -2,7 +2,7 @@ import { ordersService } from "../services/orders/gig.service.local"
 
 
 import { store } from '../store/store'
-import { SET_ORDERS } from "./orders.reducer"
+import { SET_ORDERS, UPDATE_ORDER } from "./orders.reducer"
 
 
 export async function loadOrders() {
@@ -12,5 +12,16 @@ export async function loadOrders() {
     } catch (err) {
         console.log('Cannot load orders', err)
         throw err
+    }
+}
+export async function updateOrder(newOrder) {
+    try {
+const order= await ordersService.updateOrder(newOrder)
+store.dispatch({type:UPDATE_ORDER,order})
+    } 
+    catch {
+        console.log('Cannot update order', err)
+        throw err
+
     }
 }

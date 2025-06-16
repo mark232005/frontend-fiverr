@@ -4,7 +4,6 @@ import { ManageOrders } from "../cmps/ManageOrders";
 import { userService } from "../services/user/user.service.local";
 import { useEffect } from "react";
 import { loadOrders } from "../store/orders.actions";
-import { GigLayout } from "../cmps/GigLayout";
 
 export function ProfilePage() {
     useEffect(()=>{
