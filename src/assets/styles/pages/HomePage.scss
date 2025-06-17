@@ -8,7 +8,7 @@
     }
 
     .video-content {
-        width: 100%;
+        width:max-content;
         padding: 120px 32px 32px 32px;
         display: flex;
         flex-direction: column;
@@ -18,8 +18,8 @@
         gap: 28px;
 
         h1 {
-            font-weight: 280;
-            font-family: Roboto;
+            font-weight: 100;
+            font-family: Macan;
             font-size: 72px;
             color: #ffffff;
         }
@@ -29,7 +29,26 @@
             align-items: center;
             height: 60px;
             border-radius: 4px;
-            overflow: hidden
+            overflow: hidden;
+            
+            .clear-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 65px;
+                height: 27px;
+                width: 30px;
+                padding: 0;
+                border-radius: 50%;
+                align-items: center;
+                justify-items: center;
+
+                &:hover {
+                    background-color: #e3e5ed;
+                }
+            }
+
         }
 
         .search-input {
@@ -39,7 +58,15 @@
             padding: 10px 48px 10px 16px;
             border: 1px solid #ccc;
             font-size: 16px;
-            outline: none
+            outline: none;
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-decoration,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+                display: none;
+                -webkit-appearance: none;
+            }
+
         }
 
         .search-input:focus {
@@ -80,7 +107,7 @@
                 font-family: Roboto;
                 font-size: 16px;
                 border-radius: 8px;
-                padding: 0 16px 8px;
+                padding: 8px 16px;
                 border: 1px solid #ffff;
                 color: #ffffff;
                 background-color: transparent;
@@ -242,7 +269,7 @@
         margin-left: 30px;
         gap: 84px;
         height: auto;
-        width: 100%;
+        width: 96%;
         margin-bottom: 40px;
         border-radius: 16px;
         padding: 64px;

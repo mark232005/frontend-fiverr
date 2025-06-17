@@ -25,7 +25,7 @@ export function ArrowLiftIcon({ width = 15, height = 15, fill = 'rgb(122, 125, 1
       width={width}
       height={height}
       fill={fill}
-      >
+    >
 
       <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" /></svg>
   )
@@ -40,7 +40,7 @@ export function HomeIcon({ width = 16, height = 16, fill = "currentColor" }) {
 
 
 
-export function ArrowDownIcon(){
+export function ArrowDownIcon() {
   return (
     <svg
       width="12"
@@ -54,20 +54,20 @@ export function ArrowDownIcon(){
   )
 }
 
-export function FullSparkIcon(){
-  return(
+export function FullSparkIcon() {
+  return (
 
-  <svg 
-  xmlns="http://www.w3.org/2000/svg" 
-  viewBox="0 0 10 10" 
-  width="10" 
-  height="10" 
-  fill="currentColor"
->
-  <path 
-    d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z"
-  />
-</svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 10 10"
+      width="10"
+      height="10"
+      fill="currentColor"
+    >
+      <path
+        d="M4.839.22a.2.2 0 0 1 .322 0l1.942 2.636a.2.2 0 0 0 .043.043L9.782 4.84a.2.2 0 0 1 0 .322L7.146 7.105a.2.2 0 0 0-.043.043L5.161 9.784a.2.2 0 0 1-.322 0L2.897 7.148a.2.2 0 0 0-.043-.043L.218 5.163a.2.2 0 0 1 0-.322l2.636-1.942a.2.2 0 0 0 .043-.043L4.839.221Z"
+      />
+    </svg>
   )
 }
 
@@ -89,10 +89,10 @@ export function StarIcon() {
   return (
     <svg
       width={15}
-      height={15} 
+      height={15}
       viewBox="0 0 16 15"
       xmlns="http://www.w3.org/2000/svg"
-     
+
     >
       <path
         fillRule="evenodd"
@@ -102,14 +102,14 @@ export function StarIcon() {
     </svg>
   )
 }
-export function LocationIcon({ size = 16}) {
+export function LocationIcon({ size = 16 }) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 13 16"
       xmlns="http://www.w3.org/2000/svg"
-   
+
     >
       <path
         fillRule="evenodd"
@@ -233,17 +233,17 @@ export function GoogleIcon({ size = 16 }) {
 
 export function RefreshIcon({ size = 16, color = "currentColor", className = "" }) {
   return (
-      <svg
-          width={size}
-          height={size}
-          viewBox="0 0 16 16"
-          xmlns="http://www.w3.org/2000/svg"
-          fill={color}
-          className={className}
-      >
-          <path d="M4.50001 11.4999C6.40001 13.3999 9.60001 13.3999 11.5 11.4999C12.2 10.7999 12.7 9.7999 12.9 8.7999L14.9 9.0999C14.7 10.5999 14 11.8999 13 12.8999C10.3 15.5999 5.90001 15.5999 3.10001 12.8999L0.900012 15.0999L0.200012 8.6999L6.60001 9.3999L4.50001 11.4999Z" />
-          <path d="M15.8 7.2999L9.40001 6.5999L11.5 4.4999C9.60001 2.5999 6.40001 2.5999 4.50001 4.4999C3.80001 5.1999 3.30001 6.1999 3.10001 7.1999L1.10001 6.8999C1.30001 5.3999 2.00001 4.0999 3.00001 3.0999C4.40001 1.6999 6.10001 1.0999 7.90001 1.0999C9.70001 1.0999 11.5 1.7999 12.8 3.0999L15 0.899902L15.8 7.2999Z" />
-      </svg>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      fill={color}
+      className={className}
+    >
+      <path d="M4.50001 11.4999C6.40001 13.3999 9.60001 13.3999 11.5 11.4999C12.2 10.7999 12.7 9.7999 12.9 8.7999L14.9 9.0999C14.7 10.5999 14 11.8999 13 12.8999C10.3 15.5999 5.90001 15.5999 3.10001 12.8999L0.900012 15.0999L0.200012 8.6999L6.60001 9.3999L4.50001 11.4999Z" />
+      <path d="M15.8 7.2999L9.40001 6.5999L11.5 4.4999C9.60001 2.5999 6.40001 2.5999 4.50001 4.4999C3.80001 5.1999 3.30001 6.1999 3.10001 7.1999L1.10001 6.8999C1.30001 5.3999 2.00001 4.0999 3.00001 3.0999C4.40001 1.6999 6.10001 1.0999 7.90001 1.0999C9.70001 1.0999 11.5 1.7999 12.8 3.0999L15 0.899902L15.8 7.2999Z" />
+    </svg>
   )
 }
 export function CheckFullIcon({ size = 16, color = 'balck' }) {
@@ -272,8 +272,8 @@ export function CheckIcon({ size = 16, color = 'currentColor' }) {
     </svg>
   )
 }
-export function EmptyStar(){
-  return(
+export function EmptyStar() {
+  return (
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#222325" viewBox="0 0 16 16"><path fill-rule="evenodd" d="m10.933 9.8 2.942-2.995-4.058-.625L8 2.33 6.183 6.18l-4.058.625L5.067 9.8l-.702 4.244L8 12.038l3.625 2.006zM16 6.2c0 .182-.125.353-.25.484l-3.49 3.57.826 5.04c.01.07.01.131.01.202 0 .272-.115.504-.394.504a.76.76 0 0 1-.385-.121L8 13.499l-4.317 2.38a.8.8 0 0 1-.385.121c-.279 0-.404-.242-.404-.504 0-.07.01-.131.02-.202l.826-5.04-3.5-3.57C.125 6.554 0 6.382 0 6.2c0-.302.298-.423.538-.463L5.365 5 7.53.413C7.615.222 7.779 0 8 0s.385.222.471.413l2.164 4.588 4.826.736c.231.04.539.16.539.463" clip-rule="evenodd"></path></svg>
   )
 }
@@ -282,7 +282,7 @@ export function RightArrowIcon({ size = 16, color = 'currentColor' }) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={size}
-      height={(size * 11) / 15} 
+      height={(size * 11) / 15}
       fill={color}
       viewBox="0 0 15 11"
     >
@@ -301,6 +301,17 @@ export function CaretDownIcon() {
     >
       <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
     </svg>
-  );
+  )
+}
+
+export function ClearIcon() {
+  return (
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+      width="16"
+      height="16"
+
+>
+<path fill="#6d727e" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+  )
 }
 
