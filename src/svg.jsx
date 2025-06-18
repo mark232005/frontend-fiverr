@@ -1,3 +1,5 @@
+import { color } from "framer-motion";
+
 export const Search = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>
 
@@ -356,4 +358,8 @@ export function AccessibilityIcon(){
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 16 16"><g clip-path="url(#accessibility_svg__a)"><path d="M8 5a.375.375 0 1 0 0-.75A.375.375 0 0 0 8 5" vector-effect="non-scaling-stroke"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.5 11.375 8 9.125m0 0 1.5 2.25M8 9.125v-1.5m0 0 2.25-.75M8 7.625l-2.25-.75M1.25 8a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0m7.125-3.375a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0" vector-effect="non-scaling-stroke"></path></g><defs><clipPath id="accessibility_svg__a"><path d="M0 0h16v16H0z" vector-effect="non-scaling-stroke"></path></clipPath></defs></svg>
   )
 }
-
+export function ClearFilter({color='#62646A'}){
+  return(
+    <svg width="10" height="10" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" fill={color}><path d="m8.485 7 4.487-4.487.926-.925a.35.35 0 0 0 0-.495l-.99-.99a.35.35 0 0 0-.495 0L7 5.515 1.588.102a.35.35 0 0 0-.495 0l-.99.99a.35.35 0 0 0 0 .495L5.514 7 .102 12.413a.35.35 0 0 0 0 .495l.99.99a.35.35 0 0 0 .495 0L7 8.485l4.487 4.487.926.926a.35.35 0 0 0 .495 0l.99-.99a.35.35 0 0 0 0-.495L8.485 7Z"></path></svg>
+  )
+}

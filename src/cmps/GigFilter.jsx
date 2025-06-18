@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { ArrowDownIcon } from '../svg'
+import { ArrowDownIcon, ClearFilter } from '../svg'
 import { FilterModal } from './FilterModal'
+import { p } from 'framer-motion/client'
 
 export function GigFilter({ filterBy, onSetFilterBy }) {
   const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
@@ -27,7 +28,6 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     const type = ev.target.type
     const field = ev.target.name
     let value
-
     switch (type) {
       case 'text':
       case 'radio':
@@ -59,6 +59,30 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     onSetFilterBy(filterToEdit)
   }
 
+  function renderActiveFilters(filterBy) {
+    const activeFilters = [
+      { label: 'level', value: filterBy.level },
+      { label: 'price', value: filterBy.price },
+      { label: 'deliveryTime', value: filterBy.deliveryTime }
+    ].filter(item => item.value)
+
+    return (
+      <div className="tab-title-filter flex">
+        {activeFilters.map(item => {
+          const showLevelLabel = item.label === 'level' && ['1', '2'].includes(item.value)
+
+          return (
+            <button key={item.label} onClick={() => clearAll()}>
+              {showLevelLabel ? `Level ${item.value}` : item.value}
+              <ClearFilter />
+            </button>
+          )
+        })}
+      </div>
+    )
+  }
+
+
   function clearAll() {
     const emptyFilter = getEmptyFilter()
 
@@ -78,36 +102,42 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
   }
 
   return (
-    <section
-      ref={ref}
-      className={`gig-filter flex sticki ${isSticky ? 'sticky-active' : ''}`}
-      style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fff' }}
-    >
-      <div className="flex filter-btn">
-        <button> Service options</button>
-        {isFilterModel && (
-          <FilterModal
-            openModel={isFilterModel}
-            onChange={handleChange}
-            filterBy={filterToEdit}
-            onApply= {applyFilter}
-            onClear={clearAll}
-          />
-        )}
-        <ArrowDownIcon />
-      </div>
-      <div className="flex filter-btn" onClick={() => setIsFilterModel('seller-details')}>
-        <button onClick={() => setIsFilterModel('seller-details')}>Seller details</button>
-        <ArrowDownIcon />
-      </div>
-      <div className="flex filter-btn" onClick={() => setIsFilterModel('budget')}>
-        <button>Budget</button>
-        <ArrowDownIcon />
-      </div>
-      <div className="flex filter-btn" onClick={() => setIsFilterModel('delivery-time')}>
-        <button>Delivery time</button>
-        <ArrowDownIcon />
-      </div>
-    </section>
+    <search>
+
+      <section
+        ref={ref}
+        className={`gig-filter flex sticki ${isSticky ? 'sticky-active' : ''}`}
+        style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fff' }}
+      >
+        <div className="flex filter-btn">
+          <button> Service options</button>
+          {isFilterModel && (
+            <FilterModal
+              openModel={isFilterModel}
+              onChange={handleChange}
+              filterBy={filterToEdit}
+              onApply={applyFilter}
+              onClear={clearAll}
+            />
+          )}
+          <ArrowDownIcon />
+        </div>
+        <div className={`flex filter-btn ${filterBy.level !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('seller-details')}>
+          <button onClick={() => setIsFilterModel('seller-details')}>Seller details</button>
+          <ArrowDownIcon />
+        </div>
+        <div className={`flex filter-btn ${filterBy.price !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('budget')}>
+          <button>Budget</button>
+          <ArrowDownIcon />
+        </div>
+        <div className={`flex filter-btn ${filterBy.deliveryTime !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('delivery-time')}>
+          <button>Delivery time</button>
+          <ArrowDownIcon />
+        </div>
+      </section>
+      {
+        renderActiveFilters(filterBy)
+      }
+    </search>
   )
 }

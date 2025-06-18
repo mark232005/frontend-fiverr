@@ -25,7 +25,7 @@ export function GigIndex() {
 
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const category = useSelector(storeState => storeState.gigModule.category)
+    const category = useSelector(storeState => storeState.gigModule.filterBy.category)
     const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
 
     useEffect(() => {
@@ -43,7 +43,7 @@ export function GigIndex() {
         setSearchParams(newPartialFilter)
     }
 
-    async function onremoveGig(gigId) {
+    async function onRemoveGig(gigId) {
         try {
             await removeGig(gigId)
             showSuccessMsg('Gig removed')
@@ -80,13 +80,13 @@ export function GigIndex() {
 
             {/* <NavBar /> */}
             {/* <header>
-                <IndexHeader category={category} />
             </header> */}
+            <IndexHeader category={category} />
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
             <GigList
                 gigs={gigs}
-                onRemoveGig={onremoveGig}
+                onRemoveGig={onRemoveGig}
                 onUpdateGig={onupdateGig} />
         </main>
     )

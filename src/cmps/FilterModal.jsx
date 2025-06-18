@@ -69,8 +69,8 @@ export function FilterModal({ openModel, onChange, filterBy, onApply, onClear })
                             <input
                                 type="radio"
                                 name="price"
-                                value="under-50"
-                                checked={filterBy.price === 'under-50'}
+                                value="Under 50₪"
+                                checked={filterBy.price === "Under 50₪"}
                                 onChange={onChange}
                             />
                             Under 50₪
@@ -80,8 +80,8 @@ export function FilterModal({ openModel, onChange, filterBy, onApply, onClear })
                             <input
                                 type="radio"
                                 name="price"
-                                value="mid"
-                                checked={filterBy.price === 'mid'}
+                                value="50₪–105₪"
+                                checked={filterBy.price === "50₪–105₪"}
                                 onChange={onChange}
                             />
                             50₪–105₪
@@ -91,8 +91,8 @@ export function FilterModal({ openModel, onChange, filterBy, onApply, onClear })
                             <input
                                 type="radio"
                                 name="price"
-                                value="above-105"
-                                checked={filterBy.price === 'above-105'}
+                                value="105₪ and above"
+                                checked={filterBy.price === "105₪ and above"}
                                 onChange={onChange}
                             />
                             105₪ and above
@@ -107,8 +107,8 @@ export function FilterModal({ openModel, onChange, filterBy, onApply, onClear })
                             <input
                                 type="radio"
                                 name="deliveryTime"
-                                value="1"
-                                checked={filterBy.deliveryTime === "1"}
+                                value="Express 24H"
+                                checked={filterBy.deliveryTime === "Express 24H"}
                                 onChange={onChange}
                             />
                             Express 24H
@@ -118,8 +118,8 @@ export function FilterModal({ openModel, onChange, filterBy, onApply, onClear })
                             <input
                                 type="radio"
                                 name="deliveryTime"
-                                value="3"
-                                checked={filterBy.deliveryTime === "3"}
+                                value="Up to 3 days"
+                                checked={filterBy.deliveryTime === "Up to 3 days"}
                                 onChange={onChange}
                             />
                             Up to 3 days
@@ -129,8 +129,8 @@ export function FilterModal({ openModel, onChange, filterBy, onApply, onClear })
                             <input
                                 type="radio"
                                 name="deliveryTime"
-                                value="7"
-                                checked={filterBy.deliveryTime === "7"}
+                                value="Up to 7 days"
+                                checked={filterBy.deliveryTime === "Up to 7 days"}
                                 onChange={onChange}
                             />
                             Up to 7 days

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 
 
 export function IndexHeader({ category }) {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     var description
     switch (category) {
         case 'Graphics & Design':
