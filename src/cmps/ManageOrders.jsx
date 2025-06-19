@@ -1,16 +1,19 @@
+
 import { useState } from "react"
 
 
-export function ManageOrders({ user,orders, onChangeStatus }) {
+export function ManageOrders({ user, orders, onChangeStatus }) {
 
     const [changeStatus, setChangeStatus] = useState('')
-    function handleChange({ target }) {
-        onChangeStatus(target.name, target.value)
-        setChangeStatus(prev => '')
+    function handleChange(orderId, status) {
+        onChangeStatus(orderId, status)
+        setChangeStatus('')
+
     }
+
     return (
         <section className="manage-orders">
-            <h1>Welcome,{user.fullname}</h1>
+            <h1>Welcome, {user.fullname}</h1>
             <h2>Manage Orders</h2>
             <table>
                 <thead>
@@ -39,15 +42,12 @@ export function ManageOrders({ user,orders, onChangeStatus }) {
                             </td>
                             <td>Nov 10, 2023</td>
                             <td>{order.gig.price}$</td>
-                            <td onClick={() => setChangeStatus(order._id)}><p className={order.status}>{order.status}</p>
-
-                                {changeStatus === order._id && <div class="radio-status ">
-                                    <label><input onChange={handleChange} name={order._id} type="radio" value={'Approved'} /> Approved</label>
-                                    <label><input onChange={handleChange} name={order._id} type="radio" value={'Pending'} /> Pending</label>
-                                    <label><input onChange={handleChange} name={order._id} type="radio" value={'Rejected'} /> Rejected</label>
-                                </div>}
-
-
+                            <td><p onClick={() => setChangeStatus(order._id)} className={order.status}>{order.status} </p>
+                                {changeStatus === order._id && <ul className="radio-status ">
+                                    <li><button onClick={() => handleChange(order._id, 'Approved')} >Approved</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'Pending')} >Pending</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'Rejected')}>Rejected</button></li>
+                                </ul>}
                             </td>
                         </tr>
                     ))}

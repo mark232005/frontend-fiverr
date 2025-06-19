@@ -1,0 +1,45 @@
+.add-gig {
+    .navbar-add-gig {
+        align-items: center;
+        min-height: 60px;
+        background: #fff;
+        border-bottom: 1px solid #dadbdd;
+        padding: 0 10%;
+
+        ul {
+            margin: 0;
+            height:60px;
+
+            li {
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                .icon {
+                    margin-right: 8px;
+                    justify-content: center;
+                    align-items: center;
+                    width: 25px;
+                    height: 25px;
+                    background: #c5c6c9;
+                    border-radius: 50%;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+                p{
+                    margin: 0;
+                    color: #b5b6ba;
+                    font-size: 14px;
+                }
+                .svg{
+                    margin: 0 16px;
+                }
+                .currStep{
+                    background-color: #1dbf73;
+                }
+            }
+        }
+    }
+}

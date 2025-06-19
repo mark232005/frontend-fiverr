@@ -74,7 +74,7 @@
                 color: #222325;
                 margin: 0;
                 font-family: 'MacanBold', sans-serif;
-                font-size: 24px;
+                font-size: 34px;
                 text-transform: capitalize;
             }
 
@@ -347,105 +347,6 @@
 
         }
 
-        // .my-gigs {
-        //     padding: 0 32px;
-        //     max-width: 1400px;
-        //     margin: 0 auto;
-        //     margin-top: 50px;
-
-        //     h2 {
-        //         color: #222325;
-        //         margin: 0;
-        //         font-family: 'MacanBold', sans-serif;
-        //         font-size: 24px;
-        //         text-transform: capitalize;
-
-        //     }
-
-        //     table {
-        //         margin-top: 20px;
-        //         width: auto;
-        //         border: 1px solid #dadbdd;
-        //         border-collapse: collapse
-        //     }
-
-
-        //     thead {
-        //         border: 1px solid #dadbdd;
-
-        //         th {
-        //             text-align: start;
-        //         }
-        //     }
-
-        //     td {
-        //         padding-left: 34px;
-        //         text-align: start;
-        //         border-bottom: 1px solid #dadbdd;
-
-        //         .remove-btn {
-        //             padding: 10px 20px;
-        //             border-radius: 8px;
-        //             color: whitesmoke;
-        //             background-color: #a42e10;
-        //         }
-
-        //         .update-btn {
-        //             padding: 10px 20px;
-        //             border-radius: 8px;
-        //             color: whitesmoke;
-        //             background-color: #cb9011;
-
-        //         }
-
-        //         .status {
-        //             width: max-content;
-        //             padding: 10px 20px;
-        //             border-radius: 8px;
-        //             color: whitesmoke;
-        //             background-color: #35b0ed;
-
-        //         }
-        //     }
-
-        //     th {
-        //         width: 100%;
-        //         color: #222325;
-        //         padding: 10px 10px 10px 20px;
-
-        //     }
-
-        //     tbody {
-        //         tr:hover {
-        //             background-color: #f2f2f3;
-
-        //         }
-
-        //     }
-
-        //     td:first-child {
-        //         gap: 20px;
-        //         align-items: center;
-        //         display: flex;
-
-        //         img {
-        //             margin: 10px;
-        //             width: 180px;
-
-        //         }
-
-        //         .ellipsis {
-        //             display: inline-block;
-        //             max-width: 250px;
-        //             overflow: hidden;
-        //             text-overflow: ellipsis;
-        //             white-space: nowrap;
-        //             vertical-align: middle;
-        //         }
-        //     }
-
-
-        // }
         .my-gigs {
             padding: 30px 32px 0;
             max-width: 1240px;
@@ -612,39 +513,32 @@
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     .radio-status {
         padding: 10px 30px;
         display: flex;
         flex-direction: column;
-        background-color: white;
-        z-index: 10;
-        top: 70px;
+        top: 44px;
         position: absolute;
+        right: 25px;
+        background-color: #fff;
+        z-index: 10;
+        border: 1px #cccccc solid;
+        border-radius: 3px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 
-        &>* {
-            display: flex;
+        li button{
+            background-color: transparent;
+            padding: 6px 10px;
+            font-size: 16px;
+            color: #777777;
+            cursor: pointer;
+            text-align: left;
+            clear: both;
+
+            &:hover {
+                color: #1DBF73;
+            }
         }
+
     }
 }

@@ -9,7 +9,7 @@ export function SellerHeader({setIsSelected}) {
                 </NavLink>
                 <button onClick={()=>setIsSelected('dashboard')}>Dashboard</button>
                 <button onClick={()=>setIsSelected('myGigs')}>My gigs</button>
-                <button>Add gigs</button>
+                <button onClick={()=>setIsSelected('addGig')}>Add gigs</button>
             </header>
         </section>
     )
