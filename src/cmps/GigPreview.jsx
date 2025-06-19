@@ -41,7 +41,6 @@ export function GigPreview({ gig }) {
     return (
         <article className="preview">
 
-            {Array.isArray(gig.imgUrl) && gig.imgUrl.length > 0 ? (
                 <Carousel
                     showIndicators={false}
                     showThumbs={false}
@@ -69,17 +68,6 @@ export function GigPreview({ gig }) {
                         </div>
                     ))}
                 </Carousel>
-            ) : gig.imgUrl ? (
-                <img
-                    src={gig.imgUrl}
-                    onClick={() => navigate(`/gig/${gig._id}`)}
-                    alt="Gig main image"
-                />
-            ) : (
-                <div className="no-img">No image available</div>
-            )}
-
-
 
             <div className="owner-details flex">
                 <div className="owner-profile flex">
