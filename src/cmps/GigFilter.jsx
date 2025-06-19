@@ -3,6 +3,7 @@ import { ArrowDownIcon, ClearFilter } from '../svg'
 import { FilterModal } from './FilterModal'
 import { p } from 'framer-motion/client'
 
+
 export function GigFilter({ filterBy, onSetFilterBy }) {
   const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
   const [isFilterModel, setIsFilterModel] = useState(null)
