@@ -1,62 +1,6 @@
-// export function MyGigs({ gigs }) {
-//     return (
-//         <section className="my-gigs">
-//             <h2>Active gigs</h2>
-//             <table>
-//                 <thead>
-//                     <tr >
-//                         <th>GIG</th>
-//                         <th>PRICE</th>
-//                         <th>REVIEWS</th>
-//                         <th>CLICKS</th>
-//                         <th>ORDERS</th>
-//                         <th>STATUS</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {
-//                         gigs.map(gig => (
-//                             <tr key={gig._id}>
-//                                 <td>
-//                                     <input type="checkbox" />
-//                                     <img src={gig.imgUrl} alt="" />
-//                                     <p className="ellipsis">{gig.title}</p>
-//                                 </td>
-//                                 <td>
-//                                     {gig.price}$
-//                                 </td>
-//                                 <td>
-//                                     {gig.reviews?.length || 0}
-//                                 </td>
-//                                 <td>
-//                                     200
-//                                 </td>
-//                                 <td>
-//                                    3
-//                                 </td>
-//                                 <td>
-//                                    <button className="status">{gig.status}</button>
-//                                 </td>
-//                                 <td>
-//                                     <button className="remove-btn">Remove</button>
-//                                 </td>
-//                                 <td>
-//                                     <button className="update-btn">Update</button>
-//                                 </td>
-//                             </tr>
-//                         ))
-//                     }
-//                 </tbody>
-
 import { useState } from "react";
 import {  CaretDownIcon } from "../svg";
 import { useNavigate } from 'react-router'
-
-
-//             </table>
-//         </section>
-//     )
-// }
 
 export function MyGigs({ gigs ,onRemove }) {
     const [showActivity, setShowActivity] = useState('')

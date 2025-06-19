@@ -5,6 +5,7 @@ import { Dashboard } from "../cmps/Dashboard";
 import { useSelector } from "react-redux";
 import { loadOrders, updateOrder } from "../store/orders.actions";
 import { loadGigs, removeGig } from "../store/gig.actions";
+import { AddGig } from "../cmps/AddGig";
 
 export function BackOffice() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -15,9 +16,9 @@ export function BackOffice() {
         loadOrders()
         loadGigs()
     }, [])
-function onRemove(gigId){
-removeGig(gigId)
-}
+    function onRemove(gigId) {
+        removeGig(gigId)
+    }
     function onChangeStatus(orderId, value) {
         const orderToUpdate = orders.find(order => order._id === orderId)
         if (!orderToUpdate) return
@@ -27,11 +28,13 @@ removeGig(gigId)
     return (
         <section className="back-office">
             <SellerHeader setIsSelected={setIsSelected} />
-            <main className={isSelected === 'dashboard'?'white':''}>
+            <main className={isSelected === 'dashboard' ? 'white' : ''}>
                 {isSelected === 'dashboard' &&
                     <Dashboard user={user} orders={orders} onChangeStatus={onChangeStatus} />}
                 {isSelected === 'myGigs' &&
                     <MyGigs gigs={gigs} onRemove={onRemove} />}
+                {isSelected === 'addGig' &&
+                    <AddGig />}
             </main>
         </section>
     )
