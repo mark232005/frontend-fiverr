@@ -26,7 +26,7 @@
             color: #404145;
             text-decoration: none;
             white-space: nowrap;
-            letter-spacing: -3px;
+            letter-spacing: -2.5px;
         }
 
         .dom {
@@ -44,12 +44,31 @@
 
 
         .search-header {
+            position: relative;
             align-items: center;
             height: 42px;
             width: 100%;
             max-width: 650px;
             border-radius: 4px;
-            overflow: hidden
+            overflow: hidden;
+
+            .clear-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 55px;
+                height: 27px;
+                width: 30px;
+                padding: 0;
+                border-radius: 50%;
+                align-items: center;
+                justify-items: center;
+
+                &:hover {
+                    background-color: #e3e5ed;
+                }
+            }
         }
 
         .search-input {
@@ -58,7 +77,15 @@
             padding: 14px 40px 14px 16px;
             border: 1px solid #ccc;
             font-size: 16px;
-            outline: none
+            outline: none;
+
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-decoration,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+                display: none;
+                -webkit-appearance: none;
+            }
         }
 
         .search-input:focus {
@@ -98,7 +125,8 @@
                 >*:not(.profile-modal) {
                     padding: 0;
                 }
-                button{
+
+                button {
                     padding: 0;
 
                 }

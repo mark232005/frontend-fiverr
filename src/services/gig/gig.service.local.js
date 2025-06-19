@@ -56,22 +56,30 @@ async function query(filterBy = {}) {
     }
 
     if (filterBy.price) {
-        if (filterBy.price === 'under-50') {
+        if (filterBy.price === 'Under 50₪') {
             gigs = gigs.filter(gig => gig.price < 50)
-        } else if (filterBy.price === 'mid') {
+        } else if (filterBy.price === '50₪–105₪') {
             gigs = gigs.filter(gig => gig.price >= 50 && gig.price <= 105)
-        } else if (filterBy.price === 'above-105') {
+        } else if (filterBy.price === '105₪ and above') {
             gigs = gigs.filter(gig => gig.price > 105)
         }
     }
 
     if (filterBy.deliveryTime) {
-        
-        gigs = gigs.filter(gig => +gig.daysToMake <= +filterBy.deliveryTime)
+        var deliveryTime
+        switch (filterBy.deliveryTime) {
+            case 'Express 24H':
+                deliveryTime = 1
+                break
+            case 'Up to 3 days':
+                deliveryTime = 3
+                break
+            case 'Up to 7 days':
+                deliveryTime = 7
+                break
+        }
+        gigs = gigs.filter(gig => +gig.daysToMake <= +deliveryTime)
     }
-
-    console.log('Filtered gigs result:', gigs)
-
 
     return gigs
 }
@@ -129,7 +137,7 @@ function getDefaultFilter() {
         category: '',
         level: '',
         price: '',
-        daysToMake: ''
+        deliveryTime: ''
     }
 }
 
@@ -145,7 +153,10 @@ function getFilterFromSearchParams(searchParams) {
 
     const txt = searchParams.get('txt') || ''
     const category = searchParams.get('category') || ''
+    const level = searchParams.get('level') || ''
+    const price = searchParams.get('price') || ''
+    const deliveryTime = searchParams.get('deliveryTime') || ''
 
 
-    return { txt, category }
+    return { txt, category,level ,price,deliveryTime}
 }

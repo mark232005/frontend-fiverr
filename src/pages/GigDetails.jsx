@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { GigLayout } from '../cmps/GigLayout'
-import { EmptyStar, FullSparkIcon, SparkIcon, StarIcon } from "../svg";
+import { ArrowLiftIcon, ArrowRightIcon, EmptyStar, FullSparkIcon, SparkIcon, StarIcon } from "../svg";
+import { Carousel } from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 
 
@@ -103,7 +105,7 @@ export function GigDetails() {
                                     {renderStars(gig.owner.rate)}
                                     <strong>{gig.owner.rate}.0</strong>
                                     <p>
-                                    {`(${gig.reviews?.length || 0} reviews)`}
+                                        {`(${gig.reviews?.length || 0} reviews)`}
                                     </p>
                                 </div>
 
@@ -111,8 +113,35 @@ export function GigDetails() {
                         </div>
                     </div>
                     <div className='carousle-conteiner'>
-                        <img src={gig?.imgUrl || `https://robohash.org/${gig._id}?set=set1`} />
+                        <Carousel
+                            showIndicators={false}
+                            showThumbs={true}
+                            showArrows={true}
+                            showStatus={false}
+                            infiniteLoop={true}
+                            renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                                hasPrev && (
+                                    <button className="carousel-arrow left" onClick={onClickHandler} title={label}>
+                                        <span className="arrow-icon"><ArrowLiftIcon height={16} width={16} /></span>
+                                    </button>
+                                )
+                            }
+                            renderArrowNext={(onClickHandler, hasNext, label) =>
+                                hasNext && (
+                                    <button className="carousel-arrow right" onClick={onClickHandler} title={label}>
+                                        <span className="arrow-icon"><ArrowRightIcon height={16} width={16} /></span>
+                                    </button>
+                                )
+                            }
+                        >
+                            {gig.imgUrl.map((imgUrl, idx) => (
+                                <div key={idx}>
+                                    <img src={imgUrl} alt={`Gig image ${idx + 1}`} />
+                                </div>
+                            ))}
+                        </Carousel>
                     </div>
+
                     <div className='about-gig'>
                         <h1 className='about-gig-title'>About This Gig</h1>
                         <p className='gig-description'>{gig?.about}</p>

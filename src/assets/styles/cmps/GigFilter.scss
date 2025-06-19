@@ -15,6 +15,10 @@
         &:hover {
             background-color: #f0f0f0;
         }
+        &.selcted{
+            border: 1px solid #0d0d0d;
+
+        }
 
     }
 
@@ -161,4 +165,23 @@
     padding-bottom: 12px;
     border-bottom: 1px solid #e4e5e7;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-  }
+}
+
+.tab-title-filter {
+    button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        border-radius: 56px;
+        width: max-content;
+        margin: 8px 10px 24px 0;
+        padding: 4px 16px;
+        background-color: #efeff0;
+        color: #222325;
+
+        &:hover {
+            color: #8d8a8a;
+        }
+    }
+}

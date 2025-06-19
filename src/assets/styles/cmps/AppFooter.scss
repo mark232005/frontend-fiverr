@@ -1,13 +1,95 @@
-.app-footer {
-    min-height: 5rem;
-    background-color: $clr4;
+footer {
+    background-color: #fff;
+    border-bottom: 2px solid #e4e5e7;
+    margin-bottom: 32px;
 
-    > section {
-        display: flex;
-        align-items: center;
+    .app-footer {
+        border-top: 1px solid #e4e5e7;
+        padding: 0 32px;
+        margin: 0 auto;
+        max-width: 1400px;
         justify-content: space-between;
-        p {
-            margin: 0;
+
+        .logo {
+            padding-top: 16px;
+            align-items: center;
+
+            p {
+                font-weight: 100;
+                color: #222325;
+                font-size: 14px;
+                margin: 0;
+                font-family: 'MacanBold', sans-serif;
+
+            }
+
+            .logo-txt {
+                width: 105px;
+                margin: 0;
+                font-family: 'MacanBold', sans-serif;
+                font-size: 2.375rem;
+                font-weight: 600;
+                color: #404145;
+                text-decoration: none;
+                white-space: nowrap;
+                letter-spacing: -2.5px;
+            }
+
+            .dom {
+                margin-left: 3px;
+                width: 6px;
+                height: 6px;
+                background-color: #1DBF73;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 32px;
+                flex-shrink: 0;
+                position: relative;
+
+            }
+        }
+
+        .footer-links {
+            padding-top: 16px;
+            align-items: center;
+            gap: 8px;
+            span{
+                color: #74767e;
+                margin-bottom: 10px;
+            }
+            .icons{
+                display: flex;
+                gap: 4px;
+                button{
+                    background-color: transparent;
+                    border-radius: 50%;
+                    width: 36px;
+                    height: 36px;
+                    color: #222325;
+                    &:hover{
+                        background-color: #e4e7e5;
+                    }
+                }
+            }
+            .language-currency{
+                color: #74767e;
+                font-size: 14px;
+                >*{
+                    padding: 8px 12px;
+                }
+                .language{
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                    span{
+                        margin: 0;
+                    }
+                }
+                p{
+                    margin: 0;
+                }
+            }
         }
     }
+
 }

@@ -149,10 +149,89 @@
             }
 
             .carousle-conteiner {
-                img {
-                    width: 80%;
-                    height: 80%;
-                    margin: 25px 0;
+                position: relative;
+                overflow: visible;
+                max-width: 713.5px;
+                max-height: 500.5px;
+                background-color: #f5f5f5;
+                margin: 25px 0;
+
+                .carousel-slider {
+                    overflow: visible;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        max-height: 428.5px;
+                        object-fit: cover;
+                        display: block;
+                    }
+                    
+                    .carousel-arrow {
+                        background-color: white;
+                        border-radius: 50%;
+                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
+                        height: 48px;
+                        margin-top: -24px;
+                        position: absolute;
+                        text-align: center;
+                        top: 50%;
+                        width: 48px;
+                        z-index: 4;
+
+                        .arrow-icon {
+                            font-size: 18px;
+                            color: #404145;
+                            line-height: 1;
+                        }
+
+                        &.left {
+                            left: -24px;
+                        }
+
+                        &.right {
+                            right: -24px;
+                        }
+
+                    }
+
+
+                }
+
+
+                .thumbs-wrapper {
+                    height: 60px;
+                    background-color: #fff;
+                    margin: 0;
+
+                    .thumbs {
+                        display: flex;
+                        margin: 0;
+
+                        .thumb {
+                            opacity: 0.5;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            cursor: pointer;
+                            transition: opacity 0.3s ease, border 0.3s ease;
+                            height: 60px;
+                            width: 100px !important;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                display: block;
+                            }
+
+                            &.selected {
+                                opacity: 1;
+                            }
+
+                        }
+                    }
+
                 }
 
             }
@@ -204,9 +283,10 @@
                     background: #fafafa;
                     padding: 16px;
                     border-top: none;
-                    &.selected{
+
+                    &.selected {
                         border-bottom: 3px solid #222325;
-                        color:#222325 ;
+                        color: #222325;
                         background-color: #ffff;
                     }
                 }

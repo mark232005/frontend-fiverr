@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavBar } from "../cmps/Categories";
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowLiftIcon, ArrowRightIcon, RightArrowIcon, Search } from '../svg.jsx'
+import { ArrowLiftIcon, ArrowRightIcon, ClearIcon, RightArrowIcon, Search } from '../svg.jsx'
 import { NavBarHome } from "../cmps/NavBarHome.jsx";
 import { PopularServices } from "../cmps/PopularServices.JSX";
 import { InstantResults } from "../cmps/InstantResults.jsx";
+import { useNavigate } from 'react-router'
+import { SET_FILTER_BY } from "../store/gig.reducer.js";
+
 export function HomePage() {
+    const navigate = useNavigate()
     const scrollRef = useRef(null)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
-    const [searchTxt, setSearchTxt] = useState('')
+
+    const [searchTxt, setSearchTxt] = useState(filterBy.txt)
     const [showLeft, setShowLeft] = useState(false)
     const [showRight, setShowRight] = useState(false)
-
+    const dispatch = useDispatch()
     useEffect(() => {
         const el = scrollRef.current
         const handleScroll = () => {
@@ -31,6 +36,8 @@ export function HomePage() {
     }, [])
     function onSearchClick() {
         dispatch({ type: SET_FILTER_BY, filterBy: { txt: searchTxt } })
+        navigate('/gig')
+
     }
     function scrollLeft() {
         scrollRef.current.scrollBy({ left: -10000, behavior: 'smooth' });
@@ -67,17 +74,19 @@ export function HomePage() {
                     <input type="search"
                         placeholder="Search for any service..."
                         className="search-input"
+                        value={searchTxt}
                         onChange={(ev) => setSearchTxt(ev.target.value)}
-                        onFocus={() => overlay(true)}
-                        onBlur={() => overlay(true)}
                     />
 
                     <button className="search-btn"
                         onClick={onSearchClick}
-                        onFocus={() => overlay(false)}
-                        onBlur={() => overlay(false)}>
+                    >
                         <Search />
                     </button>
+                    {searchTxt !== '' &&
+                        <button onClick={() => setSearchTxt('')} className="clear-btn "><ClearIcon /></button>
+                    }
+
                 </div>
                 <div className="btn-video flex">
                     <button>website development <RightArrowIcon /></button>

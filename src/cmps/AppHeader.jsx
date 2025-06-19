@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
-import { Search } from '../svg.jsx'
+import { ClearIcon, Search } from '../svg.jsx'
 import React, { useState, useRef, useEffect } from 'react';
 import { overlay, setFilterBy } from '../store/gig.actions.js'
 import { ProfileModal } from './ProfileModal.jsx'
@@ -18,7 +18,7 @@ export function AppHeader() {
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState(false)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
-    const [searchTxt, setSearchTxt] = useState('')
+    const [searchTxt, setSearchTxt] = useState(filterBy.txt)
     const dispatch = useDispatch()
     const location = useLocation()
     const isHomePage = location.pathname === '/'
@@ -45,6 +45,7 @@ export function AppHeader() {
         const params = new URLSearchParams(searchParams);
         params.set('txt', searchTxt);
         navigate({ search: params.toString() });
+        navigate('/gig')
     }
     async function onLogout() {
         try {
@@ -67,10 +68,10 @@ export function AppHeader() {
                     </NavLink>
 
                     <div className={`search-header flex ${showInputSearch ? 'showInput' : 'hidden'}`}>
-
                         <input type="search"
                             placeholder="What service are you looking for today?"
                             className="search-input"
+                            value={searchTxt}
                             onChange={(ev) => setSearchTxt(ev.target.value)}
                             onFocus={() => overlay(true)}
                             onBlur={() => overlay(true)}
@@ -82,14 +83,21 @@ export function AppHeader() {
                             onBlur={() => overlay(false)}>
                             <Search />
                         </button>
+                        {        
+                        searchTxt!==''&&
+                        <button onClick={()=>setSearchTxt('')} className="clear-btn "><ClearIcon/></button>
+                        }
                     </div>
 
                     <div className="user-container">
 
                         {user && (
                             <div className="user-info flex">
+                                {
+                                    isHomePage &&
+                                    <button onClick={() => navigate('/gig')} >Explore</button>
+                                }
                                 <Link to={`user/orders`}>
-
                                     <button > Orders</button>
                                 </Link>
                                 <button onClick={() => navigate('seller')} > Switch to selling</button>
@@ -108,6 +116,9 @@ export function AppHeader() {
                         {!user &&
 
                             <React.Fragment>
+                                {isHomePage &&
+                                <button onClick={() => navigate('/gig')} >Explore</button>
+                                }
                                 <button className="sign-btn">Sign in</button>
                                 <button onClick={() => navigate('login')} className="join-btn">Join</button>
                             </React.Fragment>}
