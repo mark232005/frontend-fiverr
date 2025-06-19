@@ -1,10 +1,15 @@
 import { useRef, useState, useEffect } from "react"
 import { ArrowRightIcon, ArrowLiftIcon } from "../svg"
 import { selectCategory } from "../store/gig.actions"
+import { useNavigate, useSearchParams } from 'react-router-dom'
+
 export function NavBar() {
     const scrollRef = useRef()
     const [canScrollRight, setCanScrollRight] = useState(false)
     const [canScrollLeft, setCanScrollLeft] = useState(false)
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
     useEffect(() => {
         checkScroll()
         const el = scrollRef.current
@@ -47,6 +52,12 @@ export function NavBar() {
         }
 
     }
+    function onCategoryClick(category) {
+        selectCategory(category);
+        const params = new URLSearchParams(searchParams);
+        params.set('category', category);
+        navigate({ search: params.toString() });
+    }
     return (
         <div className="nav-bar-wrapper  ">
 
@@ -58,7 +69,7 @@ export function NavBar() {
             }
             <div className="nav-bar flex " ref={scrollRef}>
                 {categories.map(category =>
-                    <button onClick={()=>selectCategory(category)} className="category-btn" key={category}>{category}</button>
+                    <button onClick={()=>onCategoryClick(category)} className="category-btn" key={category}>{category}</button>
                 )}
             </div>
             {

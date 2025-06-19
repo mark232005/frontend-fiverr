@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
@@ -25,6 +25,7 @@ export function AppHeader() {
     const isBackOfice = location.pathname === '/seller'
     const [showNavBar, setShowNavBar] = useState(false)
     const [showInputSearch, setShowInputSearch] = useState(false)
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,6 +42,9 @@ export function AppHeader() {
     }, [])
     function onSearchClick() {
         dispatch({ type: SET_FILTER_BY, filterBy: { txt: searchTxt } })
+        const params = new URLSearchParams(searchParams);
+        params.set('txt', searchTxt);
+        navigate({ search: params.toString() });
         navigate('/gig')
     }
     async function onLogout() {
