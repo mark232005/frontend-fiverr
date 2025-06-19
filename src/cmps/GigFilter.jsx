@@ -10,10 +10,7 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
   const [isSticky, setIsSticky] = useState(false)
   const ref = useRef(null)
 
-  // useEffect(() => {
-  //   onSetFilterBy(filterToEdit)
-  // }, [filterToEdit])
-console.log(filterBy.daysToMake);
+
   useEffect(() => {
     function onScroll() {
       if (!ref.current) return
@@ -121,15 +118,15 @@ console.log(filterBy.daysToMake);
     )}
     <ArrowDownIcon />
   </div>
-  <div className={`flex filter-btn ${filterBy.level !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('seller-details')}>
+  <div className={`flex filter-btn ${filterBy.level? filterBy.level !== '' ? 'selcted' : '':''}`} onClick={() => setIsFilterModel('seller-details')}>
     <button onClick={() => setIsFilterModel('seller-details')}>Seller details</button>
     <ArrowDownIcon />
   </div>
-  <div className={`flex filter-btn ${filterBy.price !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('budget')}>
+  <div className={`flex filter-btn ${filterBy.price? filterBy.price !== '' ? 'selcted' : '':''}`} onClick={() => setIsFilterModel('budget')}>
     <button>Budget</button>
     <ArrowDownIcon />
   </div>
-  <div className={`flex filter-btn ${filterBy.deliveryTime !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('delivery-time')}>
+  <div className={`flex filter-btn ${filterBy.deliveryTime? filterBy.deliveryTime !== '' ? 'selcted' : '':''}`} onClick={() => setIsFilterModel('delivery-time')}>
     <button>Delivery time</button>
     <ArrowDownIcon />
   </div>
