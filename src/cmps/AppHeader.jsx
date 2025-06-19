@@ -44,8 +44,7 @@ export function AppHeader() {
         dispatch({ type: SET_FILTER_BY, filterBy: { txt: searchTxt } })
         const params = new URLSearchParams(searchParams);
         params.set('txt', searchTxt);
-        navigate({ search: params.toString() });
-        navigate('/gig')
+        navigate({ pathname: '/gig', search: params.toString() });
     }
     async function onLogout() {
         try {
