@@ -27,7 +27,6 @@ export function GigIndex() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const category = useSelector(storeState => storeState.gigModule.filterBy.category)
     const isInputFocused = useSelector(storeState => storeState.gigModule.isInputFocused)
-
     useEffect(() => {
         const filterFromParams = gigService.getFilterFromSearchParams(searchParams)
         setFilterBy(filterFromParams)

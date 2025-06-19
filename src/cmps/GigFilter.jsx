@@ -12,7 +12,7 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
   // useEffect(() => {
   //   onSetFilterBy(filterToEdit)
   // }, [filterToEdit])
-
+console.log(filterBy.daysToMake);
   useEffect(() => {
     function onScroll() {
       if (!ref.current) return
@@ -90,7 +90,6 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
     onSetFilterBy(emptyFilter)
     setIsFilterModel(null)
   }
-
   function getEmptyFilter() {
     return {
       txt: '',
@@ -102,42 +101,41 @@ export function GigFilter({ filterBy, onSetFilterBy }) {
   }
 
   return (
-    <search>
-
-      <section
-        ref={ref}
-        className={`gig-filter flex sticki ${isSticky ? 'sticky-active' : ''}`}
-        style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fff' }}
-      >
-        <div className="flex filter-btn">
-          <button> Service options</button>
-          {isFilterModel && (
-            <FilterModal
-              openModel={isFilterModel}
-              onChange={handleChange}
-              filterBy={filterToEdit}
-              onApply={applyFilter}
-              onClear={clearAll}
-            />
-          )}
-          <ArrowDownIcon />
-        </div>
-        <div className={`flex filter-btn ${filterBy.level !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('seller-details')}>
-          <button onClick={() => setIsFilterModel('seller-details')}>Seller details</button>
-          <ArrowDownIcon />
-        </div>
-        <div className={`flex filter-btn ${filterBy.price !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('budget')}>
-          <button>Budget</button>
-          <ArrowDownIcon />
-        </div>
-        <div className={`flex filter-btn ${filterBy.deliveryTime !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('delivery-time')}>
-          <button>Delivery time</button>
-          <ArrowDownIcon />
-        </div>
-      </section>
-      {
-        renderActiveFilters(filterBy)
-      }
-    </search>
+<>
+<section
+  ref={ref}
+  className={`gig-filter flex sticki ${isSticky ? 'sticky-active' : ''}`}
+  style={{ position: 'sticky', top: 0, zIndex: 1000, backgroundColor: '#fff' }}
+>
+  <div className="flex filter-btn">
+    <button> Service options</button>
+    {isFilterModel && (
+      <FilterModal
+        openModel={isFilterModel}
+        onChange={handleChange}
+        filterBy={filterToEdit}
+        onApply={applyFilter}
+        onClear={clearAll}
+      />
+    )}
+    <ArrowDownIcon />
+  </div>
+  <div className={`flex filter-btn ${filterBy.level !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('seller-details')}>
+    <button onClick={() => setIsFilterModel('seller-details')}>Seller details</button>
+    <ArrowDownIcon />
+  </div>
+  <div className={`flex filter-btn ${filterBy.price !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('budget')}>
+    <button>Budget</button>
+    <ArrowDownIcon />
+  </div>
+  <div className={`flex filter-btn ${filterBy.deliveryTime !== '' ? 'selcted' : ''}`} onClick={() => setIsFilterModel('delivery-time')}>
+    <button>Delivery time</button>
+    <ArrowDownIcon />
+  </div>
+</section>
+{
+  renderActiveFilters(filterBy)
+}
+</>
   )
 }

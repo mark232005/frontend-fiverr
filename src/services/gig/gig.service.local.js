@@ -137,7 +137,7 @@ function getDefaultFilter() {
         category: '',
         level: '',
         price: '',
-        daysToMake: ''
+        deliveryTime: ''
     }
 }
 
@@ -153,7 +153,10 @@ function getFilterFromSearchParams(searchParams) {
 
     const txt = searchParams.get('txt') || ''
     const category = searchParams.get('category') || ''
+    const level = searchParams.get('level') || ''
+    const price = searchParams.get('price') || ''
+    const deliveryTime = searchParams.get('deliveryTime') || ''
 
 
-    return { txt, category }
+    return { txt, category,level ,price,deliveryTime}
 }
