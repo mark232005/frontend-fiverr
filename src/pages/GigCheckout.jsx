@@ -1,21 +1,48 @@
-import { useState } from 'react'
-import { GigLayout } from '../cmps/GigLayout'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
-import { useNavigate } from 'react-router'
 import mastercards from '../assets/img/credit-cards.svg'
 import vsign from '../assets/img/img-of-v.svg'
 import questionMark from '../assets/img/question-mark.svg'
-// import visaIcon from '../assets/img/visa.png' // placeholder, update path as needed
-// import mastercardIcon from '../assets/img/
-// import amexIcon from '../assets/img/amex.png'
-// import dinersIcon from '../assets/img/diners.png'
-// import discoverIcon from '../assets/img/discover.png'
-// import paypalIcon from '../assets/img/paypal.png'
-// import gigImg from '../assets/img/profileimg.jpg' // placeholder, update path as needed
 
 export function GigCheckout() {
-    const [displayName, setDisplayName] = useState('')
-    const [saveCard, setSaveCard] = useState(true)
+    const [gig, setGig] = useState(null)
+    const { gigId } = useParams()
+    const [cardDetails, setCardDetails] = useState({
+        number: '',
+        expiration: '',
+        securityCode: '',
+        cardholderName: '',
+        displayName: '',
+        saveCard: true,
+    })
+
+    useEffect(() => {
+        loadGig()
+    }, [gigId])
+
+    async function loadGig() {
+        try {
+            const loadedGig = await gigService.getById(gigId)
+            setGig(loadedGig)
+        } catch (err) {
+            console.error('Failed to load gig', err)
+        }
+    }
+
+    function handleCardChange(ev) {
+        const { name, value, type, checked } = ev.target
+        setCardDetails(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value,
+        }))
+    }
+
+    if (!gig) return <div>Loading...</div>
+
+    const serviceFee = 5.25
+    const vat = 7.65
+    const total = gig.price + serviceFee + vat
 
     return (
         <section className='checkout'>
@@ -43,7 +70,7 @@ export function GigCheckout() {
                                     <h6>Card number</h6>
                                 </label>
                                 <label className='cradit-card-input-wrapper'>
-                                    <input className='input' type='text' placeholder='1234 5678 9012 3456' readOnly />
+                                    <input className='input' type='text' name='number' value={cardDetails.number} onChange={handleCardChange} placeholder='1234 5678 9012 3456' />
                                     <span className='input-lock' role='img' aria-label='lock'>🔒</span>
                                 </label>
                             </div>
@@ -53,13 +80,13 @@ export function GigCheckout() {
                                     <label>
                                         <h6>Expiration date</h6>
                                     </label>
-                                    <input type='text' className='input' placeholder='MM / YY' readOnly />
+                                    <input type='text' className='input' name='expiration' value={cardDetails.expiration} onChange={handleCardChange} placeholder='MM / YY' />
                                 </div>
                                 <div className='security-code'>
                                     <label>
                                         <h6>Security code <span className='info-icon' title='3 or 4 digit code'>?</span></h6>
                                     </label>
-                                    <input type='text' className='input' placeholder='123' readOnly />
+                                    <input type='text' className='input' name='securityCode' value={cardDetails.securityCode} onChange={handleCardChange} placeholder='123' />
                                 </div>
                             </div>
                             {/* Cardholder's name */}
@@ -67,7 +94,7 @@ export function GigCheckout() {
                                 <label>
                                     <h6>Cardholder's name</h6>
                                 </label>
-                                <input type='text' className='input' placeholder='' readOnly />
+                                <input type='text' className='input' name='cardholderName' value={cardDetails.cardholderName} onChange={handleCardChange} placeholder='' />
                                 <div className='helper-text'>As written on card</div>
                             </div>
                             {/* Card display name (optional) */}
@@ -76,16 +103,16 @@ export function GigCheckout() {
                                     <label>
                                         <h6>Card display name <span className='optional'>(Optional)</span></h6>
                                     </label>
-                                    <span className='char-count'>{displayName.length}/30</span>
+                                    <span className='char-count'>{cardDetails.displayName.length}/30</span>
                                 </div>
                                 <input
                                     type='text'
                                     className='input'
+                                    name='displayName'
                                     placeholder='e.g. Marketing card, Legal team card...'
                                     maxLength={30}
-                                    value={displayName}
-                                    onChange={e => setDisplayName(e.target.value)}
-                                    readOnly
+                                    value={cardDetails.displayName}
+                                    onChange={handleCardChange}
                                 />
                             </div>
                             {/* Save card checkbox */}
@@ -93,9 +120,9 @@ export function GigCheckout() {
                                 <label className='save-checkbox'>
                                     <input
                                         type='checkbox'
-                                        checked={saveCard}
-                                        onChange={() => setSaveCard(!saveCard)}
-                                        readOnly
+                                        name='saveCard'
+                                        checked={cardDetails.saveCard}
+                                        onChange={handleCardChange}
                                     />
                                     Save this card for future payments
                                     <span className='info-icon' title='We will securely save your card for next time'>?</span>
@@ -128,13 +155,13 @@ export function GigCheckout() {
             <section className='cta-container'>
                 <div className='order-summary-card'>
                     <div className='gig-header'>
-                        <img className='gig-img' src='https://via.placeholder.com/226x139?text=Gig+Image' alt='Gig' style={{width: 226, height: 139, borderRadius: 6, objectFit: 'cover', background: '#eee'}} />
+                        <img className='gig-img' src={gig.imgUrl[0]} alt='Gig' style={{width: 226, height: 139, borderRadius: 6, objectFit: 'cover', background: '#eee'}} />
                         <div className='gig-info'>
-                            <div className='gig-title'>I will create and edit complex ai images, ai art and illustrations</div>
+                            <div className='gig-title'>{gig.title}</div>
                         </div>
                     </div>
                     <div className='gig-package-section'>
-                        <div className='gig-package'>Bronze <span className='gig-price'>$45</span></div>
+                        <div className='gig-package'>Bronze <span className='gig-price'>₪{gig.price}</span></div>
                         <ul className='gig-features'>
                             <li><span style={{display: 'inline-flex', alignItems: 'center'}}><img src={vsign} alt='' style={{height: '1em', marginRight: 6}} />1 concept included</span></li>
                             <li><span style={{display: 'inline-flex', alignItems: 'center'}}><img src={vsign} alt='' style={{height: '1em', marginRight: 6}} />Logo transparency</span></li>
@@ -142,17 +169,17 @@ export function GigCheckout() {
                        
                     </div>
                     <div className='order-fees'>
-                        <div className='fee-row'><span style={{display: 'inline-flex', alignItems: 'center'}}>Service fee <img src={questionMark} alt='' className='info-icon' /></span><span>$5.25</span></div>
-                        <div className='fee-row-secondary'><span style={{display: 'inline-flex', alignItems: 'center'}}>VAT <img src={questionMark} alt='' className='info-icon' /></span><span>$7.65</span></div>
+                        <div className='fee-row'><span style={{display: 'inline-flex', alignItems: 'center'}}>Service fee <img src={questionMark} alt='' className='info-icon' /></span><span>₪{serviceFee.toFixed(2)}</span></div>
+                        <div className='fee-row-secondary'><span style={{display: 'inline-flex', alignItems: 'center'}}>VAT <img src={questionMark} alt='' className='info-icon' /></span><span>₪{vat.toFixed(2)}</span></div>
                     </div>
                     <div className='order-total'>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                             <div className='total-label'>You'll pay</div>
-                            <div className='total-amount'>$57.9</div>
+                            <div className='total-amount'>₪{total.toFixed(2)}</div>
                         </div>
                         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                             <div className='delivery-time'>Total delivery time</div>
-                            <div className='delivery-time'><span>1 day</span></div>
+                            <div className='delivery-time'><span>{gig.daysToMake} days</span></div>
                         </div>
                     </div>
                     <button className='pay-btn'>Pay in USD</button>
@@ -160,7 +187,7 @@ export function GigCheckout() {
                         <i className='fa-solid fa-lock'></i> SSL Secure Payment
                     </div>
                     <div className='order-note order-note-grey'>
-                        You will be charged $57.9. The order total is an estimation and does not include additional fees your bank may apply.
+                        You will be charged ₪{total.toFixed(2)}. The order total is an estimation and does not include additional fees your bank may apply.
                     </div>
                 </div>
             </section>

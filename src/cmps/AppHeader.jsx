@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -10,7 +10,7 @@ import { ProfileModal } from './ProfileModal.jsx'
 import { SET_FILTER_BY } from '../store/gig.reducer.js'
 import { debounce } from '../services/util.service.js'
 import { NavBar } from './Categories.jsx'
-import { useLocation } from 'react-router-dom'
+import vsign from '../assets/img/img-of-v.svg'
 
 
 export function AppHeader() {
@@ -22,7 +22,8 @@ export function AppHeader() {
     const dispatch = useDispatch()
     const location = useLocation()
     const isHomePage = location.pathname === '/'
-    const isBackOfice = location.pathname === '/seller'
+    const isBackOffice = location.pathname === '/seller'
+    const isCheckoutPage = location.pathname.includes('/checkout')
     const [showNavBar, setShowNavBar] = useState(false)
     const [showInputSearch, setShowInputSearch] = useState(false)
     const [searchParams] = useSearchParams();
@@ -55,7 +56,36 @@ export function AppHeader() {
             showErrorMsg('Cannot logout')
         }
     }
-    if (isBackOfice) return
+    if (isBackOffice) return null
+
+    if (isCheckoutPage) {
+        return (
+            <header className="app-header checkout-header">
+                <nav>
+                    <NavLink to="/" className="logo-txt">
+                        alufix<span className="dom"></span>
+                    </NavLink>
+                    <div className="progress-bar">
+                        <div className="step active">
+                            <span className="icon-wrapper"><img src={vsign} alt="checkmark" /></span>
+                            <span>Order Details</span>
+                        </div>
+                        <span className="separator">&gt;</span>
+                        <div className="step active">
+                            <span className="icon-wrapper">2</span>
+                            <span>Confirm & Pay</span>
+                        </div>
+                        <span className="separator">&gt;</span>
+                        <div className="step">
+                            <span className="icon-wrapper">3</span>
+                            <span>Submit Requirements</span>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        )
+    }
+    
     return (
 
         <section className={`${isHomePage ? 'sticky-mood' : ''}`}>
