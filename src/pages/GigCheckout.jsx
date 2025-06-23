@@ -147,7 +147,6 @@ export function GigCheckout() {
                         <p>Your invoice will be issued according to the details listed here.</p>
                         <p><b>dimaaluf</b></p>
                         <p>Israel</p>
-                        <button style={{ marginTop: 8, alignSelf: 'flex-end', border: '1px solid #222325', borderRadius: 6, padding: '6px 18px', background: '#fff', fontWeight: 500, cursor: 'pointer' }}>Add details</button>
                     </div>
                 </section>
             </section>
