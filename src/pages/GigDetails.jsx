@@ -17,6 +17,7 @@ import { loadGig, addGigMsg } from '../store/gig.actions'
 import { IndexHeader } from '../cmps/IndexHeader'
 import { PackageCard } from '../cmps/PackageCard'
 import { GetToKnow } from '../cmps/GetToKnow'
+import { Loader } from '../cmps/Loader'
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -79,7 +80,7 @@ export function GigDetails() {
     }
 
 
-    if (!gig) return <div>Loading gig...</div>
+    if (!gig) return <Loader/>
 
     return (
         <section className="main-details-page">

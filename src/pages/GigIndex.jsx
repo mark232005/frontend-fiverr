@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux'
 
 
 import { useSearchParams } from 'react-router-dom'
+import { Loader } from '../cmps/Loader'
 
 
 export function GigIndex() {
@@ -73,13 +74,10 @@ export function GigIndex() {
             showErrorMsg('Cannot update gig')
         }
     }
+    if(!gigs) return <Loader/>
     return (
         <main className="gig-index">
             <div className={`overlay ${isInputFocused ? 'show' : ''}`} onClick={() => overlay(false)}></div>
-
-            {/* <NavBar /> */}
-            {/* <header>
-            </header> */}
             <IndexHeader category={category} />
             <GigFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <Sort count={gigs.length} />
