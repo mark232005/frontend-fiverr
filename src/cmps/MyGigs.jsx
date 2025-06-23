@@ -9,7 +9,7 @@ export function MyGigs({ gigs ,onRemove }) {
     return (
         <section className="my-gigs">
             <h1>Gigs</h1>
-            <ul class="tabs">
+            <ul className="tabs">
                 <li className="active">ACTIVE</li>
                 <li >PENDING APPROVAL</li>
                 <li>REQUIRES MODIFICATION</li>

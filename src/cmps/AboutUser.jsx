@@ -3,7 +3,6 @@ import { ClockIcon, FacebookIcon, GoogleIcon, InstagramIcon, LocationIcon, SendI
 
 export function AboutUser({ user }) {
 
-    console.log(user);
     return (
         <section className="about-user flex">
             <div className="user-profile flex">

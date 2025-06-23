@@ -63,7 +63,7 @@ export function GigOrders() {
                                         <td>
                                             <div className="gig-with-img flex">
 
-                                                <img src={gig?.imgUrl || 'https://via.placeholder.com/80'} alt={gig?.title} width="80" />
+                                                <img src={gig?.imgUrl[0] || 'https://via.placeholder.com/80'} alt={gig?.title} width="80" />
                                                 <p>{gig?.title || order.gigId}</p>
                                             </div>
                                         </td>

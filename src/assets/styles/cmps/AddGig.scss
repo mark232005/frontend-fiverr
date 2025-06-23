@@ -8,7 +8,7 @@
 
         ul {
             margin: 0;
-            height:60px;
+            height: 60px;
 
             li {
                 display: flex;
@@ -28,17 +28,431 @@
                     font-size: 16px;
                     line-height: 25px;
                 }
-                p{
+
+                p {
                     margin: 0;
                     color: #b5b6ba;
                     font-size: 14px;
                 }
-                .svg{
+
+
+                .svg {
                     margin: 0 16px;
                 }
-                .currStep{
+
+                .currStep {
                     background-color: #1dbf73;
                 }
+            }
+
+            li.finish {
+                p {
+                    color: #1dbf73;
+                }
+
+                .icon {
+                    background-color: #1dbf73;
+                }
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 835px;
+        margin-top: 24px;
+
+        .save-btn {
+            margin-top: 20px;
+            color: #fff;
+            margin-left: auto;
+            margin-right: 0;
+            padding: 11px 20px;
+            background: #222325;
+            border-radius: 8px;
+            font-weight: 500;
+            line-height: 24px;
+            font-size: 16px;
+
+        }
+
+        .overview {
+            background-color: #fff;
+            padding: 28px;
+            border-radius: 5px 5px 0 0;
+            border: 1px solid #dadbdd;
+
+            .title {
+                display: grid;
+                grid-template-columns: 242px 1fr;
+                padding-bottom: 32px;
+
+                .txt {
+                    padding-right: 32px;
+
+                    h2 {
+                        color: #222325;
+                        font-size: 16px;
+                        font-family: 'MacanBold', sans-serif;
+                    }
+
+                    p {
+                        margin-top: 8px;
+                        color: #404145;
+                        font-size: 14px;
+                        font-family: 'MacanBold', sans-serif;
+                    }
+
+                }
+
+                .input {
+                    position: relative;
+
+                    textarea {
+                        resize: none;
+                        font-weight: 400;
+                        font-size: 16px;
+                        font-family: 'MacanBold', sans-serif;
+                        border-radius: 8px;
+                        max-height: 82px;
+                        width: 100%;
+                        padding: 9px 16px;
+                        color: #404145;
+                        text-indent: 44px;
+                        height: 82px;
+                        margin-bottom: 0;
+                        border-color: #95979d !important;
+                    }
+
+                    .footer-input {
+                        justify-content: space-between;
+
+                        .min-words {
+                            margin: 0;
+                            font-family: 'MacanBold', sans-serif;
+                            font-size: 12px;
+                            color: #ab2d2d;
+                        }
+
+                        .perfect {
+                            margin: 0;
+                            font-family: 'MacanBold', sans-serif;
+                            font-size: 12px;
+                            color: #1dbf73;
+                        }
+
+                        .count {
+                            font-family: 'MacanBold', sans-serif;
+                            font-size: 12px;
+                            color: #95979d;
+                            margin: 0;
+                        }
+                    }
+
+                    span {
+                        font-family: 'MacanBold', sans-serif;
+                        position: absolute;
+                        top: 5px;
+                        left: 21px;
+                        font-size: 18px;
+                        color: #74767e;
+                    }
+                }
+            }
+
+            .category {
+                display: grid;
+                grid-template-columns: 242px 1fr;
+                padding-bottom: 32px;
+
+                .txt {
+                    padding-right: 32px;
+
+                    h2 {
+                        color: #222325;
+                        font-size: 16px;
+                        font-family: 'MacanBold', sans-serif;
+
+                    }
+
+                    p {
+                        margin: 0;
+                        margin-top: 8px;
+                        color: #404145;
+                        font-size: 14px;
+                        font-family: 'MacanBold', sans-serif;
+                    }
+                }
+
+
+            }
+        }
+
+        .pricing {
+            header {
+                padding: 8px 0 22px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #dadbdd;
+
+                h3 {
+                    color: #404145;
+                    font-size: 28px;
+                    font-family: 'MacanBold', sans-serif;
+                }
+            }
+
+            .packages {
+                header {
+                    border-bottom: none;
+                    padding: 12px 0 16px;
+                    margin: 0;
+
+                    span {
+                        color: #62646A;
+                        font-family: 'MacanBold', sans-serif;
+                    }
+
+                }
+
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    border: 1px solid #dadbdd;
+
+                    thead {
+                        th {
+                            text-align: left;
+                            font-family: 'MacanBold', sans-serif;
+                            background-color: #f5f5f5;
+                            font-size: 13px;
+                            border: 1px solid #dadbdd;
+                            padding: 20px 16px;
+                            color: #62646A;
+
+                            &.first {
+                                padding: 20px 15px;
+                                min-width: 220px;
+                            }
+
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            background-color: #fff;
+                            border: 1px solid #dadbdd;
+
+                            .first {
+                                font-family: 'MacanBold', sans-serif;
+                                padding: 20px 15px;
+                                background-color: #f5f5f5;
+                                font-size: 13px;
+                                color: #62646A;
+                            }
+
+                            td {
+                                border: 1px solid #dadbdd;
+
+                                .ant-select-selector {
+                                    border: none !important;
+                                    box-shadow: none !important;
+                                }
+
+                                .ant-select-item-option {
+                                    padding: 25px 35px !important;
+                                    font-size: 14px;
+                                }
+
+                                input {
+                                    width: 100%;
+                                    padding: 8px 12px;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .description {
+            header {
+                padding: 8px 0 22px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #dadbdd;
+
+                h3 {
+                    font-weight: 300;
+                    color: #62646A;
+                    font-size: 28px;
+                    font-family: 'MacanBold', sans-serif;
+                }
+            }
+
+            .inputTxt {
+                display: flex;
+                flex-direction: column;
+
+                p {
+                    font-weight: 300;
+                    margin: 0;
+                    padding: 15px 0 20px;
+                    color: #62646A;
+                    font-size: 16px;
+                    font-family: 'MacanBold', sans-serif;
+                }
+
+                .count {
+                    padding: 4px 0 0 0;
+                    font-family: 'MacanBold', sans-serif;
+                    font-size: 12px;
+                    color: #95979d;
+                    margin-left: auto;
+
+                }
+            }
+
+            .ql-container {
+                height: 240px;
+            }
+
+        }
+
+        .gallery {
+            header {
+                border-bottom: 1px solid #dadbdd;
+                margin: 8px 0;
+                padding-bottom: 55px;
+
+                h3 {
+                    font-family: 'MacanBold', sans-serif;
+                    margin-bottom: 8px;
+                    font-size: 28px;
+                    color: #404145;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-family: 'MacanBold', sans-serif;
+                    color: #404145;
+                }
+
+                .msg {
+                    background: #efeff0;
+                    border-radius: 4px;
+                    border: 1px solid #e4e5e7;
+                    margin-top: 16px;
+                    padding: 16px;
+
+                    p {
+                        font-family: 'MacanBold', sans-serif;
+                        font-size: 14px;
+                        margin: 0;
+                        color: #62646A;
+                        margin-left: 12px;
+                    }
+                }
+            }
+
+            .imges {
+                .title-gallery {
+                    padding: 0 0 32px;
+
+                    h3 {
+                        font-family: 'MacanBold', sans-serif;
+                        margin-bottom: 4px;
+                        font-size: 18px;
+                        color: #404145;
+                    }
+
+                    p {
+                        margin-bottom: 5px;
+                        font-size: 14px;
+                        font-family: 'MacanBold', sans-serif;
+                        color: #74767e;
+                    }
+                }
+
+                .drop {
+                    flex-wrap: wrap;
+                    gap: 22px;
+
+                    .dropzone {
+                        position: relative;
+                        height: 160px;
+                        width: 30%;
+                        background-color: #fff;
+                        border: 1px dashed #dadbdd;
+
+                        img {
+                            object-fit: cover;
+                            top: 0;
+                            position: absolute;
+                            height: 160px;
+                            width: 100%;
+                        }
+
+                        .dropzone-body {
+                            text-align: center;
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: #95979d;
+                            font-weight: 500;
+                            padding-top: 30px;
+
+                            label {
+                                color: #446ee7;
+
+                                input {
+                                    visibility: hidden;
+                                }
+                            }
+                        }
+
+                        .dropzone-body::before {
+                            content: "";
+                            background: transparent url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/gig_management_perseus/apps/sprite-gig-edit.c77a1a7.svg) no-repeat 0 0;
+                            background-size: 300px 100px;
+                            display: block;
+                            margin: 0 auto;
+                            padding-bottom: 10px;
+                            background-position: 0 0;
+                            height: 37px;
+                            width: 50px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .publish {
+            padding: 80px 48px;
+            border: 1px solid #e4e5e7;
+            margin-bottom: 20px;
+            background-color: #fff;
+
+            img {
+                margin: auto;
+                margin-bottom: 54px;
+            }
+
+            h4 {
+                text-align: center;
+                color: #404145;
+                font-size: 24px;
+                font-family: 'MacanBold', sans-serif;
+                margin-bottom: 8px;
+            }
+
+            p {
+                margin: 0;
+                font-size: 16px;
+                color: #000000;
+                font-family: 'MacanBold', sans-serif;
+                text-align: center;
             }
         }
     }
