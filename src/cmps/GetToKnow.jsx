@@ -74,7 +74,7 @@ export function GetToKnow({ gig,level }) {
                     </ul>
 
                     <div className="description">
-                        <p>{gig.description}</p>
+                        <p>{gig.about}</p>
                     </div>
                 </div>
             </div>

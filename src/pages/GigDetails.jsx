@@ -23,7 +23,6 @@ export function GigDetails() {
     const gig = useSelector(storeState => storeState.gigModule.gig)
 
     useEffect(() => {
-        console.log(gigId)
         loadGig(gigId)
     }, [gigId])
 
@@ -146,7 +145,10 @@ export function GigDetails() {
 
                     <div className='about-gig'>
                         <h1 className='about-gig-title'>About This Gig</h1>
-                        <p className='gig-description'>{gig?.about}</p>
+                        <div
+                            className="gig-description"
+                            dangerouslySetInnerHTML={{ __html: gig?.description }}
+                        ></div>
                     </div>
                 </section>
                 <PackageCard gig={gig} />

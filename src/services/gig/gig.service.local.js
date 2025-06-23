@@ -14,7 +14,8 @@ export const gigService = {
     remove,
     addGigMsg,
     getDefaultFilter,
-    getFilterFromSearchParams
+    getFilterFromSearchParams,
+    getEmptyGig
 }
 window.cs = gigService
 
@@ -104,12 +105,23 @@ async function save(gig) {
         savedgig = await storageService.put(STORAGE_KEY, gigToSave)
     } else {
         const gigToSave = {
-            vendor: gig.vendor,
+            title: gig.title,
+            daysToMake: gig.daysToMake,
+            description: gig.about,
+            description:gig.description,
+            tags: gig.tags,
+            category: gig.tags,
             price: gig.price,
-            speed: gig.speed,
+            imgUrl: gig.imgUrl,
+
             // Later, owner is set by the backend
             owner: userService.getLoggedinUser(),
-            msgs: []
+            msgs: [],
+            reviews: [],
+            status: 'In stock',
+            likedByUsers: []
+
+
         }
         savedgig = await storageService.post(STORAGE_KEY, gigToSave)
     }
@@ -158,5 +170,17 @@ function getFilterFromSearchParams(searchParams) {
     const deliveryTime = searchParams.get('deliveryTime') || ''
 
 
-    return { txt, category,level ,price,deliveryTime}
+    return { txt, category, level, price, deliveryTime }
+}
+
+function getEmptyGig() {
+    return {
+        title: '',
+        daysToMake: null,
+        description: '',
+        tags: '',
+        category: '',
+        price: null,
+        imgUrl: [],
+    }
 }
