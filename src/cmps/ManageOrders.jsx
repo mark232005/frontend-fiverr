@@ -40,7 +40,7 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
                                     <span>{order.gig.name}</span>
                                 </div>
                             </td>
-                            <td>Nov 10, 2023</td>
+                            <td>10/11/23</td>
                             <td>{order.gig.price}$</td>
                             <td><p onClick={() => setChangeStatus(order._id)} className={order.status}>{order.status} </p>
                                 {changeStatus === order._id && <ul className="radio-status ">

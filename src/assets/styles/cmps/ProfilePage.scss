@@ -171,6 +171,8 @@
 
         th,
         td {
+            max-width: 250px;
+            min-width: 110px;
             text-align: start;
             border-bottom: 1px solid #dadbdd;
         }
