@@ -43,9 +43,9 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
                             <td>{order.gig.price}$</td>
                             <td><p onClick={() => setChangeStatus(order._id)} className={order.status}>{order.status} </p>
                                 {changeStatus === order._id && <ul className="radio-status ">
-                                    <li><button onClick={() => handleChange(order._id, 'Approved')} >Approved</button></li>
-                                    <li><button onClick={() => handleChange(order._id, 'Pending')} >Pending</button></li>
-                                    <li><button onClick={() => handleChange(order._id, 'Rejected')}>Rejected</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'approved')} >Approved</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'pending')} >Pending</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'rejected')}>Rejected</button></li>
                                 </ul>}
                             </td>
                         </tr>

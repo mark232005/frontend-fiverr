@@ -11,7 +11,7 @@ export function GigOrders() {
     const [gigsMap, setGigsMap] = useState({})
     const [orderNumber, setOrderNumber] = useState(null)
     const [deliveryDays, setDeliveryDays] = useState(null)
-
+    const [currTab, setCurrTab] = useState('ACTIVE')
     useEffect(() => {
         loadOrders()
         const randomOrderNumber = Math.floor(100000000 + Math.random() * 900000000)
@@ -31,47 +31,62 @@ export function GigOrders() {
         })
         setGigsMap(map)
     }
+    function countOrders() {
+        return orders.reduce((acc, order) => {
+            acc[order.status] = (acc[order.status] || 0) + 1
+            return acc
+        }, {})
+    }
 
+    const orderCounts = countOrders()
     return (
-            <section className="order-index">
-                <h2>My Orders</h2>
-                <div className="order-layout">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Seller</th>
-                                <th>Gig</th>
-                                <th>Package</th>
-                                <th>Category</th>
-                                <th>Due on</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {orders.map(order => {
+        <section className="order-index">
+            <h2>My Orders</h2>
+            <ul className="tabs">
+                <li onClick={() => setCurrTab('ACTIVE')} className={currTab === 'ACTIVE' ? 'active select' : ''}>ACTIVE <span className="tab-count">{orderCounts['ACTIVE']}</span></li>
+                <li onClick={() => setCurrTab('COMPLETED')} className={currTab === 'COMPLETED' ? 'active select' : ''} >COMPLETED <span className="tab-count">{orderCounts['COMPLETED']}</span></li>
+                <li onClick={() => setCurrTab('CANELLED')} className={currTab === 'CANELLED' ? 'active select' : ''}>CANELLED <span className="tab-count">{orderCounts['CANELLED']}</span></li>
+                <li onClick={() => setCurrTab('ALL')} className={currTab === 'ALL' ? 'active select' : ''}>ALL <span className="tab-count">{orders.length}</span></li>
+            </ul>
+
+            <div className="order-layout">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan="2" className="title"><span>{currTab} </span>ORDERS</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>ORDER DATE</td>
+                            <td>Due on</td>
+                            <td>TOTAL</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders
+                            .filter(order => currTab === 'ALL' || order.status === currTab)
+                            .map(order => {
+
                                 const gig = gigsMap[order.gigId]
                                 return (
                                     <tr key={order._id}>
-                                        <td>
-                                            <div className="user-with-img flex">
-                                                <img src={gig?.owner?.imgUrl || 'https://via.placeholder.com/40'} alt={order.seller.fullname} width="40" />
-                                                <span>{order.seller.fullname}</span>
-
-                                            </div>
-                                        </td>
+                                        <td></td>
                                         <td>
                                             <div className="gig-with-img flex">
-
-                                                <img src={gig?.imgUrl[0] || 'https://via.placeholder.com/80'} alt={gig?.title} width="80" />
+                                                <img src={gig?.imgUrl?.[0] || 'https://via.placeholder.com/80'} alt={gig?.title || 'Gig'} width="80" />
                                                 <p>{gig?.title || order.gigId}</p>
                                             </div>
                                         </td>
                                         <td>
-                                            <span>{order.package || 'Bronze'}</span>
-                                        </td>
-                                        <td>
-                                            <span>{gig?.category || 'Graphics & Design'}</span>
+                                            <span>
+                                                {order?.orderDate ? new Date(order.dueDate).toLocaleDateString('en-GB', {
+                                                    day: 'numeric',
+                                                    month: 'short',
+                                                    year: 'numeric'
+                                                }) : 'No due date'}
+                                            </span>
                                         </td>
                                         <td>
                                             <span>
@@ -89,9 +104,9 @@ export function GigOrders() {
                                     </tr>
                                 )
                             })}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     )
 }

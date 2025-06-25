@@ -11,7 +11,7 @@ export function MyGigs({ gigs, onRemove }) {
         <section className="my-gigs">
             <h1>Gigs</h1>
             <ul className="tabs">
-                <li className="active select">ACTIVE</li>
+                <li className="active select">ACTIVE <span className="tab-count">{gigs.length}</span></li>
                 <li >PENDING APPROVAL</li>
                 <li>REQUIRES MODIFICATION</li>
                 <li>DRAFT</li>

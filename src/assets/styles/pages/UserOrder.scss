@@ -1,100 +1,230 @@
 .order-index {
+    background-color: #f7f7f7;
     padding: 0 67px;
     max-width: 1400px;
     margin: 0 auto;
 
     h2 {
         grid-column: 2;
-        text-transform: uppercase;
-    font-size: 1.625rem;
-    color: #404145;
+        color: #404145;
+        margin: 0;
+        font-family: "MacanBold", sans-serif;
+        text-transform: capitalize;
+        font-size: 24px;
+        line-height: 130%;
+        padding: 20px 0;
     }
+
+    ul.tabs {
+        font-family: 'MacanBold', sans-serif;
+        display: flex;
+        border-bottom: 1px solid #dddddd;
+        position: relative;
+
+        li {
+            margin-left: 11px;
+            position: relative;
+            font-size: 14px;
+            color: #999999;
+            padding: 3px 5px 10px;
+            cursor: pointer;
+
+            &.select {
+                color: #0e0e0f;
+
+                .tab-count {
+                    background-color: #1DBF73;
+
+                }
+            }
+
+            &.active::after {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #f7f7f7;
+            }
+
+            &.active::before {
+                content: '';
+                position: absolute;
+                bottom: 1px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #dddddd;
+            }
+
+            .tab-count {
+                margin-left: 5px;
+                text-align: center;
+                padding: 4px 7px 3px 7px;
+                min-width: 6px;
+                border-radius: 50%;
+                color: #fff;
+                background-color: #c2c2c2;
+            }
+        }
+    }
+
 
     .order-layout {
         grid-column: 2;
         min-height: 100vh;
 
         table {
-            width:100%;
+            position: relative;
+            width: 100%;
             border-collapse: collapse;
             border: 1px solid #dadbdd;
-            color: #7a7d85;
+            background-color: #fff;
 
-            th {
-                text-align: start;
-                padding: 10px 10px 10px 20px;
-                color: #7a7d85;
-                text-transform: uppercase;
-                border-bottom: 1px solid #dadbdd;
-            }
-            th:last-child {
-                text-align: end;
-            }
+            thead {
 
-            tr {
-                border-bottom: 1px solid #dadbdd;
 
-            }
+                tr {
+                    font-family: 'MacanBold', sans-serif;
+                    border-bottom: 1px solid #dadbdd;
 
-            td {
-                padding: 0 20px;
-
-                .user-with-img {
-                    align-items: center;
-                    flex-direction: row;
-
-                    img {
-                        border-radius: 50%;
-                        width: 30px;
-                        height: 30px;
-                        margin-right: 10px;
-                    }
                 }
 
-                .gig-with-img {
-                    gap: 5px;
-                    align-items: center;
-
-                    img {
-                        width: 50px;
-
-                    }
-
-                    p {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 3;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        line-height: 1.4;
-                        max-height: calc(1.4em * 3);
-                    }
+                .title {
+                    text-align: start;
+                    font-size: 14px;
+                    line-height: 17px;
+                    padding: 15px 15px 15px 15px;
+                    color: #0e0e0f;
                 }
 
-                .status {
-                    font-size: 16px;
-                    text-align: center;
-                    color: #fff;
-                    padding: .125rem .3125rem;
-                    border-radius: .5rem;
-                    white-space: nowrap;
-                    min-width: 6.25rem
+                .f {
+                    padding-left: 20px;
+                }
+
+                td {
+                    padding-right: 15px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: #999999;
+                    line-height: 33px;
+                    padding-top: 0;
+                    padding-bottom: 0;
+
+                    &:last-child {
+                        text-align: center;
+                    }
                 }
             }
 
+            tbody {
+                font-size: 14px;
+
+                tr {
+
+                    td {
+                        .COMPLETED {
+                            font-size: 16px;
+                            text-transform: uppercase;
+                            margin: 0;
+                            text-align: center;
+                            padding: .125rem .3125rem;
+                            border-radius: .5rem;
+                            white-space: nowrap;
+                            min-width: 6.25rem;
+                            color: #fff;
+                            text-transform: capitalize;
+                            background-color: #3fbe87;
+
+                        }
+
+                        .CANELLED {
+                            font-size: 16px;
+                            text-transform: uppercase;
+                            margin: 0;
+                            text-align: center;
+                            color: #fff;
+                            padding: .125rem .3125rem;
+                            border-radius: .5rem;
+                            white-space: nowrap;
+                            min-width: 6.25rem;
+                            background-color: #bd5a46;
+                            text-transform: capitalize;
+
+                        }
+
+                        .ACTIVE {
+                            font-size: 16px;
+                            text-transform: uppercase;
+                            margin: 0;
+                            text-align: center;
+                            color: #fff;
+                            padding: .125rem .3125rem;
+                            border-radius: .5rem;
+                            white-space: nowrap;
+                            min-width: 6.25rem;
+                            text-transform: capitalize;
+                            background-color: #cd9323;
+
+                        }
+
+                        .gig-with-img {
+                            gap: 40px;
+                            align-items: center;
+                            max-width: 600px;
+
+
+                            img {
+                                min-width: 45px;
+                                min-height: 32px;
+                                max-width: 45px;
+                                max-height: 32px;
+                                vertical-align: top;
+                                border-radius: 2px;
+
+                            }
+
+                            p {
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                margin: 0;
+                                font-size: 14px;
+                            }
+                        }
+
+                        padding: 15px 15px 15px 0;
+                        color: #555555;
+
+                        img {
+                            min-width: 45px;
+                            min-height: 32px;
+                            max-width: 45px;
+                            max-height: 32px;
+                            vertical-align: top;
+                            border-radius: 2px;
+                        }
+
+
+                    }
+
+                }
+
+
+            }
         }
-
     }
 }
 
 .order-preview {
     display: flex;
     padding: 1.874rem;
-}
-
-.completed {
-    background-color: #19a463;
-}
-
-.pending {
-    background-color: #c37e10d7;
 }

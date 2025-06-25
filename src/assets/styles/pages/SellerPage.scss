@@ -97,6 +97,7 @@
                     border: 1px solid #dadbdd;
                     flex-direction: column;
                     align-items: center;
+
                     .user-profile-no-img {
                         font-size: 2em;
                         align-items: center;
@@ -106,7 +107,7 @@
                         min-height: 120px;
                         min-width: 120px;
                     }
-        
+
 
                     img {
                         width: 120px;
@@ -309,7 +310,7 @@
                                     }
                                 }
 
-                                .Approved {
+                                .approved {
                                     margin: 0;
                                     text-align: center;
                                     padding: .125rem .3125rem;
@@ -322,7 +323,7 @@
 
                                 }
 
-                                .Rejected {
+                                .rejected {
                                     margin: 0;
                                     text-align: center;
                                     color: #fff;
@@ -330,12 +331,12 @@
                                     border-radius: .5rem;
                                     white-space: nowrap;
                                     min-width: 6.25rem;
-                                    background-color:#bd5a46;
+                                    background-color: #bd5a46;
                                     text-transform: capitalize;
 
                                 }
 
-                                .Pending {
+                                .pending {
                                     margin: 0;
                                     text-align: center;
                                     color: #fff;
@@ -344,7 +345,7 @@
                                     white-space: nowrap;
                                     min-width: 6.25rem;
                                     text-transform: capitalize;
-                                    background-color:#cd9323;
+                                    background-color: #cd9323;
 
                                 }
 
@@ -445,12 +446,24 @@
                         border-right: 10px solid transparent;
                         border-bottom: 10px solid #dddddd;
                     }
+                    .tab-count {
+                        margin-left: 5px;
+                        text-align: center;
+                        padding: 4px 7px 3px 7px;
+                        min-width: 6px;
+                        border-radius: 50%;
+                        color: #fff;
+                        background-color: #1DBF73;
+                    }
+        
                 }
             }
-            .table-container{
-                max-height: 1200px; /* גובה קבוע - אתה יכול להתאים */
+
+            .table-container {
+                max-height: 1200px;
                 overflow-y: auto;
             }
+
             table {
                 position: relative;
                 width: 100%;
@@ -459,7 +472,7 @@
                 background-color: #fff;
 
                 thead {
-    
+
 
                     tr {
                         font-family: 'MacanBold', sans-serif;
@@ -489,6 +502,7 @@
                         padding-bottom: 0;
                     }
                 }
+
                 tbody {
                     tr {
                         .checkbox {
@@ -977,8 +991,10 @@
                                 padding: 3px 5px 10px;
                                 cursor: pointer;
 
+
                                 &.select {
                                     color: #0e0e0f;
+                                    
                                 }
 
                                 &.active::after {
@@ -1048,6 +1064,7 @@
 
                             tbody {
                                 tr {
+
                                     .checkbox {
                                         width: 15px;
                                         height: 16px;
