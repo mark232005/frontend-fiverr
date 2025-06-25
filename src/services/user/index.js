@@ -12,7 +12,7 @@ function getEmptyUser() {
         located:'',
         skills:[],
         languages:[],
-        description:''
+        description:'',
 
     }
 }

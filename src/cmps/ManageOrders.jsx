@@ -10,7 +10,6 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
         setChangeStatus('')
 
     }
-
     return (
         <section className="manage-orders">
             <h1>Welcome, {user.fullname}</h1>

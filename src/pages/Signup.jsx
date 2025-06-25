@@ -10,10 +10,10 @@ export function Signup() {
     const [credentials, setCredentials] = useState(userService.getEmptyUser())
     const navigate = useNavigate()
     const [skillsInput, setSkillsInput] = useState('')
+
     function clearState() {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '', score: 100 })
     }
-
     function handleChange(ev) {
         const field = ev.target.name
         let newValue = ev.target.value
@@ -30,7 +30,6 @@ export function Signup() {
         if (!credentials.username || !credentials.password || !credentials.fullname) return
         const skills = skillsInput.split(',').map(skill => skill.trim()).filter(skill => skill)
         const updatedCredentials = { ...credentials, skills }
-
         await signup(updatedCredentials)
         clearState()
         navigate('/')

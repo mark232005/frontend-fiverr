@@ -1,12 +1,23 @@
-import { use } from "react";
 import { ClockIcon, FacebookIcon, GoogleIcon, InstagramIcon, LocationIcon, SendIcon, TwitterIcon, UserIcon } from "../svg";
 
 export function AboutUser({ user }) {
-
+    function stringAvatar(name = '') {
+        const parts = name.trim().split(' ')
+        const first = parts[0]?.[0] || ''
+        const second = parts[1]?.[0] || ''
+        return {
+            children: `${first}${second}`.toUpperCase()
+        }
+    }
     return (
         <section className="about-user flex">
             <div className="user-profile flex">
-                <img src={user.imgUrl} alt="" />
+                {
+                    !user.imgUrl?
+                    <div className="user-profile-no-img flex" >{stringAvatar(user.fullname).children}</div>
+                    :<img src={user.imgUrl} alt="" />
+                    
+                }
                 <h2>{user.fullname}</h2>
                 <p>@{user.username}</p>
                 <div className="user-details">

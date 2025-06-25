@@ -5,6 +5,14 @@
 
     gap: 25px;
     margin-top: 50px;
+    h1 {
+        color: #404145;
+        margin: 0;
+        font-family: 'MacanBold', sans-serif;
+        text-transform: capitalize;
+        font-size: 24px;
+        line-height: 130%;
+    }
 
     .about-user {
         max-width: 500px;
@@ -18,6 +26,16 @@
             border: 1px solid #dadbdd;
             flex-direction: column;
             align-items: center;
+
+            .user-profile-no-img {
+                font-size: 2em;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                background-color: #bdbdbd;
+                min-height: 120px;
+                min-width: 120px;
+            }
 
             img {
                 width: 120px;
@@ -153,8 +171,9 @@
         flex-direction: column;
 
         h2 {
+            font-weight: 200;
             color: #222325;
-            margin: 0;
+            margin: 20px 0 0 0;
             font-family: 'MacanBold', sans-serif;
             font-size: 20px;
             text-transform: capitalize;
@@ -165,49 +184,115 @@
             min-width: 500px;
             width: auto;
             border: 1px solid #dadbdd;
-            border-collapse: collapse
-        }
+            border-collapse: collapse;
 
 
-        th,
-        td {
-            max-width: 250px;
-            min-width: 110px;
-            text-align: start;
-            border-bottom: 1px solid #dadbdd;
-        }
+            th,
+            td {
+                text-align: start;
+                border-bottom: 1px solid #dadbdd;
+            }
 
-        th {
-            width: 100%;
-            color: #222325;
-            padding: 10px 10px 10px 20px;
-
-        }
-
-        tbody tr:hover {
-            background-color: #f2f2f3;
-
-        }
-
-        td {
-            width: 100%;
-            padding: 0 20px;
-            color: #7a7d85;
-            font-family: 'MacanBold', sans-serif;
-            font-size: 16px;
-
-            .buyer-details {
-                color: #404245;
-                align-items: center;
-
-                img {
-                    border-radius: 50%;
-                    width: 30px;
-                    height: 30px;
-                    margin-right: 10px;
-                }
+            th {
+                font-family: 'Macan-thin';
+                width: 100%;
+                color: #222325;
+                padding: 10px 10px 10px 20px;
 
             }
+
+            tbody {
+                tr {
+                    position: relative;
+
+                    &:hover {
+                        background-color: #f2f2f3;
+
+                    }
+
+                    td {
+                        width: 100%;
+                        padding: 10px 20px;
+                        color: #7a7d85;
+                        font-family: 'MacanBold', sans-serif;
+                        font-size: 16px;
+
+                        .buyer-details {
+                            color: #404245;
+                            align-items: center;
+
+                            img {
+                                border-radius: 50%;
+                                width: 30px;
+                                height: 30px;
+                                margin-right: 10px;
+                            }
+
+                        }
+
+                        .gig-title {
+                            gap: 8px;
+
+                            img {
+                                width: 45px;
+                            }
+                        }
+
+                        .Approved {
+                            margin: 0;
+                            text-align: center;
+                            padding: .125rem .3125rem;
+                            border-radius: .5rem;
+                            white-space: nowrap;
+                            min-width: 6.25rem;
+                            color: #fff;
+                            text-transform: capitalize;
+                            background-color: #3fbe87;
+
+                        }
+
+                        .Rejected {
+                            margin: 0;
+                            text-align: center;
+                            color: #fff;
+                            padding: .125rem .3125rem;
+                            border-radius: .5rem;
+                            white-space: nowrap;
+                            min-width: 6.25rem;
+                            background-color:#bd5a46;
+                            text-transform: capitalize;
+
+                        }
+
+                        .Pending {
+                            margin: 0;
+                            text-align: center;
+                            color: #fff;
+                            padding: .125rem .3125rem;
+                            border-radius: .5rem;
+                            white-space: nowrap;
+                            min-width: 6.25rem;
+                            text-transform: capitalize;
+                            background-color:#cd9323;
+
+                        }
+
+                        .gig-title {
+
+                            span {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                max-width: 200px;
+
+                            }
+                        }
+                    }
+
+
+                }
+
+    }
 
             .gig-title {
                 gap: 8px;

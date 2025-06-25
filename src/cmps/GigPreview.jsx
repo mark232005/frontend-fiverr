@@ -7,7 +7,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 export function GigPreview({ gig }) {
     const navigate = useNavigate()
-    const [underlineTitle, setUnderlineTitle] = useState(false);
+    const [underlineTitle, setUnderlineTitle] = useState(false)
+    
     function isLavel(lavel) {
         switch (lavel) {
             case '1':

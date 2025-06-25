@@ -16,7 +16,7 @@ loadOrders()
 
         <section className="profile-page flex">
             <AboutUser user={user}/>
-            <ManageOrders orders={orders}/>
+            <ManageOrders orders={orders} user={user}/>
         </section>
 
     )

@@ -11,6 +11,11 @@ import { SET_FILTER_BY } from '../store/gig.reducer.js'
 import { debounce } from '../services/util.service.js'
 import { NavBar } from './Categories.jsx'
 import vsign from '../assets/img/img-of-v.svg'
+import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
+
 
 
 export function AppHeader() {
@@ -41,12 +46,22 @@ export function AppHeader() {
             window.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+    function stringAvatar(name = '') {
+        const parts = name.trim().split(' ')
+        const first = parts[0]?.[0] || ''
+        const second = parts[1]?.[0] || ''
+        return {
+            children: `${first}${second}`.toUpperCase()
+        }
+    }
     function onSearchClick() {
         dispatch({ type: SET_FILTER_BY, filterBy: { txt: searchTxt } })
         const params = new URLSearchParams(searchParams);
         params.set('txt', searchTxt);
         navigate({ pathname: '/gig', search: params.toString() });
     }
+
     async function onLogout() {
         try {
             await logout()
@@ -85,7 +100,7 @@ export function AppHeader() {
             </header>
         )
     }
-    
+
     return (
 
         <section className={`${isHomePage ? 'sticky-mood' : ''}`}>
@@ -112,9 +127,9 @@ export function AppHeader() {
                             onBlur={() => overlay(false)}>
                             <Search />
                         </button>
-                        {        
-                        searchTxt!==''&&
-                        <button onClick={()=>setSearchTxt('')} className="clear-btn "><ClearIcon/></button>
+                        {
+                            searchTxt !== '' &&
+                            <button onClick={() => setSearchTxt('')} className="clear-btn "><ClearIcon /></button>
                         }
                     </div>
 
@@ -130,23 +145,52 @@ export function AppHeader() {
                                     <button > Orders</button>
                                 </Link>
                                 <button onClick={() => navigate('seller')} > Switch to selling</button>
-                                {user.imgUrl &&
-                                    <>
-                                        <img src={user.imgUrl} onClick={() => setOpenModal(prev => !prev)} />
-                                        {openModal ?
-                                            <ProfileModal
-                                                logout={onLogout}
-                                                navigate={navigate}
-                                            /> : ''}
-                                    </>
-                                }
+                                {!user.imgUrl ?
+                                    (
+                                        <Stack direction="row" spacing={2}>
+                                            <Badge
+                                                className="custom-badge"
+                                                overlap="circular"
+                                                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                                variant="dot"
+                                            >
+                                                <Avatar src="/static/images/avatar/1.jpg"
+                                                    onClick={() => setOpenModal(prev => !prev)}
+                                                    sx={{ width: 32, height: 32, cursor: 'pointer', fontSize: '0.8rem' }}>
+
+                                                    {stringAvatar(user.fullname).children}
+                                                </Avatar>
+
+                                            </Badge>
+                                        </Stack>)
+                                    : (
+                                        <Badge
+                                            className="custom-badge"
+                                            overlap="circular"
+                                            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                            variant="dot"
+                                        >
+                                            <Avatar
+                                                src={user.imgUrl}
+                                                onClick={() => setOpenModal(prev => !prev)}
+                                                sx={{ width: 32, height: 32, cursor: 'pointer' }}
+                                            />
+                                        </Badge>
+                                    )}
+
+                                {openModal && (
+                                    <ProfileModal
+                                        logout={onLogout}
+                                        navigate={navigate}
+                                    />
+                                )}
                             </div>
                         )}
                         {!user &&
 
                             <React.Fragment>
                                 {isHomePage &&
-                                <button onClick={() => navigate('/gig')} >Explore</button>
+                                    <button onClick={() => navigate('/gig')} >Explore</button>
                                 }
                                 <button className="sign-btn">Sign in</button>
                                 <button onClick={() => navigate('login')} className="join-btn">Join</button>
