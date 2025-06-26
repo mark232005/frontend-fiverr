@@ -12,6 +12,7 @@ export function Overview({ createGig, gig }) {
         setText(value)
         createGig(name, value)
     }
+    console.log(gig.tags);
     return (
         <section className="overview">
             <div className="title">
@@ -30,7 +31,7 @@ export function Overview({ createGig, gig }) {
                         minLength={15}
                         placeholder="do something I'm really good at"
                         maxLength="80"
-                        value={text}
+                        value={gig.title||text}
                         onChange={handleChange}
                     > </textarea>
                     <div className="footer-input flex">

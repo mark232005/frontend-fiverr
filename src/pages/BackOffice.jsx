@@ -15,7 +15,7 @@ export function BackOffice() {
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const navigate = useNavigate()
     const [isSelected, setIsSelected] = useState('dashboard')
-    const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
+    // const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
 
     useEffect(() => {
         loadOrders()
@@ -30,25 +30,16 @@ export function BackOffice() {
         const updatedOrder = { ...orderToUpdate, status: value }
         updateOrder(updatedOrder)
     }
-    function onSave() {
-
-        addGig(gigToEdit).then(() => navigate('/gig')
-        )
-            .catch(err => {
-                console.log('Saving gig failed', err);
-            })
-
-    }
     return (
         <section className="back-office">
-            <SellerHeader setIsSelected={setIsSelected} isSelected={isSelected}/>
+            <SellerHeader setIsSelected={setIsSelected} isSelected={isSelected} />
             <main className={isSelected === 'dashboard' ? 'white' : ''}>
                 {isSelected === 'dashboard' &&
                     <Dashboard user={user} orders={orders} onChangeStatus={onChangeStatus} />}
                 {isSelected === 'myGigs' &&
                     <MyGigs gigs={gigs} onRemove={onRemove} />}
                 {isSelected === 'addGig' &&
-                    <AddGig setGigToEdit={setGigToEdit} gigToEdit={gigToEdit} onSave={onSave} />}
+                    <AddGig />}
             </main>
         </section>
     )

@@ -22,6 +22,7 @@ import { ProfilePage } from './pages/ProfilePage.jsx'
 import { GigOrders } from './pages/GigOrders.jsx'
 import { BackOffice } from './pages/BackOffice.jsx'
 import { GigCheckout} from './pages/GigCheckout.jsx'
+import { AddGig } from './cmps/AddGig.jsx'
 
 
 
@@ -44,6 +45,7 @@ export function RootCmp() {
                     <Route path="profile" element={<ProfilePage />} />
                     <Route path="seller" element={<BackOffice />} />
                     <Route path="gig/:gigId/checkout" element={<GigCheckout/>}/>
+                    <Route path="seller/:gigId" element={<AddGig/>}/>
                     <Route path="admin" element={
                         <AuthGuard checkAdmin={true}>
                             <AdminIndex />

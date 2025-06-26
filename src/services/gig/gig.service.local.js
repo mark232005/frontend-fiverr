@@ -86,6 +86,7 @@ async function query(filterBy = {}) {
 }
 
 function getById(gigId) {
+    console.log('dd');
     return storageService.get(STORAGE_KEY, gigId)
 }
 
@@ -99,8 +100,16 @@ async function save(gig) {
     if (gig._id) {
         const gigToSave = {
             _id: gig._id,
+            title: gig.title,
+            daysToMake: gig.daysToMake,
+            description: gig.about,
+            description: gig.description,
+            tags: gig.tags,
+            category: gig.tags,
             price: gig.price,
-            speed: gig.speed,
+            imgUrl: gig.imgUrl,
+
+
         }
         savedgig = await storageService.put(STORAGE_KEY, gigToSave)
     } else {
@@ -108,7 +117,7 @@ async function save(gig) {
             title: gig.title,
             daysToMake: gig.daysToMake,
             description: gig.about,
-            description:gig.description,
+            description: gig.description,
             tags: gig.tags,
             category: gig.tags,
             price: gig.price,

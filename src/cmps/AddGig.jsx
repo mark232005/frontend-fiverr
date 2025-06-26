@@ -1,20 +1,42 @@
-import { section } from "framer-motion/client";
 import { ArrowRightIcon, CheckMarkIcon } from "../svg";
 import { useState } from "react";
 import * as React from 'react';
-import Select, { selectClasses } from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import { Overview } from "./Overview.JSX";
+import { Overview } from "./Overview";
 import { Pricing } from "./Pricing";
 import { Description } from "./Description";
 import { Gallery } from "./Gallery";
 import { Publish } from "./Publish";
+import { useNavigate, useParams } from "react-router";
+import { useEffect } from "react";
+import { gigService } from "../services/gig/gig.service.local";
+import { addGig } from "../store/gig.actions";
+import { Loader } from "./Loader";
 
 
 
-export function AddGig({ setGigToEdit, gigToEdit, onSave }) {
+export function AddGig() {
     const [currStep, setCurrStep] = useState(1)
+    const { gigId } = useParams()
+    const [gigToEdit, setGigToEdit] = useState(null)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (gigId) {
+            gigService.getById(gigId).then(gig => {
+                setGigToEdit(gig)
+            })
+        } else {
+            setGigToEdit(gigService.getEmptyGig())
+        }
+    }, [gigId])
+    function onSave() {
+        addGig(gigToEdit).then(() => navigate('/gig')
+        )
+            .catch(err => {
+                console.log('Saving gig failed', err);
+            })
+    }
+
 
     function stripHtml(html) {
         const div = document.createElement("div")
@@ -39,6 +61,7 @@ export function AddGig({ setGigToEdit, gigToEdit, onSave }) {
                 return true
         }
     }
+    if (!gigToEdit) return <Loader/>
     return (
         <section className="add-gig">
             <div className="navbar-add-gig ">

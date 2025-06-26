@@ -58,7 +58,7 @@ export function MyGigs({ gigs, onRemove }) {
                                         {showActivity === gig._id &&
                                             <ul className="list-act">
                                                 <li onClick={() => navigate(`/gig/${gig._id}`)}>PREVIEW</li>
-                                                <li>EDIT</li>
+                                                <li onClick={()=>navigate (`/seller/${gig._id}`)}>EDIT</li>
                                                 <li>PAUSE</li>
                                                 <li>SHARE</li>
                                                 <li onClick={() => onRemove(gig._id)}>DELETE</li>
