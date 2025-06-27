@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 import { orderService } from '../services/order/order.service.local.js'
 import { gigService } from '../services/gig/gig.service.local.js'
-import { GigLayout } from '../cmps/GigLayout'
+import { useLocation } from 'react-router'
+// import { GigLayout } from '../cmps/GigLayout'
 
 
 export function GigOrders() {
@@ -12,6 +13,9 @@ export function GigOrders() {
     const [orderNumber, setOrderNumber] = useState(null)
     const [deliveryDays, setDeliveryDays] = useState(null)
     const [currTab, setCurrTab] = useState('ACTIVE')
+    const location = useLocation()
+    const isOrderPage = location.pathname === 'user/orders'
+
     useEffect(() => {
         loadOrders()
         const randomOrderNumber = Math.floor(100000000 + Math.random() * 900000000)

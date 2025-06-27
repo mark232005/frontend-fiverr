@@ -86,7 +86,6 @@ async function query(filterBy = {}) {
 }
 
 function getById(gigId) {
-    console.log('dd');
     return storageService.get(STORAGE_KEY, gigId)
 }
 
@@ -169,7 +168,6 @@ async function _createGigs(gigs) {
 
 
 function getFilterFromSearchParams(searchParams) {
-    console.log('searchParams:', searchParams)
 
 
     const txt = searchParams.get('txt') || ''

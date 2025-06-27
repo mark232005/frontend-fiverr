@@ -12,7 +12,6 @@ export function Overview({ createGig, gig }) {
         setText(value)
         createGig(name, value)
     }
-    console.log(gig.tags);
     return (
         <section className="overview">
             <div className="title">

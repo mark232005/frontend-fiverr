@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Navigate } from 'react-router'
+import { Routes, Route, Navigate, useLocation } from 'react-router'
 
 import { userService } from './services/user'
 import { HomePage } from './pages/HomePage'
@@ -28,12 +28,14 @@ import { AddGig } from './cmps/AddGig.jsx'
 
 
 export function RootCmp() {
+    const location = useLocation()
+    const isOrderPage = location.pathname === '/user/orders'
     return (
         <div className="main-container">
             <AppHeader />
             <UserMsg />
 
-            <main>
+            <main className={isOrderPage?'bg':''}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="gig" element={<GigIndex />} />

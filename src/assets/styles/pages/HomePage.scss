@@ -19,7 +19,7 @@
 
         h1 {
             font-weight: 100;
-            font-family:Macan-thin;
+            font-family:Macan-light;
             font-size: 72px;
             color: #ffffff;
         }
@@ -104,7 +104,7 @@
                 align-items: center;
                 line-height: 24px;
                 font-weight: 100;
-                font-family: Roboto;
+                font-family: Macan-light;
                 font-size: 16px;
                 border-radius: 8px;
                 padding: 8px 16px;
@@ -155,7 +155,7 @@
             gap: 10px;
 
             p {
-                font-family: Roboto;
+                font-family: MacanBold;
                 word-break: keep-all;
                 font-weight: 600;
                 font-size: 14px;
@@ -185,7 +185,8 @@
 
 
         h2 {
-            font-family: Roboto;
+            margin-bottom: 32px;
+            font-family: Macan-light;;
             font-size: 48px;
             color: #404145;
         }
@@ -290,7 +291,7 @@
         }
 
         h1 {
-            font-family: 'MacanBold', sans-serif;
+            font-family: 'Macan-light', sans-serif;
             font-size: 30px;
             font-weight: 600;
             color: white;

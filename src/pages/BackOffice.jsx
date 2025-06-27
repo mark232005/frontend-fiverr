@@ -4,19 +4,14 @@ import { MyGigs } from "../cmps/MyGigs";
 import { Dashboard } from "../cmps/Dashboard";
 import { useSelector } from "react-redux";
 import { loadOrders, updateOrder } from "../store/orders.actions";
-import { addGig, loadGigs, removeGig } from "../store/gig.actions";
+import { loadGigs, removeGig } from "../store/gig.actions";
 import { AddGig } from "../cmps/AddGig";
-import { gigService } from "../services/gig/gig.service.local";
-import { useNavigate } from "react-router";
 
 export function BackOffice() {
     const user = useSelector(storeState => storeState.userModule.user)
     const orders = useSelector(storeState => storeState.ordersModule.orders)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const navigate = useNavigate()
     const [isSelected, setIsSelected] = useState('dashboard')
-    // const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
-
     useEffect(() => {
         loadOrders()
         loadGigs()
@@ -32,7 +27,7 @@ export function BackOffice() {
     }
     return (
         <section className="back-office">
-            <SellerHeader setIsSelected={setIsSelected} isSelected={isSelected} />
+            <SellerHeader setIsSelected={setIsSelected} />
             <main className={isSelected === 'dashboard' ? 'white' : ''}>
                 {isSelected === 'dashboard' &&
                     <Dashboard user={user} orders={orders} onChangeStatus={onChangeStatus} />}

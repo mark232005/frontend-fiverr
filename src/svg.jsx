@@ -350,7 +350,7 @@ export function Global() {
 }
 export function AccessibilityIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 16 16"><g clipPath="url(#accessibility_svg__a)"><path d="M8 5a.375.375 0 1 0 0-.75A.375.375 0 0 0 8 5" vectorEffect="non-scaling-stroke"></path><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6.5 11.375 8 9.125m0 0 1.5 2.25M8 9.125v-1.5m0 0 2.25-.75M8 7.625l-2.25-.75M1.25 8a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0m7.125-3.375a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0" vector-effect="non-scaling-stroke"></path></g><defs><clipPath id="accessibility_svg__a"><path d="M0 0h16v16H0z" vector-effect="non-scaling-stroke"></path></clipPath></defs></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 16 16"><g clipPath="url(#accessibility_svg__a)"><path d="M8 5a.375.375 0 1 0 0-.75A.375.375 0 0 0 8 5" vectorEffect="non-scaling-stroke"></path><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6.5 11.375 8 9.125m0 0 1.5 2.25M8 9.125v-1.5m0 0 2.25-.75M8 7.625l-2.25-.75M1.25 8a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0m7.125-3.375a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0" vectorEffect="non-scaling-stroke"></path></g><defs><clipPath id="accessibility_svg__a"><path d="M0 0h16v16H0z" vectorEffect="non-scaling-stroke"></path></clipPath></defs></svg>
   )
 }
 export function ClearFilter({ color = '#62646A' }) {

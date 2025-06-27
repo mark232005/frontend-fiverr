@@ -13,10 +13,10 @@ export function AboutUser({ user }) {
         <section className="about-user flex">
             <div className="user-profile flex">
                 {
-                    !user.imgUrl?
-                    <div className="user-profile-no-img flex" >{stringAvatar(user.fullname).children}</div>
-                    :<img src={user.imgUrl} alt="" />
-                    
+                    !user.imgUrl ?
+                        <div className="user-profile-no-img flex" >{stringAvatar(user.fullname).children}</div>
+                        : <img src={user.imgUrl} alt="" />
+
                 }
                 <h2>{user.fullname}</h2>
                 <p>@{user.username}</p>
@@ -48,7 +48,7 @@ export function AboutUser({ user }) {
                     </li>
                     <li>
                         <h2> Languages</h2>
-                        <p>{user.languages.map(language => <div>{language}</div>) || []}</p>
+                        <p>{user.languages.map((language, idx) => <div key={idx}>{language}</div>) || []}</p>
 
                     </li>
                     <li>
@@ -64,7 +64,7 @@ export function AboutUser({ user }) {
                     <li className="skills ">
                         <h2>Skills</h2>
                         <p className="s">
-                            {user.skills.map(skill => <span>{skill}</span>) || []}
+                            {user.skills.map((skill, idx) => <span key={idx}>{skill}</span>) || []}
                         </p>
                     </li>
                 </ul>
