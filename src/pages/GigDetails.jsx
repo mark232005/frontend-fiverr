@@ -18,6 +18,7 @@ import { IndexHeader } from '../cmps/IndexHeader'
 import { PackageCard } from '../cmps/PackageCard'
 import { GetToKnow } from '../cmps/GetToKnow'
 import { Loader } from '../cmps/Loader'
+import { ReviewList } from '../cmps/ReviewList'
 
 export function GigDetails() {
     const { gigId } = useParams()
@@ -80,7 +81,7 @@ export function GigDetails() {
     }
 
 
-    if (!gig) return <Loader/>
+    if (!gig) return <Loader />
 
     return (
         <section className="main-details-page">
@@ -154,6 +155,7 @@ export function GigDetails() {
                 </section>
                 <PackageCard gig={gig} />
                 <GetToKnow gig={gig} level={isLavel(gig.owner.level)} />
+                <ReviewList reviews={gig.reviews} gig={gig}/>
             </section>
         </section>
     )
