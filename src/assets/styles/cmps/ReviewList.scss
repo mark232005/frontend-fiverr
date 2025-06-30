@@ -1,17 +1,32 @@
-.review-list li {
-    grid-template-columns: 1fr 2.5em;
-    align-items: start;
-
-    > * {
-        grid-row: 1;
-    }
-    
-    .actions {
-        grid-column: 2;
-
-        button {
-            margin: 0;
+.reviews-list {
+    grid-column: 1/ 2;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5.5%;
+    max-width: 712px;
+    ul.review-list {
+        li:first-child .review-preview {
+          margin-top: 0;
         }
+      }
+    h2 {
+        color: #404145;
+        margin-bottom: 16px;
+        font-family: MacanBold;
+        font-size: 22px;
     }
-    
+    .footer{
+      font-weight:500;
+      font-family: MacanBold;
+      color: #404145;
+      padding: 8px 12px;
+      font-size: 14px;
+      span{
+        margin-right: 8px;
+      }
+      .icons{
+        align-items: center;
+        gap: 5px;
+      }
+    }
 }

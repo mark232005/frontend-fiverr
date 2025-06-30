@@ -1,31 +1,144 @@
 .review-preview {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: 1px solid #dadada;
+    max-height: 340px;
+    min-height: 222px;
+    margin-top: 32px;
+width: 100%;
+    .user-data {
+        gap: 16px;
 
-    p {
-        grid-column: 1;
-    }
+        .details-user {
+            justify-content: space-between;
+            flex-direction: column;
 
-    .review-by {
-        margin-block-end: 1em;
-    }
+            p {
+                margin: 0;
+                color: #222325;
+                font-size: 16px;
+                font-family: MacanBold;
+                font-weight: 700;
 
-    .review-txt {
-        grid-column: 1 / 3;
-        padding: 0.2em;
-        background-color: $gray2;
-        color: $gray4;
+            }
 
-        pre {
-            font-family: inherit;
+            .country {
+                p {
+                    font-size: 12px;
+                    color: #74767e;
+                    padding-left: 8px;
+                    font-family: Macan-light;
+                    margin: 0;
+                }
+
+                img {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
         }
     }
 
-    .created-at {
-        margin-top: 1em;
-        h4 {
-            margin: 0;
+    .line {
+        border: 0.5px solid #dadada;
+    }
+
+    main {
+        min-height: auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+
+        .body-review {
+            display: grid;
+            gap: 12px;
+            max-height: 229px;
+
+
+            .review-rate {
+                align-items: center;
+                gap: 12px;
+
+                span {
+                    height: 4px;
+                    width: 4px;
+                    background-color: #dadada;
+                    border-radius: 50%;
+                }
+
+                time {
+                    font-size: 12px;
+                    color: #74767e;
+                }
+
+                p {
+                    align-items: center;
+                    margin: 0;
+
+                    strong {
+                        padding-left: 4px;
+                        font-size: 16px;
+                        color: #222325;
+                    }
+                }
+            }
+
+            p {
+                font-weight: bolder;
+                margin: 0;
+                font-family: Macan-light;
+                color: #404145;
+                font-size: 16px;
+            }
+
+            .gig-summary {
+                gap: 40px;
+
+                .line {
+                    height: auto;
+                    border-color: #dadada;
+                    border-left-width: 1px;
+                    border-style: solid;
+                    margin-top: 8px;
+                    margin-bottom: 8px;
+                }
+
+                .price {
+                    p {
+                        font-family: MacanBold;
+                        color: #222325;
+                        font-size: 14px;
+                    }
+
+                    span {
+                        font-size: 12px;
+                        color: #74767e;
+                    }
+                }
+
+                .days {
+                    p {
+                        font-family: MacanBold;
+                        color: #222325;
+                        font-size: 14px;
+                    }
+
+                    span {
+                        font-size: 12px;
+                        color: #74767e;
+                    }
+
+                }
+            }
         }
+
+        img {
+            height: 86.4px;
+            width: 144px;
+        }
+
     }
 }
