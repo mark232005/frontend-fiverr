@@ -1,20 +1,24 @@
 // pages/OrderIndex.jsx
 
 import { useEffect, useState } from 'react'
-import { orderService } from '../services/order/order.service.local.js'
+import { orderService } from '../services/orders/orders.service.local.js'
 import { gigService } from '../services/gig/gig.service.local.js'
 import { useLocation } from 'react-router'
 // import { GigLayout } from '../cmps/GigLayout'
+import { loadOrders } from '../store/orders.actions'
+import { useSelector } from 'react-redux'
 
 
 export function GigOrders() {
-    const [orders, setOrders] = useState([])
+    // const [orders, setOrders] = useState([])
     const [gigsMap, setGigsMap] = useState({})
     const [orderNumber, setOrderNumber] = useState(null)
     const [deliveryDays, setDeliveryDays] = useState(null)
     const [currTab, setCurrTab] = useState('ACTIVE')
     const location = useLocation()
     const isOrderPage = location.pathname === 'user/orders'
+    const orders = useSelector(storeState => storeState.ordersModule.orders)
+
 
     useEffect(() => {
         loadOrders()
@@ -23,18 +27,18 @@ export function GigOrders() {
         const randomDays = Math.floor(Math.random() * 14) + 1
         setDeliveryDays(randomDays)
     }, [])
+    console.log('orders', orders);
+    // async function loadOrders() {
+    //     const orders = await orderService.query()
+    //     setOrders(orders)
 
-    async function loadOrders() {
-        const orders = await orderService.query()
-        setOrders(orders)
-
-        const gigs = await Promise.all(orders.map(order => gigService.getById(order.gigId)))
-        const map = {}
-        gigs.forEach(gig => {
-            if (gig) map[gig._id] = gig
-        })
-        setGigsMap(map)
-    }
+    //     const gigs = await Promise.all(orders.map(order => gigService.getById(order.gigId)))
+    //     const map = {}
+    //     gigs.forEach(gig => {
+    //         if (gig) map[gig._id] = gig
+    //     })
+    //     setGigsMap(map)
+    // }
     function countOrders() {
         return orders.reduce((acc, order) => {
             acc[order.status] = (acc[order.status] || 0) + 1

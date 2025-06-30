@@ -1,4 +1,4 @@
-import { ordersService } from "../services/orders/gig.service.local"
+import { ordersService } from "../services/orders"
 
 
 import { store } from '../store/store'

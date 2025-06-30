@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 
-export function ManageOrders({ user, orders, onChangeStatus }) {
+export function ManageOrders({ user, orders }) {
 
     const [changeStatus, setChangeStatus] = useState('')
     function handleChange(orderId, status) {
@@ -10,6 +10,7 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
         setChangeStatus('')
 
     }
+    if(!orders) return
     return (
         <section className="manage-orders">
             <h1>Welcome, {user.fullname}</h1>
