@@ -4,10 +4,14 @@ import { gigService } from '../services/gig/gig.service.local.js'
 import mastercards from '../assets/img/credit-cards.svg'
 import vsign from '../assets/img/img-of-v.svg'
 import questionMark from '../assets/img/question-mark.svg'
+import { loadGig } from '../store/gig.actions'
+import { useSelector } from 'react-redux'
+
+
 
 export function GigCheckout() {
-    const [gig, setGig] = useState(null)
     const { gigId } = useParams()
+    const gig = useSelector(storeState => storeState.gigModule.gig)
     const [cardDetails, setCardDetails] = useState({
         number: '',
         expiration: '',
@@ -21,14 +25,16 @@ export function GigCheckout() {
         loadGig()
     }, [gigId])
 
-    async function loadGig() {
-        try {
-            const loadedGig = await gigService.getById(gigId)
-            setGig(loadedGig)
-        } catch (err) {
-            console.error('Failed to load gig', err)
-        }
-    }
+    // async function loadGig() {
+    //     try {
+    //         const loadedGig = await gigService.getById(gigId)
+    //         console.log(loadedGig);
+
+    //         setGig(loadedGig)
+    //     } catch (err) {
+    //         console.error('Failed to load gig', err)
+    //     }
+    // }
 
     function handleCardChange(ev) {
         const { name, value, type, checked } = ev.target
@@ -154,7 +160,7 @@ export function GigCheckout() {
             <section className='cta-container'>
                 <div className='order-summary-card'>
                     <div className='gig-header'>
-                        <img className='gig-img' src={gig.imgUrl[0]} alt='Gig' style={{width: 226, height: 139, borderRadius: 6, objectFit: 'cover', background: '#eee'}} />
+                        <img className='gig-img' src={gig.imgUrl[0]} alt='Gig' style={{ width: 226, height: 139, borderRadius: 6, objectFit: 'cover', background: '#eee' }} />
                         <div className='gig-info'>
                             <div className='gig-title'>{gig.title}</div>
                         </div>
@@ -162,21 +168,21 @@ export function GigCheckout() {
                     <div className='gig-package-section'>
                         <div className='gig-package'>Bronze <span className='gig-price'>₪{gig.price}</span></div>
                         <ul className='gig-features'>
-                            <li><span style={{display: 'inline-flex', alignItems: 'center'}}><img src={vsign} alt='' style={{height: '1em', marginRight: 6}} />1 concept included</span></li>
-                            <li><span style={{display: 'inline-flex', alignItems: 'center'}}><img src={vsign} alt='' style={{height: '1em', marginRight: 6}} />Logo transparency</span></li>
+                            <li><span style={{ display: 'inline-flex', alignItems: 'center' }}><img src={vsign} alt='' style={{ height: '1em', marginRight: 6 }} />1 concept included</span></li>
+                            <li><span style={{ display: 'inline-flex', alignItems: 'center' }}><img src={vsign} alt='' style={{ height: '1em', marginRight: 6 }} />Logo transparency</span></li>
                         </ul>
-                       
+
                     </div>
                     <div className='order-fees'>
-                        <div className='fee-row'><span style={{display: 'inline-flex', alignItems: 'center'}}>Service fee <img src={questionMark} alt='' className='info-icon' /></span><span>₪{serviceFee.toFixed(2)}</span></div>
-                        <div className='fee-row-secondary'><span style={{display: 'inline-flex', alignItems: 'center'}}>VAT <img src={questionMark} alt='' className='info-icon' /></span><span>₪{vat.toFixed(2)}</span></div>
+                        <div className='fee-row'><span style={{ display: 'inline-flex', alignItems: 'center' }}>Service fee <img src={questionMark} alt='' className='info-icon' /></span><span>₪{serviceFee.toFixed(2)}</span></div>
+                        <div className='fee-row-secondary'><span style={{ display: 'inline-flex', alignItems: 'center' }}>VAT <img src={questionMark} alt='' className='info-icon' /></span><span>₪{vat.toFixed(2)}</span></div>
                     </div>
                     <div className='order-total'>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div className='total-label'>You'll pay</div>
                             <div className='total-amount'>₪{total.toFixed(2)}</div>
                         </div>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div className='delivery-time'>Total delivery time</div>
                             <div className='delivery-time'><span>{gig.daysToMake} days</span></div>
                         </div>
