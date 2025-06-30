@@ -5,10 +5,12 @@ export const gigService = {
     getById,
     save,
     remove,
-    addGigMsg
+    addGigMsg,
+    getFilterFromSearchParams,
+    getEmptyGig
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = {}) {
     return httpService.get(`gig`, filterBy)
 }
 
@@ -33,4 +35,25 @@ async function save(gig) {
 async function addGigMsg(gigId, txt) {
     const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
     return savedMsg
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const txt = searchParams.get('txt') || ''
+    const category = searchParams.get('category') || ''
+    const level = searchParams.get('level') || ''
+    const price = searchParams.get('price') || ''
+    const deliveryTime = searchParams.get('deliveryTime') || ''
+    return { txt, category, level, price, deliveryTime }
+}
+
+function getEmptyGig() {
+    return {
+        title: '',
+        daysToMake: null,
+        description: '',
+        tags: '',
+        category: '',
+        price: null,
+        imgUrl: [],
+    }
 }
