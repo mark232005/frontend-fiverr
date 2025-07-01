@@ -1,0 +1,121 @@
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .app-header {
+        padding-bottom: 24px;
+
+        nav {
+            position: relative;
+            flex-direction: column;
+
+            .hamburger-btn {
+                display: block;
+                padding: 0;
+                margin: 0;
+                background-color: transparent;
+                position: absolute;
+                left: 32px;
+                top: 16px;
+            }
+
+            .logo-txt {
+                font-size: 28px;
+            }
+
+            .sidebar {
+                display: block;
+            }
+        }
+
+        .user-container {
+            display: none;
+        }
+    }
+
+    .sidebar {
+        background-color: #fff;
+        padding: 24px 12px;
+        height: 100vh;
+        position: fixed;
+        z-index: 99999;
+        left: -350px;
+        transition: left 0.3s ease-in-out;
+        width: 311px;
+
+        &.open {
+            left: 0px;
+        }
+
+        &-header {
+            padding: 0 12px 20px;
+            align-items: center;
+
+            span {
+                font-size: 16px;
+                padding-left: 15px;
+                padding-bottom: 8px;
+                color: #404154;
+                font-family: MacanBold;
+                font-weight: bolder;
+
+            }
+
+            button {
+                font-family: Macan-thin;
+                border-radius: 4px;
+                text-align: center;
+                margin: 0;
+                font-size: 16px;
+                font-weight: bolder;
+                line-height: 100%;
+                padding: 12px 24px;
+                background-color: #000000;
+                color: #fff;
+            }
+        }
+
+        &-body {
+            li {
+                font-family: MacanBold;
+                line-height: 24px;
+                font-size: 16px;
+                padding: 8px 12px;
+                color: #62646a;
+            }
+        }
+    }
+
+    main {
+        .index-header {
+            p {
+                height: auto;
+                border-bottom: none;
+            }
+        }
+    }
+
+    .app-footer {
+        flex-wrap: wrap
+    }
+
+    .main-details-page .details-page {
+        grid-template-columns: auto;
+        gap: 20px;
+    }
+
+    .review-preview main {
+        img {
+            display: none;
+        }
+
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    }
+}
