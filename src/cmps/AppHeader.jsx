@@ -3,22 +3,22 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { logout } from '../store/user.actions'
-import { ClearIcon, Search } from '../svg.jsx'
+import { ClearIcon, HamburgerBtn, Search } from '../svg.jsx'
 import React, { useState, useRef, useEffect } from 'react';
-import { overlay, setFilterBy } from '../store/gig.actions.js'
+import { overlay } from '../store/gig.actions.js'
 import { ProfileModal } from './ProfileModal.jsx'
 import { SET_FILTER_BY } from '../store/gig.reducer.js'
-import { debounce } from '../services/util.service.js'
 import { NavBar } from './Categories.jsx'
 import vsign from '../assets/img/img-of-v.svg'
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import { Sidebar } from './Sidebar.jsx'
 
 
 
 
-export function AppHeader() {
+export function AppHeader({ openSideBar, setOpenSideBar }) {
     const user = useSelector(storeState => storeState.userModule.user)
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState(false)
@@ -107,9 +107,16 @@ export function AppHeader() {
 
             <header className="app-header">
                 <nav className=''>
+                    {
+                        <Sidebar user={user} openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} onLogout={onLogout} />
+                    }
+                    <button onClick={() => setOpenSideBar(prev => !prev)} className="hamburger-btn">
+                        <HamburgerBtn />
+                    </button>
                     <NavLink to="/" className="logo-txt">
                         alufix<span className="dom"></span>
                     </NavLink>
+
 
                     <div className={`search-header flex ${showInputSearch ? 'showInput' : 'hidden'}`}>
                         <input type="search"
@@ -192,12 +199,13 @@ export function AppHeader() {
                                 {isHomePage &&
                                     <button onClick={() => navigate('/gig')} >Explore</button>
                                 }
-                                <button className="sign-btn">Sign in</button>
+                                <button className="sign-btn" onClick={() => navigate('signup')}>Sign in</button>
                                 <button onClick={() => navigate('login')} className="join-btn">Join</button>
                             </React.Fragment>}
                     </div>
 
                 </nav>
+
             </header >
             {!isHomePage && <NavBar />}
             {isHomePage && (

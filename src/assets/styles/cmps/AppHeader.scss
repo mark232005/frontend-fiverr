@@ -18,6 +18,13 @@
             color: $clr1;
         }
 
+        .sidebar {
+            display: none;
+        }
+
+        .hamburger-btn {
+            display: none;
+        }
 
         .logo-txt {
             font-family: 'MacanBold', sans-serif;
@@ -249,10 +256,12 @@
                 padding: 5px 0;
             }
         }
+
         .custom-badge .MuiBadge-badge {
             background-color: #44b700;
             color: #44b700;
-            box-shadow: 0 0 0 2px white;}
+            box-shadow: 0 0 0 2px white;
+        }
 
     }
 }
@@ -292,11 +301,13 @@
 
 .checkout-header {
     border-bottom: 1px solid #e4e5e7;
+
     nav {
         display: flex;
         align-items: center;
         gap: 3rem;
     }
+
     .progress-bar {
         display: flex;
         align-items: center;
@@ -335,6 +346,7 @@
                 }
             }
         }
+
         .separator {
             color: #b5b6ba;
             font-size: 1.2rem;

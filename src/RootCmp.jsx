@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router'
 
 import { userService } from './services/user'
@@ -30,12 +30,14 @@ import { AddGig } from './cmps/AddGig.jsx'
 export function RootCmp() {
     const location = useLocation()
     const isOrderPage = location.pathname === '/user/orders'
+    const [openSideBar, setOpenSideBar] = useState(false)
+
     return (
-        <div className="main-container">
-            <AppHeader />
+        <div className="main-container" >
+            <AppHeader openSideBar={openSideBar} setOpenSideBar={setOpenSideBar}/>
             <UserMsg />
 
-            <main className={isOrderPage?'bg':''}>
+            <main className={isOrderPage?'bg':''} onClick={()=>setOpenSideBar(false)}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="gig" element={<GigIndex />} />
@@ -55,8 +57,8 @@ export function RootCmp() {
                     } />
                     <Route path="login" element={<LoginSignup />}>
                         <Route index element={<Login />} />
-                        <Route path="signup" element={<Signup />} />
                     </Route>
+                        <Route path="signup" element={<Signup />} />
                 </Routes>
             </main>
             <AppFooter />
