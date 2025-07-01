@@ -48,7 +48,9 @@ export function AboutUser({ user }) {
                     </li>
                     <li>
                         <h2> Languages</h2>
-                        <p>{user.languages.map((language, idx) => <div key={idx}>{language}</div>) || []}</p>
+                        <p>
+                            {(user.languages || []).map((language, idx) => <div key={idx}>{language}</div>)}
+                        </p>
 
                     </li>
                     <li>
@@ -64,7 +66,7 @@ export function AboutUser({ user }) {
                     <li className="skills ">
                         <h2>Skills</h2>
                         <p className="s">
-                            {user.skills.map((skill, idx) => <span key={idx}>{skill}</span>) || []}
+                            {(user.skills || []).map((skill, idx) => <span key={idx}>{skill}</span>)}
                         </p>
                     </li>
                 </ul>

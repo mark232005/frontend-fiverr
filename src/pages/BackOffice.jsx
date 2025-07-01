@@ -31,8 +31,8 @@ export function BackOffice() {
         <section className="back-office">
             <SellerHeader setIsSelected={setIsSelected} />
             <main className={isSelected === 'dashboard' ? 'white' : ''}>
-                {/* {isSelected === 'dashboard' &&
-                    <Dashboard user={user} orders={orders} onChangeStatus={onChangeStatus} />} */}
+                {isSelected === 'dashboard' &&
+                    <Dashboard user={user} orders={orders} onChangeStatus={onChangeStatus} />}
                 {isSelected === 'myGigs' &&
                     <MyGigs gigs={gigs} onRemove={onRemove} />}
                 {isSelected === 'addGig' &&
