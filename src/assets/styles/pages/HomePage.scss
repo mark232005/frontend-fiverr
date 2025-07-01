@@ -27,7 +27,7 @@
         .search-header {
             position: relative;
             align-items: center;
-            height: 60px;
+            min-height: 60px;
             border-radius: 4px;
             overflow: hidden;
             
@@ -75,8 +75,10 @@
         }
 
         .search-btn {
+            margin: 0;
+            height: 48px;
+            width: 48px;
             position: absolute;
-            margin-left: 0;
             background-color: #222325;
             right: 6px;
             border-radius: 8px;
@@ -88,8 +90,8 @@
             }
 
             svg {
-                height: 16px;
-                width: 16px;
+                height: 18px;
+                width: 18px;
             }
         }
 

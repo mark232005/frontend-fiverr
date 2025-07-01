@@ -1,8 +1,8 @@
 // pages/OrderIndex.jsx
 
 import { useEffect, useState } from 'react'
-import { orderService } from '../services/orders/orders.service.local.js'
-import { gigService } from '../services/gig/gig.service.local.js'
+// import { orderService } from '../services/orders/orders.service.local.js'
+// import { gigService } from '../services/gig/gig.service.local.js'
 import { useLocation } from 'react-router'
 // import { GigLayout } from '../cmps/GigLayout'
 import { loadOrders } from '../store/orders.actions'

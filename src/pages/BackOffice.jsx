@@ -11,7 +11,7 @@ export function BackOffice() {
     const user = useSelector(storeState => storeState.userModule.user)
     const orders = useSelector(storeState => storeState.ordersModule.orders)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
-    const [isSelected, setIsSelected] = useState('myGigs')
+    const [isSelected, setIsSelected] = useState('dashboard')
     console.log('orders',orders);
     
     useEffect(() => {
