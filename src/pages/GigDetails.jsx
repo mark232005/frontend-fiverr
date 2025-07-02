@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { GigLayout } from '../cmps/GigLayout'
 import { ArrowLiftIcon, ArrowRightIcon, EmptyStar, FullSparkIcon, SparkIcon, StarIcon } from "../svg";
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -155,7 +153,7 @@ export function GigDetails() {
                 </section>
                 <PackageCard gig={gig} />
                 <GetToKnow gig={gig} level={isLavel(gig.owner.level)} />
-                <ReviewList reviews={gig.reviews} gig={gig}/>
+                <ReviewList reviews={gig.reviews} gig={gig} />
             </section>
         </section>
     )
