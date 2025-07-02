@@ -12,7 +12,6 @@ export function BackOffice() {
     const orders = useSelector(storeState => storeState.ordersModule.orders)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const [isSelected, setIsSelected] = useState('dashboard')
-    console.log('orders',orders);
     
     useEffect(() => {
         loadOrders()
@@ -27,14 +26,16 @@ export function BackOffice() {
         const updatedOrder = { ...orderToUpdate, status: value }
         updateOrder(updatedOrder)
     }
+    const myOrders = orders.filter(order => order.seller===user.username)
+    const myGigs = gigs.filter(gig => gig.owner.username===user.username)
     return (
         <section className="back-office">
             <SellerHeader setIsSelected={setIsSelected} />
             <main className={isSelected === 'dashboard' ? 'white' : ''}>
                 {isSelected === 'dashboard' &&
-                    <Dashboard user={user} orders={orders} onChangeStatus={onChangeStatus} />}
+                    <Dashboard user={user} orders={myOrders} onChangeStatus={onChangeStatus} />}
                 {isSelected === 'myGigs' &&
-                    <MyGigs gigs={gigs} onRemove={onRemove} />}
+                    <MyGigs gigs={myGigs} onRemove={onRemove} />}
                 {isSelected === 'addGig' &&
                     <AddGig />}
             </main>

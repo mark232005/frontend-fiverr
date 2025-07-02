@@ -7,6 +7,7 @@ import { useLocation } from 'react-router'
 // import { GigLayout } from '../cmps/GigLayout'
 import { loadOrders } from '../store/orders.actions'
 import { useSelector } from 'react-redux'
+import { userService } from '../services/user'
 
 
 export function GigOrders() {
@@ -18,7 +19,7 @@ export function GigOrders() {
     const location = useLocation()
     const isOrderPage = location.pathname === 'user/orders'
     const orders = useSelector(storeState => storeState.ordersModule.orders)
-
+    const user = userService.getLoggedinUser()
 
     useEffect(() => {
         loadOrders()
@@ -27,25 +28,14 @@ export function GigOrders() {
         const randomDays = Math.floor(Math.random() * 14) + 1
         setDeliveryDays(randomDays)
     }, [])
-    console.log('orders', orders);
-    // async function loadOrders() {
-    //     const orders = await orderService.query()
-    //     setOrders(orders)
-
-    //     const gigs = await Promise.all(orders.map(order => gigService.getById(order.gigId)))
-    //     const map = {}
-    //     gigs.forEach(gig => {
-    //         if (gig) map[gig._id] = gig
-    //     })
-    //     setGigsMap(map)
-    // }
     function countOrders() {
-        return orders.reduce((acc, order) => {
+        return myOrders.reduce((acc, order) => {
             acc[order.status] = (acc[order.status] || 0) + 1
             return acc
         }, {})
     }
 
+    const myOrders = orders.filter(order => order.buyer.username===user.username)
     const orderCounts = countOrders()
     return (
         <section className="order-index">
@@ -54,7 +44,7 @@ export function GigOrders() {
                 <li onClick={() => setCurrTab('ACTIVE')} className={currTab === 'ACTIVE' ? 'active select' : ''}>ACTIVE <span className="tab-count">{orderCounts['ACTIVE']}</span></li>
                 <li onClick={() => setCurrTab('COMPLETED')} className={currTab === 'COMPLETED' ? 'active select' : ''} >COMPLETED <span className="tab-count">{orderCounts['COMPLETED']}</span></li>
                 <li onClick={() => setCurrTab('CANELLED')} className={currTab === 'CANELLED' ? 'active select' : ''}>CANELLED <span className="tab-count">{orderCounts['CANELLED']}</span></li>
-                <li onClick={() => setCurrTab('ALL')} className={currTab === 'ALL' ? 'active select' : ''}>ALL <span className="tab-count">{orders.length}</span></li>
+                <li onClick={() => setCurrTab('ALL')} className={currTab === 'ALL' ? 'active select' : ''}>ALL <span className="tab-count">{myOrders.length}</span></li>
             </ul>
 
             <div className="order-layout">
@@ -73,7 +63,7 @@ export function GigOrders() {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders
+                        {myOrders
                             .filter(order => currTab === 'ALL' || order.status === currTab)
                             .map(order => {
 
@@ -83,8 +73,8 @@ export function GigOrders() {
                                         <td></td>
                                         <td>
                                             <div className="gig-with-img flex">
-                                                <img src={gig?.imgUrl?.[0] || 'https://via.placeholder.com/80'} alt={gig?.title || 'Gig'} width="80" />
-                                                <p>{gig?.title || order.gigId}</p>
+                                                <img src={order.gig.imgUrl || 'https://via.placeholder.com/80'} alt={gig?.title || 'Gig'} width="80" />
+                                                <p>{order.gig.name|| order.gigId}</p>
                                             </div>
                                         </td>
                                         <td>
@@ -105,7 +95,7 @@ export function GigOrders() {
                                                 }) : 'No due date'}
                                             </span>
                                         </td>
-                                        <td>${order.total || 11}</td>
+                                        <td>${order.gig.price || 11}</td>
                                         <td>
                                             <p className={`status ${order.status}`}>{order.status}</p>
                                         </td>

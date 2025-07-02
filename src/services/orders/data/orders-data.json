@@ -65,6 +65,21 @@
             "username": "emily_chen",
             "imgUrl": "https://cdn.prod.website-files.com/679d18661b12aa4a78cf900d/67b77b101c82093b52873933_981b37369bce5ad990b943a27281381b_Headshot_108.jpg"
         },
+        "seller": "bhdbahs",
+        "gig": {
+            "_id": "g105",
+            "name": "I will do data entry, copy paste, web research as your VA",
+            "imgUrl": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207580502/original/6d05bb9cde191b9423733c6b49d0e11892e35ee0.jpg",
+            "price": 200
+        },
+        "status": "rejected"
+    },
+    {
+        "_id": "o12200",
+        "buyer": {
+            "username": "bhdbahs",
+            "imgUrl": "https://cdn.prod.website-files.com/679d18661b12aa4a78cf900d/67b77b101c82093b52873933_981b37369bce5ad990b943a27281381b_Headshot_108.jpg"
+        },
         "seller": "Marek Aluf",
         "gig": {
             "_id": "g105",

@@ -2,15 +2,17 @@
 import { useState } from "react"
 
 
-export function ManageOrders({ user, orders }) {
+export function ManageOrders({ user, orders, onChangeStatus }) {
 
     const [changeStatus, setChangeStatus] = useState('')
+    const myOrders = orders.filter(order => order.seller === user.username)
+
     function handleChange(orderId, status) {
         onChangeStatus(orderId, status)
         setChangeStatus('')
 
     }
-    if(!orders) return
+    if (!myOrders) return
     return (
         <section className="manage-orders">
             <h1>Welcome, {user.fullname}</h1>
@@ -26,7 +28,7 @@ export function ManageOrders({ user, orders }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(order => (
+                    {myOrders.map(order => (
                         <tr key={order._id} className={changeStatus === order._id ? 'relative' : ''}>
                             <td>
                                 <div className="buyer-details flex">

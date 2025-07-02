@@ -35,7 +35,7 @@ export function gigReducer(state = initialState, action) {
             newState = { ...state, gigs, lastRemovedGig }
             break
         case ADD_GIG:
-            newState = { ...state, gigs: [...state.gigs, action.gig] }
+            newState = { ...state, gigs: [action.gig, ...state.gigs] }
             break
         case UPDATE_GIG:
             gigs = state.gigs.map(gig => (gig._id === action.gig._id) ? action.gig : gig)
