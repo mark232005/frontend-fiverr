@@ -118,4 +118,132 @@
         }
 
     }
+
+    .sticky-mood {
+        .app-header {
+            padding: 15px 24px 16px;
+
+            .search-header {
+                display: none;
+            }
+
+            nav {
+                padding: 0;
+                height: auto;
+
+                button {
+                    left: 3px;
+                    top: 20px;
+                }
+
+                .logo-txt {
+                    font-size: 35px;
+                }
+            }
+        }
+
+    }
+
+    .home-page {
+        display: block;
+
+        video {
+            display: none;
+        }
+
+        .video-content {
+            justify-content: flex-end;
+            padding: 40px 20px 32px;
+            width: 100%;
+            height: 236px;
+            background: linear-gradient(180deg, #003912 32.57%, #19aa64 125.43%);
+
+            h1 {
+                text-align: center;
+                font-size: 32px;
+            }
+
+            .btn-video {
+                display: none;
+            }
+
+            .trusted {
+                display: none;
+            }
+        }
+
+        .nav-bar-header {
+            margin-top: 40px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-flow: row;
+            padding: 12px 36px;
+            row-gap: 24px;
+            column-gap: 6px;
+
+            button {
+                padding: 0;
+                box-shadow: none;
+                height: auto;
+                width: auto;
+                gap: 12px;
+
+                p {
+                    text-align: center;
+                }
+
+                .img {
+                    border-radius: 12px;
+                    box-shadow: 0 0 0.880517px rgba(0, 0, 0, 0.029), 0 0 2.29197px rgba(0, 0, 0, 0.03), 0 0 5.52px rgba(0, 0, 0, 0.054), 0 0 11px rgba(0, 0, 0, 0.09);
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 100px;
+                    width: 98px;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+
+            }
+        }
+
+        .popular-services {
+            padding: 32px 24px 0;
+
+            h2 {
+                font-size: 32px;
+                margin-bottom: 12px;
+            }
+
+            .btn {
+                overflow-x: auto;
+                pointer-events: auto;
+
+                button {
+                    padding: 12px 4px;
+                    min-height: 178px;
+                    height: 178px;
+                    width: 132px;
+                    max-width: 132px;
+                    min-width: 132px;
+
+                    h3 {
+                        padding: 0 10px;
+                        font-size: 14px;
+                        min-height: 56px;
+                    }
+
+                    img {
+                        height: 108px;
+                        min-width: auto;
+                    }
+                }
+            }
+
+        }
+        .instant-results{
+            display: none;
+        }
+    }
 }
