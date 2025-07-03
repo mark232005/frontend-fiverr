@@ -5,8 +5,8 @@ import { useState } from "react"
 export function ManageOrders({ user, orders, onChangeStatus }) {
 
     const [changeStatus, setChangeStatus] = useState('')
-    const myOrders = orders.filter(order => order.seller === user.username)
-
+    // const myOrders = orders.filter(order => order.seller === user.username)
+    const myOrders = orders.filter(order => order.seller === user.fullname)
     function handleChange(orderId, status) {
         onChangeStatus(orderId, status)
         setChangeStatus('')
