@@ -33,7 +33,8 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
                             <td>
                                 <div className="buyer-details flex">
                                     <img src={order.buyer.imgUrl} alt="" />
-                                    <span>{order.buyer.username}</span>
+                                    {/* <span>{order.buyer.username}</span> */}
+                                     <span>{order.buyer.fullname}</span>
                                 </div>
                             </td>
                             <td>
