@@ -19,7 +19,6 @@ export function AboutUser({ user }) {
 
                 }
                 <h2>{user.fullname}</h2>
-                <p>@{user.username}</p>
                 <div className="user-details">
 
                     <ul>
