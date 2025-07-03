@@ -34,7 +34,7 @@ export function BackOffice() {
         return order.seller === user.fullname
     })
     console.log('myOrders', myOrders)
-    const myGigs = gigs.filter(gig => gig.owner.username === user.username)
+    const myGigs = gigs.filter(gig => gig.owner.fullname === user.fullname)
     console.log('myGigs', myGigs)
     return (
         <section className="back-office">
