@@ -8,7 +8,9 @@ import { loadGigs, removeGig } from "../store/gig.actions";
 import { AddGig } from "../cmps/AddGig";
 
 export function BackOffice() {
-    const user = useSelector(storeState => storeState.userModule.user)
+    // const user = useSelector(storeState => storeState.userModule.user)
+    const user = userService.getLoggedinUser()
+
     const orders = useSelector(storeState => storeState.ordersModule.orders)
     const gigs = useSelector(storeState => storeState.gigModule.gigs)
     const [isSelected, setIsSelected] = useState('dashboard')
