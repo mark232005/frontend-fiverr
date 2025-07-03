@@ -35,7 +35,7 @@ export function GigOrders() {
         }, {})
     }
 
-    const myOrders = orders.filter(order => order.buyer.username===user.username)
+    const myOrders = orders.filter(order => order.buyer.fullname === user.fullname)
     const orderCounts = countOrders()
     return (
         <section className="order-index">
@@ -74,7 +74,7 @@ export function GigOrders() {
                                         <td>
                                             <div className="gig-with-img flex">
                                                 <img src={order.gig.imgUrl || 'https://via.placeholder.com/80'} alt={gig?.title || 'Gig'} width="80" />
-                                                <p>{order.gig.name|| order.gigId}</p>
+                                                <p>{order.gig.name || order.gigId}</p>
                                             </div>
                                         </td>
                                         <td>
