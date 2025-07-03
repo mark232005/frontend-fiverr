@@ -28,7 +28,13 @@ export function BackOffice() {
         const updatedOrder = { ...orderToUpdate, status: value }
         updateOrder(updatedOrder)
     }
-    const myOrders = orders.filter(order => order.seller === user.fullname)
+    // const myOrders = orders.filter(order => order.seller === user.fullname)
+    const myOrders = orders.filter(order => {
+        console.log('order.seller',order.seller)
+        console.log('user.fullname',user.fullname)
+        return order.seller === user.fullname
+    })
+    console.log('myOrders', myOrders)
     const myGigs = gigs.filter(gig => gig.owner.username === user.username)
     return (
         <section className="back-office">
