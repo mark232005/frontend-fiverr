@@ -6,13 +6,16 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
 
     const [changeStatus, setChangeStatus] = useState('')
     // const myOrders = orders.filter(order => order.seller === user.username)
-    const myOrders = orders.filter(order => order.seller === user.fullname)
+    // const myOrders = orders.filter(order => order.seller === user.fullname)
     function handleChange(orderId, status) {
         onChangeStatus(orderId, status)
         setChangeStatus('')
 
     }
-    if (!myOrders) return
+    console.log(orders);
+    console.log(user.fullname);
+    
+    if (!orders) return
     return (
         <section className="manage-orders">
             <h1>Welcome, {user.fullname}</h1>
@@ -28,7 +31,7 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {myOrders.map(order => (
+                    {orders.map(order => (
                         <tr key={order._id} className={changeStatus === order._id ? 'relative' : ''}>
                             <td>
                                 <div className="buyer-details flex">
@@ -47,9 +50,9 @@ export function ManageOrders({ user, orders, onChangeStatus }) {
                             <td>{order.gig.price}$</td>
                             <td><p onClick={() => setChangeStatus(order._id)} className={order.status}>{order.status} </p>
                                 {changeStatus === order._id && <ul className="radio-status ">
-                                    <li><button onClick={() => handleChange(order._id, 'approved')} >Approved</button></li>
-                                    <li><button onClick={() => handleChange(order._id, 'pending')} >Pending</button></li>
-                                    <li><button onClick={() => handleChange(order._id, 'rejected')}>Rejected</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'COMPLETED')} >COMPLETED</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'ACTIVE')} >ACTIVE</button></li>
+                                    <li><button onClick={() => handleChange(order._id, 'CANELLED')}>CANELLED</button></li>
                                 </ul>}
                             </td>
                         </tr>

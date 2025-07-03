@@ -15,13 +15,13 @@ export async function loadOrders() {
     }
 }
 export async function updateOrder(newOrder) {
-    try {
-const order= await ordersService.updateOrder(newOrder)
-store.dispatch({type:UPDATE_ORDER,order})
-    } 
-    catch {
-        console.log('Cannot update order', err)
-        throw err
-
+  try {
+      console.log('newOrder',newOrder);
+      const order = await ordersService.updateOrder(newOrder)
+      store.dispatch({ type: UPDATE_ORDER, order })
+      console.log('updated order from server', order)
+    } catch (err) {
+      console.error('Cannot update order', err)
+      throw err
     }
-}
+  }

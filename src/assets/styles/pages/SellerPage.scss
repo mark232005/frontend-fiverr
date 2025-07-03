@@ -103,7 +103,9 @@
                         min-width: 120px;
                     }
 
-
+                    li{
+                        font-family: Macan-thin;
+                    }
                     img {
                         width: 120px;
                         height: 120px;
@@ -183,7 +185,7 @@
                     li {
                         padding: 0 0 50px;
                         border-bottom: 1px solid #dadbdd;
-                        font-family: 'MacanBold', sans-serif;
+                        font-family: 'Macan-thin', sans-serif;
                         font-size: 14px;
                         color: #62646a;
 
@@ -241,7 +243,7 @@
                     font-weight: 200;
                     color: #222325;
                     margin: 20px 0 0 0;
-                    font-family: 'MacanBold', sans-serif;
+                    font-family: 'Macan-thin', sans-serif;
                     font-size: 20px;
                     text-transform: capitalize;
 
@@ -281,7 +283,7 @@
                                 width: 100%;
                                 padding: 10px 20px;
                                 color: #7a7d85;
-                                font-family: 'MacanBold', sans-serif;
+                                font-family: 'Macan-thin', sans-serif;
                                 font-size: 16px;
 
                                 .buyer-details {
@@ -305,7 +307,7 @@
                                     }
                                 }
 
-                                .approved {
+                                .COMPLETED {
                                     margin: 0;
                                     text-align: center;
                                     padding: .125rem .3125rem;
@@ -318,7 +320,7 @@
 
                                 }
 
-                                .rejected {
+                                .CANELLED {
                                     margin: 0;
                                     text-align: center;
                                     color: #fff;
@@ -331,7 +333,7 @@
 
                                 }
 
-                                .pending {
+                                .ACTIVE {
                                     margin: 0;
                                     text-align: center;
                                     color: #fff;
@@ -396,10 +398,12 @@
                 color: #404145;
                 font-size: 40px;
                 padding-bottom: 20px;
+                font-family: 'Macan-thin', sans-serif;
+
             }
 
             ul.tabs {
-                font-family: 'MacanBold', sans-serif;
+                font-family: 'Macan-thin', sans-serif;
                 display: flex;
                 border-bottom: 1px solid #dddddd;
                 position: relative;
@@ -456,7 +460,6 @@
 
             .table-container {
                 max-height: 1200px;
-                overflow-y: auto;
             }
 
             table {
@@ -1149,7 +1152,6 @@
                     border: 1px #cccccc solid;
                     border-radius: 3px;
                     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-
                     li button {
                         background-color: transparent;
                         padding: 6px 10px;

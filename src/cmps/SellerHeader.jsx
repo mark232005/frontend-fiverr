@@ -8,8 +8,8 @@ export function SellerHeader({setIsSelected }) {
                     alufix<span className="dom"></span>
                 </NavLink>
                 <button onClick={() => setIsSelected('dashboard')}>Dashboard</button>
-                <button onClick={() => setIsSelected('myGigs')}>My gigs</button>
-                <button onClick={() => setIsSelected('addGig')}>Add gigs</button>
+                <button onClick={() => setIsSelected('myGigs')}>My Gigs</button>
+                <button onClick={() => setIsSelected('addGig')}>Add Gigs</button>
             </header>
         </section>
     )

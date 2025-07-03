@@ -30,12 +30,9 @@ export function BackOffice() {
     }
     // const myOrders = orders.filter(order => order.seller === user.fullname)
     const myOrders = orders.filter(order => {
-
         return order.seller === user.fullname
     })
-    console.log('myOrders', myOrders)
     const myGigs = gigs.filter(gig => gig.owner.fullname === user.fullname)
-    console.log('myGigs', myGigs)
     return (
         <section className="back-office">
             <SellerHeader setIsSelected={setIsSelected} />
