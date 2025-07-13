@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { NavBar } from "../cmps/Categories";
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLiftIcon, ArrowRightIcon, ClearIcon, RightArrowIcon, Search } from '../svg.jsx'
 import { NavBarHome } from "../cmps/NavBarHome.jsx";
-import { PopularServices } from "../cmps/PopularServices.JSX";
+import { PopularServices } from "../cmps/PopularServices.jsx";
 import { InstantResults } from "../cmps/InstantResults.jsx";
 import { useNavigate } from 'react-router'
 import { SET_FILTER_BY } from "../store/gig.reducer.js";
+import { selectCategory } from "../store/gig.actions"
 
 export function HomePage() {
+    const [searchParams] = useSearchParams();
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const scrollRef = useRef(null)
     const filterBy = useSelector(storeState => storeState.gigModule.filterBy)
@@ -17,7 +20,6 @@ export function HomePage() {
     const [searchTxt, setSearchTxt] = useState(filterBy.txt)
     const [showLeft, setShowLeft] = useState(false)
     const [showRight, setShowRight] = useState(false)
-    const dispatch = useDispatch()
     useEffect(() => {
         const el = scrollRef.current
         const handleScroll = () => {
@@ -34,11 +36,21 @@ export function HomePage() {
             el?.removeEventListener('scroll', handleScroll)
         }
     }, [])
+
+    function onCategoryClick(category) {
+        selectCategory(category)
+        const params = new URLSearchParams(searchParams)
+        params.set('category', category)
+        navigate({ pathname: '/gig', search: params.toString() })
+    }
+
     function onSearchClick() {
         dispatch({ type: SET_FILTER_BY, filterBy: { txt: searchTxt } })
-        navigate('/gig')
-
+        const params = new URLSearchParams(searchParams);
+        params.set('txt', searchTxt);
+        navigate({ pathname: '/gig', search: params.toString() });
     }
+
     function scrollLeft() {
         scrollRef.current.scrollBy({ left: -10000, behavior: 'smooth' });
     }
@@ -89,10 +101,10 @@ export function HomePage() {
 
                 </div>
                 <div className="btn-video flex">
-                    <button>website development <RightArrowIcon /></button>
-                    <button> architecture & interior design <RightArrowIcon /></button>
-                    <button> UGC videos <RightArrowIcon /></button>
-                    <button>video editing <RightArrowIcon /></button>
+                    <button onClick={() => onCategoryClick('Programming & Tech')}>website development <RightArrowIcon /></button>
+                    <button onClick={() => onCategoryClick('Graphics & Design')}> architecture & interior design <RightArrowIcon /></button>
+                    <button onClick={() => onCategoryClick('Video & Animation')}> UGC videos <RightArrowIcon /></button>
+                    <button onClick={() => onCategoryClick('Video & Animation')}>video editing <RightArrowIcon /></button>
                 </div>
                 <div className="flex trusted">
                     <span>Trusted by:</span>
@@ -107,8 +119,9 @@ export function HomePage() {
                     </div>
                 </div>
             </div>
-            <NavBarHome />
+            <NavBarHome onCategoryClick={onCategoryClick} />
             <PopularServices
+                onCategoryClick={onCategoryClick}
                 scrollLeft={scrollLeft}
                 scrollRight={scrollRight}
                 scrollRef={scrollRef}
